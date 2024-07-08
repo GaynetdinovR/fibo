@@ -1,9 +1,11 @@
 const Template = ({children}) => {
-	return (<>
+	return (
+		<>
 		<header></header>
-		{children}
+			{children}
 		<footer></footer>
-	</>)
+		</>
+	)
 }
 
 export default Template;
