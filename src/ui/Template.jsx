@@ -1,8 +1,10 @@
+import Header from "../components/Header/Header.jsx";
+
 const Template = ({children}) => {
 	return (
 		<>
-		<header></header>
-			{children}
+		<Header />
+		{children}
 		<footer></footer>
 		</>
 	)

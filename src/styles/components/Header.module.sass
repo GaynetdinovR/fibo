@@ -1,0 +1,170 @@
+@import '../global'
+
+.header
+  max-width: 1550px
+  box-sizing: border-box
+  margin: 0 auto
+  padding: 20px 170px
+
+  &__top_side
+    @include flex($jc: space-between, $ai: center)
+
+  &__left_top_sides
+    margin-right: 210px
+    @include flex($jc: center, $ai: flex-start, $d: column)
+
+  &__right_top_side
+    @include flex($jc: center, $ai: center)
+
+  &__navbar
+    @include flex($jc: space-between, $ai: center)
+    margin-top: 20px
+
+    &_closed
+      display: none
+
+  &__logo
+    margin-right: 50px
+    @include icon(80px)
+    @include btn_hover()
+
+  &__location
+    @include font($s: 17px, $w: 600, $c: $light_black)
+
+  &__city
+    margin-left: 5px
+    @include font($s: 17px, $w: 600, $c: $yellow)
+
+  &__phone_number
+    text-decoration: none
+    @include link_hover()
+    @include font($s: 26px, $w: 700, $c: $yellow)
+
+  &__delivery_time
+    & span:first-child
+      margin-right: 5px
+
+      &::after
+        content: '•'
+        color: $pink
+        margin-left: 5px
+
+  &__service
+    margin-top: 10px
+    display: flex
+    @include font($s: 13px, $w: 700, $c: $light_black)
+
+    &_img
+      margin-right: 5px
+      @include icon(18px)
+
+    &_name
+      margin-right: 5px
+
+      &::after
+        content: '•'
+        color: $pink
+        margin-left: 5px
+
+    &_grade
+      margin-right: 20px
+      display: flex
+
+      & span
+        margin-right: 5px
+
+      & div
+        @include icon(18px)
+
+  &__list
+    margin-right: 30px
+    @include flex()
+
+  &__item
+    margin-right: 22px
+
+  &__item:last-child
+    margin-right: 0
+
+  &__link
+    @include font($s: 15px, $w: 600, $c: $black_2)
+    @include link_hover()
+
+  &__auth
+    margin-right: 30px
+    @include link_hover()
+    @include transparent_btn()
+    @include font($s: 16px, $w: 700, $c: $grey_2)
+
+  &__get_call
+    margin-right: 30px
+    padding: 7px 27px
+    border-radius: 28px
+    border: none
+    background-color: $light_grey_1
+    @include btn_hover()
+    @include font($c: $grey_2, $s: 14px, $w: 700)
+
+  &__cart_btn
+    background-color: $yellow
+    @include btn_hover()
+
+  &__menu_btn
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+
+    width: 46px
+    height: 32px
+    padding: 0
+
+    background: transparent
+    border: none
+
+    cursor: pointer
+    transition: 500ms ease-in-out
+    transform: rotate(0deg)
+
+    span:first-child
+      margin-top: 0
+
+    span:last-child
+      margin-bottom: 0
+
+    span:nth-child(1)
+      top: 0
+
+    span:nth-child(2),
+    span:nth-child(3)
+      top: 14px
+
+    span:nth-child(4)
+      top: 28px
+
+    span
+      border-radius: 26px
+      width: 100%
+      height: 5px
+      left: 0
+      right: 0
+
+      position: absolute
+      opacity: 1
+      transform: rotate(0deg)
+      transition: 250ms ease-in-out
+      background-color: $grey_3
+
+    &_open span:nth-child(1),
+    &_open span:nth-child(4)
+      top: 18px
+      width: 0
+      left: 50%
+
+    &_open span:nth-child(2)
+      transform: rotate(45deg)
+
+    &_open span:nth-child(3)
+      transform: rotate(-45deg)
+
+
+@import "../media/Header.media"
