@@ -1,0 +1,209 @@
+@media screen and (max-width: $laptop_large)
+  .footer__nav_list
+    grid-gap: 15px 40px
+  .footer__copyright span
+    margin-right: 50px
+
+@media screen and (max-width: $laptop_medium)
+  .footer
+    padding: 20px 80px
+
+@media screen and (max-width: $laptop_small)
+  .footer
+    padding: 20px 40px
+
+  .footer__nav_list
+    display: inline-grid
+    grid-gap: 15px
+  .footer__nav_item:last-child
+    max-width: 140px
+
+  .footer__nav_address
+    font-size: 12px
+
+  .footer__copyright
+    & span
+      font-size: 12px
+      margin-right: 20px
+    &_img
+      max-width: 30px
+
+@media screen and (max-width: $tablet_large)
+  .footer
+    padding: 20px
+    flex-direction: column
+
+  .footer__info
+    @include flex($ai: flex-end, $jc: space-between)
+
+    & a:nth-child(2)
+      margin-right: 50px
+
+  .footer__nav
+    margin: 35px 0 0 150px
+
+    &_title
+      font-size: 18px
+
+  .footer__logo
+    margin-right: 30px
+
+  .footer__nav_address
+    font-size: 18px
+
+  .footer__nav_item:last-child
+    max-width: 220px
+  .footer__right_side
+    width: 100%
+
+  .footer__contacts
+    width: 100%
+    margin-top: 45px
+    &_list
+      width: 100%
+      grid-template-columns: repeat(9, 1fr)
+      grid-template-rows: 1fr
+    &_link_img
+      padding: 10px 15px
+    &_link
+      padding: 10px 20px
+    &_item:last-child
+      grid-column: span 3
+
+  .footer__bg_img
+    max-width: 200px
+    right: 300px
+
+  .footer__copyright
+    width: 100%
+    &_img
+      max-width: 40px
+
+  .footer__phone_info
+    margin-top: 35px
+    width: 100%
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+  .footer__get_call,
+  .footer__phone_number
+    margin-top: 0
+
+@media screen and (max-width: $tablet_medium)
+  .footer__bg_img
+    right: 250px
+
+  .footer__left_side
+    width: 100%
+  .footer__nav
+    max-width: 540px
+    margin: 35px auto
+  .footer__nav_list
+    margin: 15px auto 0
+    display: grid
+    justify-items: center
+  .footer__nav_title
+    text-align: center
+  .footer__nav_item
+    text-align: center
+
+  .footer__contacts
+    margin: 35px auto 0
+    max-width: 540px
+    &_title
+      text-align: center
+    &_list
+      grid-template-columns: repeat(6, 1fr)
+      grid-template-rows: 1fr 1fr
+    &_link
+      padding: 10px 15px
+    &_link_img
+      margin: 0 auto
+      width: 100px
+      padding: 10px 15px
+    &_item:last-child
+      grid-column: span 6
+
+@media screen and (max-width: $tablet_small)
+  .footer__contacts
+    &_link_img
+      padding: 10px 15px
+
+@media screen and (max-width: $phone_large)
+  .footer
+    padding: 10px
+
+  body .footer__info_link
+    font-size: 16px
+
+  .footer__logo
+    margin-right: 10px
+  body .footer__info_link:nth-child(2)
+    margin-right: 10px
+
+  body .footer__nav_link
+    font-size: 14px
+  .footer__nav_address
+    font-size: 14px
+
+  .footer__bg_img
+    display: none
+
+  .footer__logo
+    margin-right: 0
+  .footer__phone_info
+    margin-top: 0
+    flex-direction: column
+    align-items: flex-end
+  .footer__get_call
+    margin-top: 5px
+
+  .footer__left_side
+    width: 100%
+
+@media screen and (max-width: $phone_medium)
+  body .footer__info_link
+    font-size: 14px
+    text-align: center
+
+  .footer__nav
+    max-width: 300px
+    &_list
+      grid-gap: 10px
+    body &_link,
+    &_address
+      font-size: 12px
+
+  body .footer__phone_number
+    font-size: 22px
+  .footer__copyright
+    & span
+      margin-right: 0
+
+  .footer__contacts
+    &_title
+      text-align: center
+    &_list
+      margin: 35px auto
+      width: 280px
+      justify-items: center
+      grid-template-columns: repeat(3, 1fr)
+      grid-template-rows: repeat(3, 1fr)
+      grid-gap: 10px 10px
+    &_item:last-child
+      grid-column: span 3
+    &_link
+      padding: 5px
+      border-radius: 5px
+      min-width: 280px
+
+    &_link_img
+      max-width: 30px
+      max-height: 30px
+      padding: 5px 28px
+      border-radius: 5px
+
+  .footer__copyright_img
+    max-width: 25px
+@media screen and (max-width: $phone_small)

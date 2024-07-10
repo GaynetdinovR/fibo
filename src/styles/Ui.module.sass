@@ -6,3 +6,40 @@
   border: none
   padding: 7px 25px
   @include font($s: 16px, $w: 700, $c: $light_black)
+
+.logo
+  display: block
+  @include icon(80px)
+  @include btn_hover()
+
+.link_in_list
+  &__item:first-child
+    margin-top: 0
+    margin-left: 0
+
+  &__item:last-child
+    margin-right: 0
+    margin-bottom: 0
+
+.link,
+.link_in_list__link
+  text-decoration: none
+  @include font($s: 15px, $w: 600, $c: $black_2)
+  @include link_hover()
+
+.oval_btn
+  border: 0
+  border-radius: 24px
+  padding: 10px 40px
+  @include btn_hover()
+  @include font($s: 14px, $w: 700, $c: $black_2)
+
+.phone_number
+  text-decoration: none
+  @include link_hover()
+  @include font($s: 26px, $w: 700, $c: $yellow)
+
+.h6
+  @include font($s: 16px, $w: 700, $c: $black_2)
+
+@import "Ui.media"

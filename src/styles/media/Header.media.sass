@@ -4,7 +4,7 @@
 @media screen and (max-width: $laptop_large)
   .header__item
     margin-right: 10px
-  .header__link
+  body .header__link
     font-size: 14px
 
 
@@ -15,6 +15,9 @@
 
   .header__item
     margin-right: 15px
+
+  body .header__phone_number
+    font-size: 20px
 
   .header__left_top_side
     margin-right: 120px
@@ -32,7 +35,6 @@
 
     &__logo
       margin-right: 20px
-      max-width: 50px
 
     &__left_top_side
       margin-right: 60px
@@ -52,17 +54,11 @@
     &__get_call
       font-size: 12px
 
-    &__phone_number
-      font-size: 18px
-
     &__navbar
       margin-top: 10px
 
     &__item
       margin-right: 10px
-
-    &__link
-      font-size: 12px
 
     &__auth
       font-size: 14px
@@ -71,9 +67,6 @@
 @media screen and (max-width: $tablet_large)
   .header
     padding: 20px
-
-    &__logo
-      max-width: 80px
 
     &__phone_number
       margin-right: 20px
@@ -93,7 +86,7 @@
       padding: 0
       margin-right: 0
       color: $yellow
-      font-size: 15px
+      font-size: 18px
       line-height: 1.8
 
     &__list
@@ -103,15 +96,14 @@
     &__item
       margin-right: 0
 
-    &__link
-      font-size: 15px
+    body &__link
       line-height: 1.8
 
     &__navbar
       position: absolute
       right: 20px
       top: 80px
-      width: 90px
+      width: 150px
       padding: 20px 25px
       border-radius: 5px
       align-items: flex-start
@@ -120,19 +112,18 @@
 
 // <640px
 @media screen and (max-width: $tablet_small)
-  .header
-    &__logo
-      max-width: 60px
+  .header__logo
       margin-right: 15px
-
-    &__phone_number
-      margin-right: 15px
-      font-size: 18px
 
   body .header__cart_btn
     margin-right: 15px
-    padding: 7px 20px
-    font-size: 13px
+    padding: 10px 20px
+    font-size: 16px
+
+// <540px
+@media screen and (max-width: $phone_large)
+  body .header__phone_number
+    font-size: 22px
 
 // <480px
 @media screen and (max-width: $phone_medium)
@@ -142,7 +133,6 @@
     &__top_side
       position: relative
       z-index: 5
-
 
     &__navbar
       position: fixed
@@ -169,7 +159,7 @@
       margin-bottom: 10px
       margin-top: 40px
 
-    &__link
+    body &__link
       font-size: 18px
 
     &__auth
@@ -177,7 +167,7 @@
       font-size: 18px
       margin-bottom: 20px
 
-    &__phone_number
+    body &__phone_number
       margin-bottom: 20px
       font-size: 26px
       margin-right: 0

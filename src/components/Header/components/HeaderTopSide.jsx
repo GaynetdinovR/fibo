@@ -1,6 +1,9 @@
 import styles from "../../../styles/components/Header.module.sass";
 import Button from "../../../ui/Button.jsx";
 import classNames from "classnames";
+import Logo from "../../../ui/Logo.jsx";
+import OvalButton from "../../../ui/OvalButton.jsx";
+import PhoneNumber from "../../../ui/PhoneNumber.jsx";
 
 const HeaderTopSide = ({ isMenuOpen, setMenu }) => {
 	const windowWidth = window.innerWidth;
@@ -26,16 +29,14 @@ const HeaderTopSide = ({ isMenuOpen, setMenu }) => {
 	);
 
 	const phoneNumber = (
-		<a href="tel:84993918449" className={styles.header__phone_number}>
-			8 499 391-84-49
-		</a>
+		<PhoneNumber phoneNumber={'8 499 391-84-49'} className={styles.header__phone_number}/>
 	);
 
 	return (
 		<div className={styles.header__top_side}>
-			<a className={styles.header__logo}>
-				<img src="./icons/logo_1.png" alt="logo" />
-			</a>
+			<div className={styles.header__logo}>
+				<Logo/>
+			</div>
 			<div className={styles.header__left_top_side}>
 				<div className={styles.header__location}>
 					<span> Доставка пасты </span>
@@ -64,9 +65,9 @@ const HeaderTopSide = ({ isMenuOpen, setMenu }) => {
 				</div>
 			</div>
 			<div className={styles.header__right_top_side}>
-				<button className={styles.header__get_call}>
+				<OvalButton className={styles.header__get_call}>
 					Заказать звонок
-				</button>
+				</OvalButton>
 				{windowWidth > 480 ? phoneNumber : ""}
 				{windowWidth <= 960 && windowWidth > 480 ? cartBtn : ""}
 				{windowWidth <= 960 ? menuBtn : ""}

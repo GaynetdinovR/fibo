@@ -1,5 +1,7 @@
 import styles from "../../../styles/components/Header.module.sass";
 import Button from "../../../ui/Button.jsx";
+import LinkInList from "../../../ui/LinkInList.jsx";
+import PhoneNumber from "../../../ui/PhoneNumber.jsx";
 
 const HeaderNavBar = ({ isMenuOpen }) => {
 	const navbarLinks = [
@@ -22,24 +24,22 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 	);
 
 	const phoneNumber = (
-		<a href="tel:84993918449" className={styles.header__phone_number}>
-			8 499 391-84-49
-		</a>
+		<PhoneNumber phoneNumber={'8 499 391-84-49'} className={styles.header__phone_number}/>
 	);
 
 	return (
 		<nav
 			className={
-				isMenuOpen || windowWidth > 768
+				isMenuOpen || windowWidth > 960
 					? styles.header__navbar
 					: styles.header__navbar_closed
 			}
 		>
 			<ul className={styles.header__list}>
 				{navbarLinks.map((item, i) => (
-					<li key={i} className={styles.header__item}>
-						<a className={styles.header__link}>{item}</a>
-					</li>
+					<LinkInList key={i} liClass={styles.header__item} aClass={styles.header__link}>
+						{item}
+					</LinkInList>
 				))}
 			</ul>
 			<button className={styles.header__auth}>Войти</button>

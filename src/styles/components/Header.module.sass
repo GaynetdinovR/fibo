@@ -17,6 +17,8 @@
     @include flex($jc: center, $ai: center)
 
   &__navbar
+    position: relative
+    z-index: 5
     @include flex($jc: space-between, $ai: center)
     margin-top: 20px
 
@@ -25,8 +27,6 @@
 
   &__logo
     margin-right: 50px
-    @include icon(80px)
-    @include btn_hover()
 
   &__location
     @include font($s: 17px, $w: 600, $c: $light_black)
@@ -36,9 +36,7 @@
     @include font($s: 17px, $w: 600, $c: $yellow)
 
   &__phone_number
-    text-decoration: none
-    @include link_hover()
-    @include font($s: 26px, $w: 700, $c: $yellow)
+    position: relative
 
   &__delivery_time
     & span:first-child
@@ -83,13 +81,6 @@
   &__item
     margin-right: 22px
 
-  &__item:last-child
-    margin-right: 0
-
-  &__link
-    @include font($s: 15px, $w: 600, $c: $black_2)
-    @include link_hover()
-
   &__auth
     margin-right: 30px
     @include link_hover()
@@ -98,12 +89,8 @@
 
   &__get_call
     margin-right: 30px
-    padding: 7px 27px
-    border-radius: 28px
-    border: none
     background-color: $light_grey_1
-    @include btn_hover()
-    @include font($c: $grey_2, $s: 14px, $w: 700)
+    color: $grey_2
 
   &__cart_btn
     background-color: $yellow
