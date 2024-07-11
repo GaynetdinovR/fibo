@@ -9,8 +9,6 @@ const PhoneNumber = ({ phoneNumber, className }) => {
 			.join('')
 	};
 
-	console.log(formatPhoneNumber(phoneNumber));
-
 	return (
 		<a href={`tel:${formatPhoneNumber(phoneNumber)}`} className={classNames(className, styles.phone_number)}>
 			{phoneNumber}

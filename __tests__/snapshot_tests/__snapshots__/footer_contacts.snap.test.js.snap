@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className="footer__contacts"
+>
+  <h6
+    className="footer__contacts_title h6"
+  >
+    Остались вопросы? А мы всегда на связи:
+  </h6>
+  <ul
+    className="footer__contacts_list"
+  >
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link_img link_in_list__link"
+      >
+        <img
+          alt="viber"
+          src="./icons/viber.png"
+        />
+      </a>
+    </li>
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link_img link_in_list__link"
+      >
+        <img
+          alt="skype"
+          src="./icons/skype.png"
+        />
+      </a>
+    </li>
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link_img link_in_list__link"
+      >
+        <img
+          alt="messenger"
+          src="./icons/messenger.png"
+        />
+      </a>
+    </li>
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link_img link_in_list__link"
+      >
+        <img
+          alt="telegram"
+          src="./icons/telegram.png"
+        />
+      </a>
+    </li>
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link_img link_in_list__link"
+      >
+        <img
+          alt="facebook"
+          src="./icons/facebook.png"
+        />
+      </a>
+    </li>
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link_img link_in_list__link"
+      >
+        <img
+          alt="vk"
+          src="./icons/vk.png"
+        />
+      </a>
+    </li>
+    <li
+      className="footer__contacts_item link_in_list__item"
+    >
+      <a
+        className="footer__contacts_link link_in_list__link"
+      >
+        Написать нам
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
