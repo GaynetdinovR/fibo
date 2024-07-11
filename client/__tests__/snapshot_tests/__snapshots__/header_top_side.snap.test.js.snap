@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="header__top_side"
+>
+  <div
+    className="header__logo"
+  >
+    <a
+      className="logo"
+    >
+      <img
+        alt="logo"
+        src="./icons/logo_1.png"
+      />
+    </a>
+  </div>
+  <div
+    className="header__left_top_side"
+  >
+    <div
+      className="header__location"
+    >
+      <span>
+         Доставка пасты 
+      </span>
+      <span
+        className="header__city"
+      >
+         Москва 
+      </span>
+    </div>
+    <div
+      className="header__service"
+    >
+      <div
+        className="header__service_img"
+      >
+        <img
+          alt="yandex_food"
+          src="./icons/yandex_food.png"
+        />
+      </div>
+      <span
+        className="header__service_name"
+      >
+        Яндекс Еда
+      </span>
+      <div
+        className="header__service_grade"
+      >
+        <span>
+          4.8
+        </span>
+        <div>
+          <img
+            alt="star"
+            src="./icons/star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="header__delivery_time"
+      >
+        <span>
+          Время доставки
+        </span>
+        <span>
+          от 31 мин
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="header__right_top_side"
+  >
+    <button
+      className="header__get_call oval_btn"
+    >
+      Заказать звонок
+    </button>
+    <a
+      className="header__phone_number phone_number"
+      href="tel:84993918449"
+    >
+      8 499 391-84-49
+    </a>
+  </div>
+</div>
+`;

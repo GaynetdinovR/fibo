@@ -1,0 +1,8 @@
+{
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "arrowParens": "always",
+  "max-len": ["warn", 140, 2],
+  "tabWidth": 4,
+  "useTabs": true
+}

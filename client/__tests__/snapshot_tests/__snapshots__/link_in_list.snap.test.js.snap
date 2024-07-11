@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<li
+  className="link_in_list__item"
+>
+  <a
+    className="link_in_list__link"
+  >
+    LinkInList
+  </a>
+</li>
+`;
