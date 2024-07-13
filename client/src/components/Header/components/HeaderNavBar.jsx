@@ -5,16 +5,13 @@ import PhoneNumber from "../../../ui/PhoneNumber.jsx";
 
 const HeaderNavBar = ({ isMenuOpen }) => {
 	const navbarLinks = [
-		"Пицца",
-		"Паста",
+		"Пиццы",
+		"Пасты",
 		"Супы",
 		"Салаты",
 		"Напитки",
-		"Десерты",
-		"Бакалея",
-		"Антипасти",
+		"Закуски",
 		"Акции",
-		"Комбо",
 		"Контакты"
 	];
 	const windowWidth = window.innerWidth;
@@ -24,7 +21,7 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 	);
 
 	const phoneNumber = (
-		<PhoneNumber phoneNumber={'8 499 391-84-49'} className={styles.header__phone_number}/>
+		<PhoneNumber phoneNumber={"8 499 391-84-49"} className={styles.header__phone_number} />
 	);
 
 	return (
@@ -42,9 +39,11 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 					</LinkInList>
 				))}
 			</ul>
-			<button className={styles.header__auth}>Войти</button>
-			{windowWidth <= 480 ? phoneNumber : ""}
-			{windowWidth > 960 || windowWidth <= 480 ? cartBtn : ""}
+			<div className={styles.header__right_bottom_side}>
+				<button className={styles.header__auth}>Войти</button>
+				{windowWidth <= 480 ? phoneNumber : ""}
+				{windowWidth > 960 || windowWidth <= 480 ? cartBtn : ""}
+			</div>
 		</nav>
 	);
 };

@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="products"
+>
+  <div
+    className="products__categories"
+  >
+    <div
+      className="products__category"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Пиццы
+      </h4>
+      <div
+        className="products__category_content"
+      >
+        <div
+          className="products__product"
+        >
+          <div
+            className="product__top_side"
+          >
+            <div
+              className="product__img"
+            >
+              <img
+                alt="product_img"
+                src="./content/pizzas/pizza_1.png"
+              />
+              <div
+                className="product__new_tag"
+              >
+                NEW
+              </div>
+            </div>
+            <div
+              className="product__info"
+            >
+              <h4
+                className="product__name h4"
+              >
+                test
+              </h4>
+              <p
+                className="product__text text"
+              />
+            </div>
+          </div>
+          <div
+            className="product__bottom_side"
+          >
+            <span
+              className="product__price"
+            >
+              299.99
+               ₽
+            </span>
+            <button
+              className="product__to_cart_btn default_button"
+            >
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="products__category"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Пасты
+      </h4>
+      <div
+        className="products__category_content"
+      >
+        <div
+          className="products__product"
+        >
+          <div
+            className="product__top_side"
+          >
+            <div
+              className="product__img"
+            >
+              <img
+                alt="product_img"
+                src="./content/pastas/pasta_1.png"
+              />
+              <div
+                className="product__new_tag"
+              >
+                NEW
+              </div>
+            </div>
+            <div
+              className="product__info"
+            >
+              <h4
+                className="product__name h4"
+              >
+                test
+              </h4>
+              <p
+                className="product__text text"
+              />
+            </div>
+          </div>
+          <div
+            className="product__bottom_side"
+          >
+            <span
+              className="product__price"
+            >
+              455.99
+               ₽
+            </span>
+            <button
+              className="product__to_cart_btn default_button"
+            >
+              В корзину
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="products__category"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Салаты
+      </h4>
+      <div
+        className="products__category_content"
+      />
+    </div>
+    <div
+      className="products__category"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Закуски
+      </h4>
+      <div
+        className="products__category_content"
+      />
+    </div>
+    <div
+      className="products__category"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Напитки
+      </h4>
+      <div
+        className="products__category_content"
+      />
+    </div>
+    <div
+      className="products__category"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Соусы
+      </h4>
+      <div
+        className="products__category_content"
+      />
+    </div>
+  </div>
+</section>
+`;

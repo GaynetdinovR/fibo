@@ -1,13 +1,18 @@
+@import "../variables"
+
+//<1440px
 @media screen and (max-width: $laptop_large)
   .footer__nav_list
     grid-gap: 15px 40px
   .footer__copyright span
     margin-right: 50px
 
+//<1280px
 @media screen and (max-width: $laptop_medium)
   .footer
     padding: 20px 80px
 
+//<1024px
 @media screen and (max-width: $laptop_small)
   .footer
     padding: 20px 40px
@@ -28,6 +33,7 @@
     &_img
       max-width: 30px
 
+//<960px
 @media screen and (max-width: $tablet_large)
   .footer
     padding: 20px
@@ -86,6 +92,7 @@
   .footer__phone_number
     margin-top: 0
 
+//<768px
 @media screen and (max-width: $tablet_medium)
   .footer__bg_img
     right: 250px
@@ -122,11 +129,13 @@
     &_item:last-child
       grid-column: span 6
 
+//<640px
 @media screen and (max-width: $tablet_small)
   .footer__contacts
     &_link_img
       padding: 10px 15px
 
+//<540px
 @media screen and (max-width: $phone_large)
   .footer
     padding: 10px
@@ -157,6 +166,7 @@
   .footer__left_side
     width: 100%
 
+//<480px
 @media screen and (max-width: $phone_medium)
   body .footer__info_link
     font-size: 14px
@@ -200,4 +210,3 @@
 
   .footer__copyright_img
     max-width: 25px
-@media screen and (max-width: $phone_small)

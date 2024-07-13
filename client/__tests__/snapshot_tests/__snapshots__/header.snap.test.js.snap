@@ -103,7 +103,7 @@ exports[`renders correctly 1`] = `
         <a
           className="header__link link_in_list__link"
         >
-          Пицца
+          Пиццы
         </a>
       </li>
       <li
@@ -112,7 +112,7 @@ exports[`renders correctly 1`] = `
         <a
           className="header__link link_in_list__link"
         >
-          Паста
+          Пасты
         </a>
       </li>
       <li
@@ -148,25 +148,7 @@ exports[`renders correctly 1`] = `
         <a
           className="header__link link_in_list__link"
         >
-          Десерты
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Бакалея
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Антипасти
+          Закуски
         </a>
       </li>
       <li
@@ -184,29 +166,24 @@ exports[`renders correctly 1`] = `
         <a
           className="header__link link_in_list__link"
         >
-          Комбо
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
           Контакты
         </a>
       </li>
     </ul>
-    <button
-      className="header__auth"
+    <div
+      className="header__right_bottom_side"
     >
-      Войти
-    </button>
-    <button
-      className="header__cart_btn default_button"
-    >
-      Корзина | 0
-    </button>
+      <button
+        className="header__auth"
+      >
+        Войти
+      </button>
+      <button
+        className="header__cart_btn default_button"
+      >
+        Корзина | 0
+      </button>
+    </div>
   </nav>
 </header>
 `;

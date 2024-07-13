@@ -1,0 +1,128 @@
+@import "../variables"
+@import "../mixins"
+
+//<1440px
+@media screen and (max-width: $laptop_large) and (min-width: $laptop_small + 1)
+  .product__img
+    max-width: 200px
+
+  body .product__name
+    font-size: 20px
+
+  body .product__text
+    font-size: 12px
+
+  body .product__to_cart_btn
+    padding: 5px 10px
+
+//<1280px
+@media screen and (max-width: $laptop_medium)
+  .products
+    padding: 0 80px
+
+    body &__title
+      margin-top: 20px
+
+//<1024px
+@media screen and (max-width: $laptop_small)
+  .products
+    padding: 0 40px
+
+  .products__product
+    max-width: 100%
+
+  .products__category_content
+    grid-template-columns: repeat(3, 1fr)
+
+//<960px
+@media screen and (max-width: $tablet_large)
+  .products
+    padding: 0 20px
+
+  .product__img
+    max-width: 200px
+
+  body .product__name
+    font-size: 20px
+
+  body .product__text
+    font-size: 12px
+
+  body .product__to_cart_btn
+    padding: 5px 10px
+
+//<768px
+@media screen and (max-width: $tablet_medium)
+  .product__img
+    margin-right: 10px
+    max-width: 120px
+    min-width: 120px
+
+  body .product__name
+    font-size: 14px
+
+  body .product__text
+    margin-top: 10px
+    font-size: 10px
+
+  body .product__to_cart_btn
+    padding: 5px 20px
+
+  .product__top_side
+    flex-direction: row
+
+  .product__price
+    margin-left: 20px
+
+  .product__bottom_side
+    margin-top: 10px
+
+  .product__new_tag
+    top: 15px
+    right: 15px
+    font-size: 9px
+
+  .products__category_content
+    grid-template-columns: repeat(2, 1fr)
+
+//<640px
+@media screen and (max-width: $tablet_small)
+  .product__price
+    margin-left: 0
+
+  .products__category_content
+    grid-template-columns: repeat(1, 1fr)
+
+  .product__img
+    margin-right: 10px
+    max-width: 180px
+    min-width: 180px
+
+  body .product__name
+    font-size: 17px
+
+  body .product__text
+    margin-top: 10px
+    font-size: 12px
+
+  .product__bottom_side
+    box-sizing: border-box
+    padding: 0 20px
+    margin-top: 5px
+
+  body .product__to_cart_btn
+    padding: 10px 30px
+    font-size: 16px
+
+//<480px
+@media screen and (max-width: $phone_medium)
+  .products
+    padding: 0 10px
+  .product__bottom_side
+    box-sizing: border-box
+    padding: 0
+
+  .product__img
+    max-width: 100px
+    min-width: 100px
+    

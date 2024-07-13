@@ -8,4 +8,6 @@ const knex = createKnex({
     useNullAsDefault: true
 });
 
+console.log('Connected to Sqlite3 DB');
+
 export default knex;

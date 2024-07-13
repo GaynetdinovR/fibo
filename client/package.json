@@ -19,7 +19,6 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "test_watching": "jest --watch",
     "format": "eslint . && eslint --fix"
   },
   "eslintConfig": {
