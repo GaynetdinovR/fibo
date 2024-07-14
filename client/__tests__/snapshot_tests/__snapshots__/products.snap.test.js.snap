@@ -47,7 +47,10 @@ exports[`renders correctly 1`] = `
               </h4>
               <p
                 className="product__text text"
-              />
+              >
+                 
+                 
+              </p>
             </div>
           </div>
           <div
@@ -108,7 +111,10 @@ exports[`renders correctly 1`] = `
               </h4>
               <p
                 className="product__text text"
-              />
+              >
+                 
+                 
+              </p>
             </div>
           </div>
           <div

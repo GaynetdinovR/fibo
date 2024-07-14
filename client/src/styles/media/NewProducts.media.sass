@@ -1,0 +1,69 @@
+@import "../variables"
+@import "../mixins"
+
+//<1440px
+@media screen and (max-width: $laptop_large)
+  .new_products__new_product
+    padding: 10px
+    max-width: 200px
+
+  .new_product__img
+    max-width: 70px
+
+//<1280px
+@media screen and (max-width: $laptop_medium)
+  .new_products
+    padding: 0 80px
+
+  .new_products__content
+    max-width: 100%
+    box-sizing: border-box
+
+  .new_products__new_product
+    max-width: 200px
+
+//<1024px
+@media screen and (max-width: $laptop_small)
+  .new_products
+    padding: 0 40px
+
+  .new_products__content
+    margin: 30px auto 0
+
+  .new_product__img
+    max-width: 60px
+
+//<960px
+@media screen and (max-width: $tablet_large)
+  .new_products
+    padding: 0 20px
+
+  .new_product__info
+    margin-left: 7px
+
+  .new_product__price
+    margin-top: 5px
+    font-size: 13px
+
+  body .new_product__name
+    font-size: 15px
+
+  .new_products__new_product
+    max-width: 160px
+
+//<768px
+@media screen and (max-width: $tablet_medium)
+  .new_products__new_product
+    max-width: 200px
+
+  .new_products__content
+    padding: 0 5px 20px
+    overflow-x: scroll
+
+  .new_products__content::-webkit-scrollbar
+    width: 0
+
+//<480px
+@media screen and (max-width: $phone_medium)
+  .new_products
+    padding: 0 10px

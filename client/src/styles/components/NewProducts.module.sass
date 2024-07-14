@@ -1,0 +1,47 @@
+@import "../variables"
+@import "../mixins"
+
+.new_products
+  padding: 0 170px
+  max-width: 1550px
+  margin: 40px auto 0
+  box-sizing: border-box
+
+  &__content
+    margin-top: 30px
+    justify-items: center
+    @include grid($columns: repeat(4, 1fr), $rows: 1fr, $gap: 15px)
+
+  &__new_product
+    padding: 15px
+    width: 250px
+    border-radius: 15px
+    background-color: $white
+    box-shadow: 0 4px 24px 0 rgba($black_1, 0.06)
+
+    @include transparent_btn
+    @include btn_hover
+    @include flex($jc: flex-start, $ai: center)
+
+    &:hover
+      background-color: rgba($white, 0.99)
+
+    &:active
+      background-color: rgba($white, 0.99)
+
+.new_product
+  body &__name
+    text-align: left
+
+  &__info
+    margin-left: 20px
+
+  &__img
+    @include img(80px)
+
+  &__price
+    display: block
+    margin-top: 10px
+    @include font($s: 17px, $c: $yellow, $w: 700)
+
+@import "../media/NewProducts.media"

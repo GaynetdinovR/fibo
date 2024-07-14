@@ -41,9 +41,10 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 			</ul>
 			<div className={styles.header__right_bottom_side}>
 				<button className={styles.header__auth}>Войти</button>
-				{windowWidth <= 480 ? phoneNumber : ""}
-				{windowWidth > 960 || windowWidth <= 480 ? cartBtn : ""}
+				{windowWidth > 960? cartBtn : ""}
 			</div>
+			{windowWidth <= 480 ? phoneNumber : ""}
+			{windowWidth <= 480 ? cartBtn : ""}
 		</nav>
 	);
 };

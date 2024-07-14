@@ -7,6 +7,9 @@
   max-width: 1550px
   padding: 0 170px
 
+  position: relative
+  z-index: 3
+
   body &__title
     margin-top: 40px
     color: $yellow
@@ -48,7 +51,12 @@
     color: $grey_3
 
   &__top_side
+    width: 100%
     @include flex($jc: flex-start, $ai: center, $d: column)
+
+  &__info
+    margin-top: 10px
+    align-self: flex-start
 
   &__bottom_side
     width: 100%

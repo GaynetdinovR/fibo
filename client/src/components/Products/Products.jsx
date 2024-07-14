@@ -19,9 +19,11 @@ const Products = ({ products }) => {
 					<div key={i} className={styles.products__category}>
 						<H3 className={styles.products__title}>{type.title}</H3>
 						<div className={styles.products__category_content}>
-							{products?.filter(product => product.type == type.type).map((product, k) => (
-								<Product key={k} product={product} />
-							))}
+							{products
+								?.filter((product) => product.type === type.type)
+								.map((product, k) => (
+									<Product key={k} product={product} />
+								))}
 						</div>
 					</div>
 				))}

@@ -87,37 +87,43 @@
 
 //<640px
 @media screen and (max-width: $tablet_small)
-  .product__price
-    margin-left: 0
-
   .products__category_content
     grid-template-columns: repeat(1, 1fr)
 
-  .product__img
-    margin-right: 10px
-    max-width: 180px
-    min-width: 180px
+  .product
+    &__price
+      margin-left: 0
 
-  body .product__name
-    font-size: 17px
+    &__img
+      margin-right: 10px
+      max-width: 180px
+      min-width: 180px
 
-  body .product__text
-    margin-top: 10px
-    font-size: 12px
+    &__new_tag
+     top: 25px
+     right: 25px
 
-  .product__bottom_side
-    box-sizing: border-box
-    padding: 0 20px
-    margin-top: 5px
+    body &__name
+      font-size: 17px
 
-  body .product__to_cart_btn
-    padding: 10px 30px
-    font-size: 16px
+    body &__text
+      margin-top: 10px
+      font-size: 12px
+
+    &__bottom_side
+      box-sizing: border-box
+      padding: 0 20px
+      margin-top: 5px
+
+    body &__to_cart_btn
+      padding: 10px 30px
+      font-size: 16px
 
 //<480px
 @media screen and (max-width: $phone_medium)
   .products
     padding: 0 10px
+
   .product__bottom_side
     box-sizing: border-box
     padding: 0
@@ -125,4 +131,8 @@
   .product__img
     max-width: 100px
     min-width: 100px
-    
+
+  .product__new_tag
+    top: 10px
+    right: 10px
+

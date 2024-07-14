@@ -1,0 +1,24 @@
+@import "../mixins"
+@import "../variables"
+
+.banners
+  &__banner
+    margin: 0 15px
+    @include img(480px)
+    & img
+      border-radius: 10px
+  &__carousel
+    max-width: 1550px
+    margin: 0 auto
+
+@media screen and (max-width: $tablet-medium)
+  .banners__banner
+    margin: 0 auto
+
+@media screen and (max-width: $phone_large)
+  .banners__banner
+    max-width: 400px
+
+@media screen and (max-width: $phone_medium)
+  .banners__banner
+    max-width: 280px

@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<aside
+  className="new_products"
+>
+  <h4
+    className="new_products__title h4"
+  >
+    Новинки
+  </h4>
+  <div
+    className="new_products__content"
+  >
+    <button
+      className="new_products__new_product"
+    >
+      <div
+        className="new_product__img"
+      >
+        <img
+          alt="product"
+          src="./content/pizzas/pizza_1.png"
+        />
+      </div>
+      <div
+        className="new_product__info"
+      >
+        <h5
+          className="new_product__name h6"
+        >
+          Пицца
+        </h5>
+        <span
+          className="new_product__price"
+        >
+          299.99
+           ₽
+        </span>
+      </div>
+    </button>
+    <button
+      className="new_products__new_product"
+    >
+      <div
+        className="new_product__img"
+      >
+        <img
+          alt="product"
+          src="./content/pastas/pasta_1.png"
+        />
+      </div>
+      <div
+        className="new_product__info"
+      >
+        <h5
+          className="new_product__name h6"
+        >
+          Паста
+        </h5>
+        <span
+          className="new_product__price"
+        >
+          455.99
+           ₽
+        </span>
+      </div>
+    </button>
+    <button
+      className="new_products__new_product"
+    >
+      <div
+        className="new_product__img"
+      >
+        <img
+          alt="product"
+          src="./content/soups/soup_1.png"
+        />
+      </div>
+      <div
+        className="new_product__info"
+      >
+        <h5
+          className="new_product__name h6"
+        >
+          Суп
+        </h5>
+        <span
+          className="new_product__price"
+        >
+          322.99
+           ₽
+        </span>
+      </div>
+    </button>
+    <button
+      className="new_products__new_product"
+    >
+      <div
+        className="new_product__img"
+      >
+        <img
+          alt="product"
+          src="./content/snacks/snack_1.png"
+        />
+      </div>
+      <div
+        className="new_product__info"
+      >
+        <h5
+          className="new_product__name h6"
+        >
+          Закуска
+        </h5>
+        <span
+          className="new_product__price"
+        >
+          553.99
+           ₽
+        </span>
+      </div>
+    </button>
+  </div>
+</aside>
+`;
