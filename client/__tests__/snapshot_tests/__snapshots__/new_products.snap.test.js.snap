@@ -27,7 +27,7 @@ exports[`renders correctly 1`] = `
         className="new_product__info"
       >
         <h5
-          className="new_product__name h6"
+          className="new_product__name h5"
         >
           Пицца
         </h5>
@@ -54,7 +54,7 @@ exports[`renders correctly 1`] = `
         className="new_product__info"
       >
         <h5
-          className="new_product__name h6"
+          className="new_product__name h5"
         >
           Паста
         </h5>
@@ -81,7 +81,7 @@ exports[`renders correctly 1`] = `
         className="new_product__info"
       >
         <h5
-          className="new_product__name h6"
+          className="new_product__name h5"
         >
           Суп
         </h5>
@@ -108,7 +108,7 @@ exports[`renders correctly 1`] = `
         className="new_product__info"
       >
         <h5
-          className="new_product__name h6"
+          className="new_product__name h5"
         >
           Закуска
         </h5>

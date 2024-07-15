@@ -1,0 +1,37 @@
+@import "../variables"
+@import "../mixins"
+
+.our_promo
+  padding: 0 170px
+  max-width: 1550px
+  box-sizing: border-box
+  margin: 60px auto 0
+
+  @include flex($jc: flex-start, $ai: center, $d: column)
+
+  &__title
+    text-align: center
+    span:last-child
+      color: $yellow
+
+  &__content
+    margin-top: 40px
+    @include grid($columns: 500px 250px 250px, $rows: 1fr 1fr, $gap: 30px)
+
+  &__promo:first-child
+    grid-row: span 2
+    height: 430px
+    @include img(500px)
+
+  &__promo
+    height: 200px
+    @include img(250px)
+    & img
+      border-radius: 20px
+
+  &__all_promo_btn
+    margin-top: 40px
+    color: $white
+    background-color: $yellow
+
+@import '../media/OurPromo.media'

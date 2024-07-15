@@ -8,8 +8,7 @@ const Products = ({ products }) => {
 		{ type: "pasta", title: "Пасты" },
 		{ type: "salad", title: "Салаты" },
 		{ type: "snack", title: "Закуски" },
-		{ type: "drink", title: "Напитки" },
-		{ type: "sauce", title: "Соусы" }
+		{ type: "drink", title: "Напитки" }
 	];
 
 	return (

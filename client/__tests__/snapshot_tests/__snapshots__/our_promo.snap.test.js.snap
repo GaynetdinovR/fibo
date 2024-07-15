@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="our_promo"
+>
+  <h2
+    className="our_promo__title h2"
+  >
+    <span>
+      Наши 
+    </span>
+    <span>
+      акции
+    </span>
+  </h2>
+  <div
+    className="our_promo__content"
+  >
+    <div
+      className="our_promo__promo"
+    >
+      <img
+        alt="promo"
+        src="./content/promo_1.jpg"
+      />
+    </div>
+    <div
+      className="our_promo__promo"
+    >
+      <img
+        alt="promo"
+        src="./content/promo_2.jpg"
+      />
+    </div>
+    <div
+      className="our_promo__promo"
+    >
+      <img
+        alt="promo"
+        src="./content/promo_3.jpg"
+      />
+    </div>
+    <div
+      className="our_promo__promo"
+    >
+      <img
+        alt="promo"
+        src="./content/promo_1.jpg"
+      />
+    </div>
+    <div
+      className="our_promo__promo"
+    >
+      <img
+        alt="promo"
+        src="./content/promo_4.jpg"
+      />
+    </div>
+  </div>
+  <button
+    className="our_promo__all_promo_btn oval_btn"
+  >
+    Все акции
+  </button>
+</section>
+`;

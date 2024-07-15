@@ -171,18 +171,6 @@ exports[`renders correctly 1`] = `
         className="products__category_content"
       />
     </div>
-    <div
-      className="products__category"
-    >
-      <h4
-        className="products__title h3"
-      >
-        Соусы
-      </h4>
-      <div
-        className="products__category_content"
-      />
-    </div>
   </div>
 </section>
 `;
