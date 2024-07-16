@@ -1,0 +1,85 @@
+@import "../variables"
+@import "../mixins"
+
+//<1440px
+@media screen and (max-width: $laptop_large)
+  .payment_and_delivery
+    &__benefit
+      padding: 30px 10px 25px
+      width: 210px
+
+      &_img
+        top: -22px
+        @include icon(36px)
+
+      &::before
+        width: 70px
+        height: 70px
+        top: -35px
+
+//<1280px
+@media screen and (max-width: $laptop_medium)
+
+  .payment_and_delivery
+    padding: 50px 80px
+
+    &__content
+      margin-top: 45px
+
+    &__benefit
+      padding: 30px 5px 25px
+      width: 190px
+
+      &_img
+        top: -22px
+        @include icon(36px)
+
+      &::before
+        width: 60px
+        height: 60px
+        top: -30px
+
+//<1024px
+@media screen and (max-width: $laptop_small)
+  .payment_and_delivery
+    padding: 50px 40px
+
+//<960px
+@media screen and (max-width: $tablet_large)
+  .payment_and_delivery
+    padding: 50px 20px
+
+    &__inner
+      @include flex($jc: flex-start, $ai: center, $d: column)
+
+    &__content
+      margin-top: 50px
+      @include grid($columns: repeat(2, 1fr), $rows: repeat(2, 1fr), $gap: 60px 30px)
+
+    &__benefit
+      padding: 30px 15px 25px
+      width: 235px
+
+//<768px
+@media screen and (max-width: $tablet_medium)
+  .payment_and_delivery
+    body &__title
+      font-size: 26px
+
+//<540px
+@media screen and (max-width: $phone_large)
+  .payment_and_delivery
+    &__content
+      margin-top: 60px
+      @include grid($columns: 1fr, $rows: repeat(4, 1fr), $gap: 60px 30px)
+
+    &__benefit
+      width: 300px
+
+    &__map
+      border-radius: 10px
+
+//<480px
+@media screen and (max-width: $phone_medium)
+  .payment_and_delivery
+    padding: 50px 10px

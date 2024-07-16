@@ -1,7 +1,7 @@
 # fibo | pasta bar
 
 ![Static Badge](https://img.shields.io/badge/status-in_progress-orange)
-![Static Badge](https://img.shields.io/badge/done-12%25-red)
+![Static Badge](https://img.shields.io/badge/done-15%25-red)
 ![Static Badge](https://img.shields.io/badge/petproject-purple)
 
 **fibo — интернет-магазин по заказу и доставке пиццы.** Удобный интерфейс позволяет авторизоваться, выбрать пиццу, добавить ее в корзину и оформить заказ.
@@ -38,16 +38,22 @@
 git clone https://github.com/GaynetdinovR/fibo.git
 ```
 
-- Установить зависимости
+- Установить зависимости backend'а
 
 ```
 npm install
 ```
 
-- Запустить проект
+- Запустить backend
 
 ```
-npm run dev
+npm run backend
+```
+
+- Запустить frontend
+
+```
+npm run frontend
 ```
 
 - Открыть в браузере

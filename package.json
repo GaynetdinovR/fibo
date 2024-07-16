@@ -4,11 +4,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "backend": "node server.js",
+    "frontend": "cd client && npm install && npm run dev",
+    "test": "cd client && npm run test"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "RadmirGn",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
     "body-parser": "^1.20.2",
