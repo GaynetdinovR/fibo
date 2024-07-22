@@ -6,6 +6,7 @@ const Products = ({ products }) => {
 	const types = [
 		{ type: "pizza", title: "Пиццы" },
 		{ type: "pasta", title: "Пасты" },
+		{ type: "soup", title: "Супы" },
 		{ type: "salad", title: "Салаты" },
 		{ type: "snack", title: "Закуски" },
 		{ type: "drink", title: "Напитки" }
@@ -15,7 +16,7 @@ const Products = ({ products }) => {
 		<section className={styles.products}>
 			<div className={styles.products__categories}>
 				{types.map((type, i) => (
-					<div key={i} className={styles.products__category}>
+					<div id={type.type} key={i} className={styles.products__category}>
 						<H3 className={styles.products__title}>{type.title}</H3>
 						<div className={styles.products__category_content}>
 							{products

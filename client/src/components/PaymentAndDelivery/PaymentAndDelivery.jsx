@@ -1,5 +1,5 @@
 import styles from "../../styles/components/PaymentAndDelivery.module.sass";
-import GoogleMap from "./components/GoogleMap.jsx";
+import GoogleMap from "../../ui/GoogleMap.jsx";
 import H3 from "../../ui/H3.jsx";
 import Text from "../../ui/Text.jsx";
 
@@ -29,7 +29,7 @@ const PaymentAndDelivery = () => {
 						</div>
 					))}
 				</div>
-				<GoogleMap />
+				<GoogleMap className={styles.payment_and_delivery__map} />
 			</div>
 		</section>
 	);

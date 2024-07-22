@@ -1,0 +1,44 @@
+@import "../mixins"
+@import "../variables"
+
+.address
+  padding: 0 170px
+  margin: 10px auto 0
+  max-width: 1550px
+  box-sizing: border-box
+
+  &__phone_number
+    display: inline-block
+    margin-top: 30px
+
+  &__address
+    margin-top: 15px
+    @include font($s: 30px, $w: 700, $c: $black_2)
+
+  &__text
+    margin-top: 10px
+    font-weight: 600
+
+
+@media screen and (max-width: $laptop_medium)
+  .address
+    padding: 0 80px
+
+@media screen and (max-width: $laptop_small)
+  .address
+    padding: 0 40px
+
+@media screen and (max-width: $tablet_large)
+  .address
+    padding: 0 20px
+
+@media screen and (max-width: $tablet_medium)
+  .address__address
+    font-size: 22px
+
+@media screen and (max-width: $phone_medium)
+  .address
+    padding: 0 10px
+
+    &__address
+      font-size: 16px

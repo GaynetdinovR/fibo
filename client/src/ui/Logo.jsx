@@ -1,10 +1,11 @@
 import styles from '../styles/Ui.module.sass'
+import { Link } from "react-router-dom";
 
 const Logo = () => {
 	return (
-		<a className={styles.logo}>
+		<Link to={'/'} className={styles.logo}>
 			<img src="./icons/logo_1.png" alt="logo" />
-		</a>
+		</Link>
 	)
 }
 

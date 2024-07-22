@@ -21,8 +21,7 @@
     margin-right: 0
     margin-bottom: 0
 
-.link,
-.link_in_list__link
+.link
   text-decoration: none
   @include font($s: 15px, $w: 600, $c: $black_2)
   @include link_hover()
@@ -57,5 +56,9 @@
 .text
   @include font($s: 14px, $w: 500, $c: $black_2, $lh: 1.2)
 
+.map
+  border-radius: 15px
+  width: 100%
+  height: 320px
 
 @import "Ui.media"
