@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className="link_in_list__item"
 >
   <a
-    className="link_in_list__link"
+    className="link"
   >
     LinkInList
   </a>

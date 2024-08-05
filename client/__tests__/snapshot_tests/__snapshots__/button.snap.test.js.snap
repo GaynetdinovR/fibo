@@ -3,6 +3,7 @@
 exports[`renders correctly 1`] = `
 <button
   className="default_button"
+  onClick={[Function]}
 >
   Button
 </button>

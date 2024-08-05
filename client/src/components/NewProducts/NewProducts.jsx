@@ -1,6 +1,7 @@
 import styles from "../../styles/components/NewProducts.module.sass";
 import H4 from "../../ui/H4.jsx";
 import H5 from "../../ui/H5.jsx";
+import { getRandom4NewProducts } from "../../scripts/functions.js";
 
 const NewProducts = ({ newProducts }) => {
 	const typeName = {

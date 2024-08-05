@@ -1,189 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<header
-  className="header"
->
-  <div
-    className="header__top_side"
+Array [
+  <h2>
+    Unexpected Application Error!
+  </h2>,
+  <h3
+    style={
+      Object {
+        "fontStyle": "italic",
+      }
+    }
   >
-    <div
-      className="header__logo"
-    >
-      <a
-        className="logo"
-      >
-        <img
-          alt="logo"
-          src="./icons/logo_1.png"
-        />
-      </a>
-    </div>
-    <div
-      className="header__left_top_side"
-    >
-      <div
-        className="header__location"
-      >
-        <span>
-           Доставка пасты 
-        </span>
-        <span
-          className="header__city"
-        >
-           Москва 
-        </span>
-      </div>
-      <div
-        className="header__service"
-      >
-        <div
-          className="header__service_img"
-        >
-          <img
-            alt="yandex_food"
-            src="./icons/yandex_food.png"
-          />
-        </div>
-        <span
-          className="header__service_name"
-        >
-          Яндекс Еда
-        </span>
-        <div
-          className="header__service_grade"
-        >
-          <span>
-            4.8
-          </span>
-          <div>
-            <img
-              alt="star"
-              src="./icons/star.png"
-            />
-          </div>
-        </div>
-        <div
-          className="header__delivery_time"
-        >
-          <span>
-            Время доставки
-          </span>
-          <span>
-            от 31 мин
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      className="header__right_top_side"
-    >
-      <button
-        className="header__get_call oval_btn"
-      >
-        Заказать звонок
-      </button>
-      <a
-        className="header__phone_number phone_number"
-        href="tel:84993918449"
-      >
-        8 499 391-84-49
-      </a>
-    </div>
-  </div>
-  <nav
-    className="header__navbar"
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>,
+  <pre
+    style={
+      Object {
+        "backgroundColor": "rgba(200,200,200, 0.5)",
+        "padding": "0.5rem",
+      }
+    }
   >
-    <ul
-      className="header__list"
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (E:\\Coding\\fibo\\client\\node_modules\\react-redux\\src\\hooks\\useReduxContext.ts:17:13)
+    at useSelector2 (E:\\Coding\\fibo\\client\\node_modules\\react-redux\\src\\hooks\\useSelector.ts:175:9)
+    at Home (E:\\Coding\\fibo\\client\\src\\router\\pages\\HomePage.jsx:17:30)
+    at renderWithHooks (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:5608:18)
+    at mountIndeterminateComponent (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:9884:13)
+    at beginWork (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:11351:16)
+    at performUnitOfWork (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15850:12)
+    at workLoopSync (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15784:5)
+    at renderRootSync (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15756:7)
+    at performSyncWorkOnRoot (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15461:20)
+    at flushSyncCallbacks (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:2597:22)
+    at flushSyncCallbacksOnlyInLegacyMode (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:2576:5)
+    at scheduleUpdateOnFiber (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:14949:7)
+    at updateContainer (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:17809:5)
+    at Object.create (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:18549:3)
+    at Object.&lt;anonymous&gt; (E:\\Coding\\fibo\\client\\__tests__\\snapshot_tests\\header.snap.test.js:8:24)
+    at Promise.then.completed (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\utils.js:316:10)
+    at _callCircusTest (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:155:3)
+    at _runTestsForDescribeBlock (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:66:9)
+    at run (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:25:3)
+    at runAndTransformResultsToJestFormat (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapterInit.js:170:21)
+    at jestAdapter (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapter.js:82:19)
+    at runTestInternal (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\runTest.js:389:16)
+    at runTest (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\runTest.js:475:34)
+    at Object.worker (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\testWorker.js:133:12)
+  </pre>,
+  <p>
+    💿 Hey developer 👋
+  </p>,
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style={
+        Object {
+          "backgroundColor": "rgba(200,200,200, 0.5)",
+          "padding": "2px 4px",
+        }
+      }
     >
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Пиццы
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Пасты
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Супы
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Салаты
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Напитки
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Закуски
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Акции
-        </a>
-      </li>
-      <li
-        className="header__item link_in_list__item"
-      >
-        <a
-          className="header__link link_in_list__link"
-        >
-          Контакты
-        </a>
-      </li>
-    </ul>
-    <div
-      className="header__right_bottom_side"
+      ErrorBoundary
+    </code>
+     or
+     
+    <code
+      style={
+        Object {
+          "backgroundColor": "rgba(200,200,200, 0.5)",
+          "padding": "2px 4px",
+        }
+      }
     >
-      <button
-        className="header__auth"
-      >
-        Войти
-      </button>
-      <button
-        className="header__cart_btn default_button"
-      >
-        Корзина | 0
-      </button>
-    </div>
-  </nav>
-</header>
+      errorElement
+    </code>
+     prop on your route.
+  </p>,
+]
 `;

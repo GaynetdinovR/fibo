@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import styles from '../styles/Ui.module.sass'
-const Button = ({children, className}) => {
+const Button = ({children, className, onClickFn}) => {
 	return(
-		<button className={classNames(className, styles.default_button)}>
+		<button onClick={() => onClickFn()} className={classNames(className, styles.default_button)}>
 			{ children }
 		</button>
 	)

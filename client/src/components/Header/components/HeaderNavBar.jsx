@@ -4,8 +4,11 @@ import LinkInList from "../../../ui/LinkInList.jsx";
 import PhoneNumber from "../../../ui/PhoneNumber.jsx";
 import { useLocation } from "react-router-dom";
 import RouterLinkInList from "../../../ui/RouterLinkInList.jsx";
+import { useSelector } from "react-redux";
 
-const HeaderNavBar = ({ isMenuOpen }) => {
+const HeaderNavBar = ({ isMenuOpen, setMenu, setAuth }) => {
+	const user = useSelector((state) => state.user);
+
 	const navbarLinks = [
 		{ text: "Пиццы", href: "#pizza", to: "/" },
 		{ text: "Пасты", href: "#pasta", to: "/" },
@@ -14,7 +17,8 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 		{ text: "Закуски", href: "#snack", to: "/" },
 		{ text: "Напитки", href: "#drink", to: "/" },
 		{ text: "Акции", to: "/promo" },
-		{ text: "Контакты", to: "/contacts" }
+		{ text: "Контакты", to: "/contacts" },
+		{ text: "Профиль", to: "/profile", isNeedLogIn: true }
 	];
 
 	const windowWidth = window.innerWidth;
@@ -30,6 +34,18 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 		/>
 	);
 
+	const logInBtn = (
+		<button
+			onClick={() => {
+				setAuth(true);
+				setMenu(false);
+			}}
+			className={styles.header__auth}
+		>
+			Войти
+		</button>
+	);
+
 	return (
 		<nav
 			className={
@@ -40,6 +56,10 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 		>
 			<ul className={styles.header__list}>
 				{navbarLinks.map((item, i) => {
+					if (item.isNeedLogIn) {
+						if (!user.isLogged) return;
+					}
+
 					if (useLocation().pathname === item.to) {
 						return (
 							<LinkInList
@@ -68,11 +88,11 @@ const HeaderNavBar = ({ isMenuOpen }) => {
 			</ul>
 
 			<div className={styles.header__right_bottom_side}>
-				<button className={styles.header__auth}>Войти</button>
-				{windowWidth > 960 ? cartBtn : ""}
+				{!user.isLogged ? logInBtn : null}
+				{windowWidth > 960 ? cartBtn : null}
 			</div>
-			{windowWidth <= 480 ? phoneNumber : ""}
-			{windowWidth <= 480 ? cartBtn : ""}
+			{windowWidth <= 480 ? phoneNumber : null}
+			{windowWidth <= 480 ? cartBtn : null}
 		</nav>
 	);
 };

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<a
+  className="button_to_top"
+  href="#"
+>
+  <img
+    alt="top_arrow"
+    src="./icons/top_arrow.png"
+  />
+</a>
+`;

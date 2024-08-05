@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="modal__wrapper"
+  onClick={[Function]}
+>
+  <aside
+    className="auth_modal modal"
+    onClick={[Function]}
+  >
+    <button
+      className="modal__close_btn"
+      onClick={[Function]}
+    >
+      <img
+        alt="close"
+        src="./icons/cross.png"
+      />
+    </button>
+    <div
+      className="auth_modal__content"
+    >
+      <h4
+        className="auth_modal__title h3"
+      >
+        Вход на сайт
+      </h4>
+      <label
+        className="auth_modal__input_wrap"
+        onClick={[Function]}
+      >
+        <span
+          className="auth_modal__input_label"
+        >
+          Номер телефона
+        </span>
+        <div
+          className="input__wrap"
+        >
+          <input
+            className="auth_modal__input input"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onPaste={[Function]}
+            placeholder="+7 999 999-99-99"
+          />
+          <div
+            className="none"
+          >
+            <div
+              className="input_error_alert__img"
+            >
+              <img
+                alt="warn"
+                src="./icons/warn.png"
+              />
+            </div>
+            <span
+              className="input_error_alert__text"
+            >
+              Неправильный вид номера
+            </span>
+          </div>
+        </div>
+      </label>
+      <div
+        className="auth_modal__bottom_side"
+      >
+        <button
+          className="auth_modal__get_code_btn default_button"
+          onClick={[Function]}
+        >
+          Выслать код
+        </button>
+        <p
+          className="auth_modal__terms_of_use text"
+        >
+          <span>
+            Продолжая, вы соглашаетесь 
+          </span>
+          <a
+            href="https://en.wikipedia.org/wiki/Terms_of_service"
+            target="blank"
+          >
+            со сбором и обработкой персональных данных и пользовательским соглашением
+          </a>
+        </p>
+      </div>
+    </div>
+  </aside>
+</div>
+`;

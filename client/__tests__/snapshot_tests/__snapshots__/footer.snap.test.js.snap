@@ -1,259 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<footer
-  className="footer"
->
-  <div
-    className="footer__left_side"
+Array [
+  <h2>
+    Unexpected Application Error!
+  </h2>,
+  <h3
+    style={
+      Object {
+        "fontStyle": "italic",
+      }
+    }
   >
-    <div
-      className="footer__logo"
-    >
-      <a
-        className="logo"
-      >
-        <img
-          alt="logo"
-          src="./icons/logo_1.png"
-        />
-      </a>
-    </div>
-    <div
-      className="footer__info"
-    >
-      <a
-        className="footer__info_link link"
-        href="#"
-      >
-        Калорийность и состав
-      </a>
-      <a
-        className="footer__info_link link"
-        href="#"
-      >
-        Правовая информация
-      </a>
-    </div>
-    <nav
-      className="footer__nav"
-    >
-      <h6
-        className="footer__nav_title h6"
-      >
-        Мы в соцсетях
-      </h6>
-      <ul
-        className="footer__nav_list"
-      >
-        <li
-          className="footer__nav_item link_in_list__item"
-        >
-          <a
-            className="footer__nav_link link_in_list__link"
-          >
-            YouTube
-          </a>
-        </li>
-        <li
-          className="footer__nav_item link_in_list__item"
-        >
-          <a
-            className="footer__nav_link link_in_list__link"
-          >
-            Facebook
-          </a>
-        </li>
-        <li
-          className="footer__nav_item link_in_list__item"
-        >
-          <a
-            className="footer__nav_link link_in_list__link"
-          >
-            Instagram
-          </a>
-        </li>
-        <li
-          className="footer__nav_item link_in_list__item"
-        >
-          <a
-            className="footer__nav_link link_in_list__link"
-          >
-            ВКонтакте
-          </a>
-        </li>
-        <li
-          className="footer__nav_item"
-        >
-          <address
-            className="footer__nav_address"
-          >
-            <span>
-               Москва ул. Проспект 
-            </span>
-            <span>
-               Вернадского 86В 
-            </span>
-          </address>
-        </li>
-      </ul>
-    </nav>
-    <div
-      className="footer__copyright"
-    >
-      <span>
-        YaBao Все права защищены © 2021
-      </span>
-      <div
-        className="footer__copyright_imgs"
-      >
-        <div
-          className="footer__copyright_img"
-        >
-          <img
-            alt="visa"
-            src="./icons/visa.png"
-          />
-        </div>
-        <div
-          className="footer__copyright_img"
-        >
-          <img
-            alt="paypal"
-            src="./icons/paypal.png"
-          />
-        </div>
-        <div
-          className="footer__copyright_img"
-        >
-          <img
-            alt="mastercard"
-            src="./icons/mastercard.png"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="footer__right_side"
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>,
+  <pre
+    style={
+      Object {
+        "backgroundColor": "rgba(200,200,200, 0.5)",
+        "padding": "0.5rem",
+      }
+    }
   >
-    <nav
-      className="footer__contacts"
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (E:\\Coding\\fibo\\client\\node_modules\\react-redux\\src\\hooks\\useReduxContext.ts:17:13)
+    at useSelector2 (E:\\Coding\\fibo\\client\\node_modules\\react-redux\\src\\hooks\\useSelector.ts:175:9)
+    at Home (E:\\Coding\\fibo\\client\\src\\router\\pages\\HomePage.jsx:17:30)
+    at renderWithHooks (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:5608:18)
+    at mountIndeterminateComponent (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:9884:13)
+    at beginWork (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:11351:16)
+    at performUnitOfWork (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15850:12)
+    at workLoopSync (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15784:5)
+    at renderRootSync (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15756:7)
+    at performSyncWorkOnRoot (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15461:20)
+    at flushSyncCallbacks (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:2597:22)
+    at flushSyncCallbacksOnlyInLegacyMode (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:2576:5)
+    at scheduleUpdateOnFiber (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:14949:7)
+    at updateContainer (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:17809:5)
+    at Object.create (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:18549:3)
+    at Object.&lt;anonymous&gt; (E:\\Coding\\fibo\\client\\__tests__\\snapshot_tests\\footer.snap.test.js:8:24)
+    at Promise.then.completed (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\utils.js:316:10)
+    at _callCircusTest (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:155:3)
+    at _runTestsForDescribeBlock (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:66:9)
+    at run (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:25:3)
+    at runAndTransformResultsToJestFormat (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapterInit.js:170:21)
+    at jestAdapter (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapter.js:82:19)
+    at runTestInternal (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\runTest.js:389:16)
+    at runTest (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\runTest.js:475:34)
+    at Object.worker (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\testWorker.js:133:12)
+  </pre>,
+  <p>
+    💿 Hey developer 👋
+  </p>,
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style={
+        Object {
+          "backgroundColor": "rgba(200,200,200, 0.5)",
+          "padding": "2px 4px",
+        }
+      }
     >
-      <h6
-        className="footer__contacts_title h6"
-      >
-        Остались вопросы? А мы всегда на связи:
-      </h6>
-      <ul
-        className="footer__contacts_list"
-      >
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link_img link_in_list__link"
-          >
-            <img
-              alt="viber"
-              src="./icons/viber.png"
-            />
-          </a>
-        </li>
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link_img link_in_list__link"
-          >
-            <img
-              alt="skype"
-              src="./icons/skype.png"
-            />
-          </a>
-        </li>
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link_img link_in_list__link"
-          >
-            <img
-              alt="messenger"
-              src="./icons/messenger.png"
-            />
-          </a>
-        </li>
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link_img link_in_list__link"
-          >
-            <img
-              alt="telegram"
-              src="./icons/telegram.png"
-            />
-          </a>
-        </li>
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link_img link_in_list__link"
-          >
-            <img
-              alt="facebook"
-              src="./icons/facebook.png"
-            />
-          </a>
-        </li>
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link_img link_in_list__link"
-          >
-            <img
-              alt="vk"
-              src="./icons/vk.png"
-            />
-          </a>
-        </li>
-        <li
-          className="footer__contacts_item link_in_list__item"
-        >
-          <a
-            className="footer__contacts_link link_in_list__link"
-          >
-            Написать нам
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div
-      className="footer__phone_info"
+      ErrorBoundary
+    </code>
+     or
+     
+    <code
+      style={
+        Object {
+          "backgroundColor": "rgba(200,200,200, 0.5)",
+          "padding": "2px 4px",
+        }
+      }
     >
-      <a
-        className="footer__phone_number phone_number"
-        href="tel:84993918449"
-      >
-        8 499 391-84-49
-      </a>
-      <button
-        className="footer__get_call oval_btn"
-      >
-        Заказать звонок
-      </button>
-    </div>
-  </div>
-  <div
-    className="footer__bg_img"
-  >
-    <img
-      alt="bg"
-      src="./content/logo_2.png"
-    />
-  </div>
-</footer>
+      errorElement
+    </code>
+     prop on your route.
+  </p>,
+]
 `;

@@ -28,21 +28,41 @@ const getRandom4NewProducts = (products) => {
 };
 
 /**
- * Возвращает продукты из БД
- * @returns {Promise<any>}
+ * Форматирует номер телефона из +7 999... в 8999...
+ * @param phone string
+ * @returns string
  */
-const getProductsFromDB = async () => {
-	const response = await fetch("/products");
-	const body = await response.json();
+const formatPhone = (phone) => {
+	let res = "";
 
-	if (response.status !== 200) throw Error(body.message);
+	for (const symbol of phone.split("")) {
+		if (symbol === "-" || symbol == " " || symbol === "+") continue;
 
-	return body;
+		res += symbol;
+	}
+
+	res = "8" + res.slice(1);
+
+	return res;
 };
 
+/**
+ * Генерирует случайный 4-х значный код
+ * @returns string
+ */
+const generateCode = () => {
+	const array = [];
+
+	for (let i = 0; i < 4; i++) {
+		array.push(Math.floor(Math.random() * 10));
+	}
+
+	return array.join("");
+};
 
 export {
 	getRandom4NewProducts,
-	getProductsFromDB,
-	getRandomArrayElem
+	getRandomArrayElem,
+	formatPhone,
+	generateCode
 };

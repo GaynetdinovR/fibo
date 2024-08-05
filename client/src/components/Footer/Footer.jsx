@@ -2,7 +2,7 @@ import styles from "../../styles/components/Footer.module.sass";
 import Logo from "../../ui/Logo.jsx";
 import OvalButton from "../../ui/OvalButton.jsx";
 import PhoneNumber from "../../ui/PhoneNumber.jsx";
-import Link from "../../ui/Link.jsx";
+import LinkUI from "../../ui/LinkUI.jsx";
 import FooterNavBar from "./components/FooterNavBar.jsx";
 import FooterContacts from "./components/FooterContacts.jsx";
 
@@ -47,38 +47,42 @@ const Footer = () => {
 		</div>
 	);
 
-	const phoneMediumContainer = (<div className={styles.footer__phone_medium_container}> {logo} {phoneInfo} </div>);
+	const phoneMediumContainer = (
+		<div className={styles.footer__phone_medium_container}>
+			{logo} {phoneInfo}
+		</div>
+	);
 
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.footer__left_side}>
-				{windowWidth <= 540 ? phoneMediumContainer : ""}
+				{windowWidth <= 540 ? phoneMediumContainer : null}
 
-				{windowWidth > 960 ? logo : ""}
+				{windowWidth > 960 ? logo : null}
 
 				<div className={styles.footer__info}>
-					{windowWidth <= 960 && windowWidth > 540 ? logo : ""}
+					{windowWidth <= 960 && windowWidth > 540 ? logo : null}
 
-					<Link className={styles.footer__info_link} href={"#"}>
+					<LinkUI className={styles.footer__info_link} href={"#"}>
 						Калорийность и состав
-					</Link>
+					</LinkUI>
 
-					<Link className={styles.footer__info_link} href={"#"}>
+					<LinkUI className={styles.footer__info_link} href={"#"}>
 						Правовая информация
-					</Link>
+					</LinkUI>
 				</div>
 
 				<FooterNavBar />
 
-				{windowWidth > 960 ? <>{copyright}</> : ""}
+				{windowWidth > 960 ? <>{copyright}</> : null}
 			</div>
 
 			<div className={styles.footer__right_side}>
 				<FooterContacts />
 
-				{windowWidth > 540 ? phoneInfo : ""}
+				{windowWidth > 540 ? phoneInfo : null}
 
-				{windowWidth <= 960 ? copyright : ""}
+				{windowWidth <= 960 ? copyright : null}
 			</div>
 
 			<div className={styles.footer__bg_img}>

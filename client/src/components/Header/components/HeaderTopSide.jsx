@@ -68,9 +68,9 @@ const HeaderTopSide = ({ isMenuOpen, setMenu }) => {
 				<OvalButton className={styles.header__get_call}>
 					Заказать звонок
 				</OvalButton>
-				{windowWidth > 480 ? phoneNumber : ""}
-				{windowWidth <= 960 && windowWidth > 480 ? cartBtn : ""}
-				{windowWidth <= 960 ? menuBtn : ""}
+				{windowWidth > 480 ? phoneNumber : null}
+				{windowWidth <= 960 && windowWidth > 480 ? cartBtn : null}
+				{windowWidth <= 960 ? menuBtn : null}
 			</div>
 		</div>
 	);

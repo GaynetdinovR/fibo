@@ -1,0 +1,28 @@
+@import '../mixins'
+@import '../variables'
+
+.button_to_top
+  position: fixed
+  right: 55px
+  bottom: 60px
+  z-index: 4
+  display: block
+  background-color: $yellow
+  padding: 12px
+  border-radius: 50%
+  max-height: 36px
+  @include img($w: 36px)
+  @include btn_hover()
+
+@media screen and (max-width: $laptop_medium)
+  .button_to_top
+    right: 10px
+
+@media screen and (max-width: $laptop_small)
+  .button_to_top
+    right: 20px
+    bottom: 40px
+
+@media screen and (max-width: $tablet_large)
+  .button_to_top
+    display: none

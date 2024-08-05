@@ -7,6 +7,7 @@ import store from "./store/store.js";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/router.js";
 
+import "react-notifications/lib/notifications.css";
 import "./styles/global.sass";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

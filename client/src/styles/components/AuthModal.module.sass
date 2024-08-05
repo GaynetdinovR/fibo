@@ -1,0 +1,67 @@
+@import "../mixins"
+@import "../variables"
+
+.auth_modal
+  min-width: 580px
+
+  &__title
+    color: $yellow
+
+  &__code_input
+    box-sizing: border-box
+    max-width: 85px
+    text-align: center
+
+    &_wrap
+      margin-left: 35px
+
+  &__code_input,
+  &__input
+    &_wrap
+      margin-top: 30px
+      display: block
+
+    &_label
+      margin-right: 20px
+      @include font($s: 13px, $w: 600, $c: $grey_3)
+
+    &:disabled
+      color: $light_grey_2
+
+      &:active
+        border-color: $light_grey_3
+
+  &__bottom_side
+    width: 100%
+    margin-top: 70px
+    @include flex($jc: space-between)
+
+  &__get_code_btn
+    margin-right: 25px
+
+  &__log_in_btn
+    margin-top: 30px
+
+  &__log_in_btn,
+  &__get_code_btn
+    font-weight: 800
+    color: $white
+    background-color: $yellow
+    padding: 15px 60px
+
+    @include btn_hover
+
+  &__terms_of_use
+    color: $light_grey_2
+    line-height: 1.2
+    font-size: 13px
+    max-width: 320px
+
+    & a
+      color: $light_grey_2
+      @include link_hover
+
+  &__dashed_link
+    margin-left: 20px
+
+@import '../media/AuthModal.media'

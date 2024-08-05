@@ -17,7 +17,7 @@ const Product = ({ product }) => {
 					<H4 className={styles.product__name}>{product.name}</H4>
 
 					{product.description !== "-" ?
-						<Text className={styles.product__text}> {product.description} </Text> : <></>}
+						<Text className={styles.product__text}> {product.description} </Text> : null}
 
 				</div>
 			</div>

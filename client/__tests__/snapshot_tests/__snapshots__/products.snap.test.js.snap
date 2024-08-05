@@ -9,6 +9,7 @@ exports[`renders correctly 1`] = `
   >
     <div
       className="products__category"
+      id="pizza"
     >
       <h4
         className="products__title h3"
@@ -64,6 +65,7 @@ exports[`renders correctly 1`] = `
             </span>
             <button
               className="product__to_cart_btn default_button"
+              onClick={[Function]}
             >
               В корзину
             </button>
@@ -73,6 +75,7 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className="products__category"
+      id="pasta"
     >
       <h4
         className="products__title h3"
@@ -128,6 +131,7 @@ exports[`renders correctly 1`] = `
             </span>
             <button
               className="product__to_cart_btn default_button"
+              onClick={[Function]}
             >
               В корзину
             </button>
@@ -137,6 +141,20 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className="products__category"
+      id="soup"
+    >
+      <h4
+        className="products__title h3"
+      >
+        Супы
+      </h4>
+      <div
+        className="products__category_content"
+      />
+    </div>
+    <div
+      className="products__category"
+      id="salad"
     >
       <h4
         className="products__title h3"
@@ -149,6 +167,7 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className="products__category"
+      id="snack"
     >
       <h4
         className="products__title h3"
@@ -161,6 +180,7 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className="products__category"
+      id="drink"
     >
       <h4
         className="products__title h3"
