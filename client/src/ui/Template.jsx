@@ -3,24 +3,26 @@ import Footer from "../components/Footer/Footer.jsx";
 import AuthModal from "../components/AuthModal/AuthModal.jsx";
 import { useEffect, useState } from "react";
 import NotificationContainer from "react-notifications/lib/NotificationContainer.js";
-import styles from "../styles/global.sass";
 
 const Template = ({ children }) => {
 	const [isAuthOpen, setAuth] = useState(false);
+	const scrollbarWidth =
+		window.innerWidth - document.documentElement.clientWidth;
 
+	//TODO: решить проблему с overflowy
 	useEffect(() => {
 		if (isAuthOpen) {
-			document.body.classList.add(styles.overflowy_hidden);
-			document.body.classList.remove(styles.overflowy_showed);
+			document.body.style.overflowY = "hidden";
+			document.body.style.marginRight = scrollbarWidth + "px";
 		} else {
-			document.body.classList.add(styles.overflowy_showed);
-			document.body.classList.remove(styles.overflowy_hidden);
+			document.body.style.overflowY = "";
+			document.body.style.marginRight = "";
 		}
 
 		return () => {
-			document.body.classList.remove(styles.overflowy_showed);
-			document.body.classList.remove(styles.overflowy_hidden);
-		}
+			document.body.style.overflowY = "";
+			document.body.style.marginRight = "";
+		};
 
 	}, [isAuthOpen]);
 

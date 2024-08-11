@@ -9,16 +9,13 @@ const Header = ({ setAuth }) => {
 
 	useEffect(() => {
 		if (isMenuOpen) {
-			document.body.classList.add(globalStyles.overflowy_hidden);
-			document.body.classList.remove(globalStyles.overflowy_showed);
+			document.body.style.overflowY = "hidden";
 		} else {
-			document.body.classList.add(globalStyles.overflowy_showed);
-			document.body.classList.remove(globalStyles.overflowy_hidden);
+			document.body.style.overflowY = "";
 		}
 
 		return () => {
-			document.body.classList.remove(globalStyles.overflowy_showed);
-			document.body.classList.remove(globalStyles.overflowy_hidden);
+			document.body.style.overflowY = "";
 		};
 
 	}, [isMenuOpen]);

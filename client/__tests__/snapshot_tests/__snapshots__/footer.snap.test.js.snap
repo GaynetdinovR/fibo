@@ -2,85 +2,940 @@
 
 exports[`renders correctly 1`] = `
 Array [
-  <h2>
-    Unexpected Application Error!
-  </h2>,
-  <h3
-    style={
-      Object {
-        "fontStyle": "italic",
-      }
-    }
+  <div
+    className="notification-container notification-container-empty"
   >
-    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
-  </h3>,
-  <pre
-    style={
-      Object {
-        "backgroundColor": "rgba(200,200,200, 0.5)",
-        "padding": "0.5rem",
-      }
-    }
+    <div />
+  </div>,
+  <header
+    className="header"
   >
-    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
-    at useReduxContext (E:\\Coding\\fibo\\client\\node_modules\\react-redux\\src\\hooks\\useReduxContext.ts:17:13)
-    at useSelector2 (E:\\Coding\\fibo\\client\\node_modules\\react-redux\\src\\hooks\\useSelector.ts:175:9)
-    at Home (E:\\Coding\\fibo\\client\\src\\router\\pages\\HomePage.jsx:17:30)
-    at renderWithHooks (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:5608:18)
-    at mountIndeterminateComponent (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:9884:13)
-    at beginWork (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:11351:16)
-    at performUnitOfWork (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15850:12)
-    at workLoopSync (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15784:5)
-    at renderRootSync (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15756:7)
-    at performSyncWorkOnRoot (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:15461:20)
-    at flushSyncCallbacks (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:2597:22)
-    at flushSyncCallbacksOnlyInLegacyMode (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:2576:5)
-    at scheduleUpdateOnFiber (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:14949:7)
-    at updateContainer (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:17809:5)
-    at Object.create (E:\\Coding\\fibo\\client\\node_modules\\react-test-renderer\\cjs\\react-test-renderer.development.js:18549:3)
-    at Object.&lt;anonymous&gt; (E:\\Coding\\fibo\\client\\__tests__\\snapshot_tests\\footer.snap.test.js:8:24)
-    at Promise.then.completed (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\utils.js:391:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\utils.js:316:10)
-    at _callCircusTest (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:218:40)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at _runTest (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:155:3)
-    at _runTestsForDescribeBlock (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:66:9)
-    at run (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\run.js:25:3)
-    at runAndTransformResultsToJestFormat (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapterInit.js:170:21)
-    at jestAdapter (E:\\Coding\\fibo\\client\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapter.js:82:19)
-    at runTestInternal (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\runTest.js:389:16)
-    at runTest (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\runTest.js:475:34)
-    at Object.worker (E:\\Coding\\fibo\\client\\node_modules\\jest-runner\\build\\testWorker.js:133:12)
-  </pre>,
-  <p>
-    💿 Hey developer 👋
-  </p>,
-  <p>
-    You can provide a way better UX than this when your app throws errors by providing your own 
-    <code
-      style={
-        Object {
-          "backgroundColor": "rgba(200,200,200, 0.5)",
-          "padding": "2px 4px",
-        }
-      }
+    <div
+      className="header__top_side"
     >
-      ErrorBoundary
-    </code>
-     or
-     
-    <code
-      style={
-        Object {
-          "backgroundColor": "rgba(200,200,200, 0.5)",
-          "padding": "2px 4px",
-        }
-      }
+      <div
+        className="header__logo"
+        onClick={[Function]}
+      >
+        <a
+          className="logo"
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="logo"
+            src="./icons/logo_1.png"
+          />
+        </a>
+      </div>
+      <div
+        className="header__left_top_side"
+      >
+        <div
+          className="header__location"
+        >
+          <span>
+             Доставка пасты 
+          </span>
+          <span
+            className="header__city"
+          >
+             Москва 
+          </span>
+        </div>
+        <div
+          className="header__service"
+        >
+          <div
+            className="header__service_img"
+          >
+            <img
+              alt="yandex_food"
+              src="./icons/yandex_food.png"
+            />
+          </div>
+          <span
+            className="header__service_name"
+          >
+            Яндекс Еда
+          </span>
+          <div
+            className="header__service_grade"
+          >
+            <span>
+              4.8
+            </span>
+            <div>
+              <img
+                alt="star"
+                src="./icons/star.png"
+              />
+            </div>
+          </div>
+          <div
+            className="header__delivery_time"
+          >
+            <span>
+              Время доставки
+            </span>
+            <span>
+              от 31 мин
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="header__right_top_side"
+      >
+        <button
+          className="header__get_call oval_btn"
+        >
+          Заказать звонок
+        </button>
+        <a
+          className="header__phone_number phone_number"
+          href="tel:84993918449"
+        >
+          8 499 391-84-49
+        </a>
+      </div>
+    </div>
+    <nav
+      className="header__navbar"
     >
-      errorElement
-    </code>
-     prop on your route.
-  </p>,
+      <ul
+        className="header__list"
+        onClick={[Function]}
+      >
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="#pizza"
+          >
+            Пиццы
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="#pasta"
+          >
+            Пасты
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="#soup"
+          >
+            Супы
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="#salad"
+          >
+            Салаты
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="#snack"
+          >
+            Закуски
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="#drink"
+          >
+            Напитки
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="/promo"
+            onClick={[Function]}
+          >
+            Акции
+          </a>
+        </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="/contacts"
+            onClick={[Function]}
+          >
+            Контакты
+          </a>
+        </li>
+      </ul>
+      <div
+        className="header__right_bottom_side"
+      >
+        <button
+          className="header__auth"
+          onClick={[Function]}
+        >
+          Войти
+        </button>
+        <button
+          className="header__cart_btn default_button"
+          onClick={[Function]}
+        >
+          Корзина | 0
+        </button>
+      </div>
+    </nav>
+  </header>,
+  <div
+    className="modal__none"
+    onClick={[Function]}
+  >
+    <aside
+      className="auth_modal modal"
+      onClick={[Function]}
+    >
+      <button
+        className="modal__close_btn"
+        onClick={[Function]}
+      >
+        <img
+          alt="close"
+          src="./icons/cross.png"
+        />
+      </button>
+      <div
+        className="auth_modal__content"
+      >
+        <h4
+          className="auth_modal__title h3"
+        >
+          Вход на сайт
+        </h4>
+        <label
+          className="auth_modal__input_wrap"
+          onClick={[Function]}
+        >
+          <span
+            className="auth_modal__input_label"
+          >
+            Номер телефона
+          </span>
+          <div
+            className="input__wrap"
+          >
+            <input
+              className="auth_modal__input input"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onPaste={[Function]}
+              placeholder="+7 999 999-99-99"
+            />
+            <div
+              className="none"
+            >
+              <div
+                className="input_error_alert__img"
+              >
+                <img
+                  alt="warn"
+                  src="./icons/warn.png"
+                />
+              </div>
+              <span
+                className="input_error_alert__text"
+              >
+                Неправильный вид номера
+              </span>
+            </div>
+          </div>
+        </label>
+        <div
+          className="auth_modal__bottom_side"
+        >
+          <button
+            className="auth_modal__get_code_btn default_button"
+            onClick={[Function]}
+          >
+            Выслать код
+          </button>
+          <p
+            className="auth_modal__terms_of_use text"
+          >
+            <span>
+              Продолжая, вы соглашаетесь 
+            </span>
+            <a
+              href="https://en.wikipedia.org/wiki/Terms_of_service"
+              target="blank"
+            >
+              со сбором и обработкой персональных данных и пользовательским соглашением
+            </a>
+          </p>
+        </div>
+      </div>
+    </aside>
+  </div>,
+  <main>
+    <a
+      className="button_to_top"
+      href="#"
+    >
+      <img
+        alt="top_arrow"
+        src="./icons/top_arrow.png"
+      />
+    </a>
+    <div
+      className="react-multi-carousel-list banners__carousel "
+      dir="ltr"
+    >
+      <ul
+        className="react-multi-carousel-track "
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "overflow": "unset",
+            "transform": "translate3d(0px,0,0)",
+            "transition": "none",
+          }
+        }
+      />
+    </div>
+    <aside
+      className="new_products"
+    >
+      <h4
+        className="new_products__title h4"
+      >
+        Новинки
+      </h4>
+      <div
+        className="new_products__content"
+      >
+        <button
+          className="new_products__new_product"
+        >
+          <div
+            className="new_product__img"
+          >
+            <img
+              alt="product"
+            />
+          </div>
+          <div
+            className="new_product__info"
+          >
+            <h5
+              className="new_product__name h5"
+            />
+            <span
+              className="new_product__price"
+            >
+               ₽
+            </span>
+          </div>
+        </button>
+        <button
+          className="new_products__new_product"
+        >
+          <div
+            className="new_product__img"
+          >
+            <img
+              alt="product"
+            />
+          </div>
+          <div
+            className="new_product__info"
+          >
+            <h5
+              className="new_product__name h5"
+            />
+            <span
+              className="new_product__price"
+            >
+               ₽
+            </span>
+          </div>
+        </button>
+        <button
+          className="new_products__new_product"
+        >
+          <div
+            className="new_product__img"
+          >
+            <img
+              alt="product"
+            />
+          </div>
+          <div
+            className="new_product__info"
+          >
+            <h5
+              className="new_product__name h5"
+            />
+            <span
+              className="new_product__price"
+            >
+               ₽
+            </span>
+          </div>
+        </button>
+        <button
+          className="new_products__new_product"
+        >
+          <div
+            className="new_product__img"
+          >
+            <img
+              alt="product"
+            />
+          </div>
+          <div
+            className="new_product__info"
+          >
+            <h5
+              className="new_product__name h5"
+            />
+            <span
+              className="new_product__price"
+            >
+               ₽
+            </span>
+          </div>
+        </button>
+      </div>
+    </aside>
+    <section
+      className="products"
+    >
+      <div
+        className="products__categories"
+      >
+        <div
+          className="products__category"
+          id="pizza"
+        >
+          <h4
+            className="products__title h3"
+          >
+            Пиццы
+          </h4>
+          <div
+            className="products__category_content"
+          />
+        </div>
+        <div
+          className="products__category"
+          id="pasta"
+        >
+          <h4
+            className="products__title h3"
+          >
+            Пасты
+          </h4>
+          <div
+            className="products__category_content"
+          />
+        </div>
+        <div
+          className="products__category"
+          id="soup"
+        >
+          <h4
+            className="products__title h3"
+          >
+            Супы
+          </h4>
+          <div
+            className="products__category_content"
+          />
+        </div>
+        <div
+          className="products__category"
+          id="salad"
+        >
+          <h4
+            className="products__title h3"
+          >
+            Салаты
+          </h4>
+          <div
+            className="products__category_content"
+          />
+        </div>
+        <div
+          className="products__category"
+          id="snack"
+        >
+          <h4
+            className="products__title h3"
+          >
+            Закуски
+          </h4>
+          <div
+            className="products__category_content"
+          />
+        </div>
+        <div
+          className="products__category"
+          id="drink"
+        >
+          <h4
+            className="products__title h3"
+          >
+            Напитки
+          </h4>
+          <div
+            className="products__category_content"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      className="our_promo"
+    >
+      <h2
+        className="our_promo__title h2"
+      >
+        <span>
+          Наши 
+        </span>
+        <span>
+          акции
+        </span>
+      </h2>
+      <div
+        className="our_promo__content"
+      >
+        <div
+          className="our_promo__promo"
+        >
+          <img
+            alt="promo"
+            src="./content/promo_1.jpg"
+          />
+        </div>
+        <div
+          className="our_promo__promo"
+        >
+          <img
+            alt="promo"
+            src="./content/promo_2.jpg"
+          />
+        </div>
+        <div
+          className="our_promo__promo"
+        >
+          <img
+            alt="promo"
+            src="./content/promo_3.jpg"
+          />
+        </div>
+        <div
+          className="our_promo__promo"
+        >
+          <img
+            alt="promo"
+            src="./content/promo_1.jpg"
+          />
+        </div>
+        <div
+          className="our_promo__promo"
+        >
+          <img
+            alt="promo"
+            src="./content/promo_4.jpg"
+          />
+        </div>
+      </div>
+      <button
+        className="our_promo__all_promo_btn oval_btn"
+      >
+        Все акции
+      </button>
+    </section>
+    <section
+      className="payment_and_delivery"
+    >
+      <div
+        className="payment_and_delivery__inner"
+      >
+        <h4
+          className="payment_and_delivery__title h3"
+        >
+          Оплата и доставка
+        </h4>
+        <div
+          className="payment_and_delivery__content"
+        >
+          <div
+            className="payment_and_delivery__benefit"
+          >
+            <div
+              className="payment_and_delivery__benefit_img"
+            >
+              <img
+                alt="benefit"
+                src="./icons/shop.png"
+              />
+            </div>
+            <p
+              className="payment_and_delivery__benefit_text text"
+            >
+              Широкий выбор блюд
+            </p>
+          </div>
+          <div
+            className="payment_and_delivery__benefit"
+          >
+            <div
+              className="payment_and_delivery__benefit_img"
+            >
+              <img
+                alt="benefit"
+                src="./icons/car_with_paper.png"
+              />
+            </div>
+            <p
+              className="payment_and_delivery__benefit_text text"
+            >
+              Полная информация о заказе
+            </p>
+          </div>
+          <div
+            className="payment_and_delivery__benefit"
+          >
+            <div
+              className="payment_and_delivery__benefit_img"
+            >
+              <img
+                alt="benefit"
+                src="./icons/check.png"
+              />
+            </div>
+            <p
+              className="payment_and_delivery__benefit_text text"
+            >
+              Удобное составление и быстрое приготовление заказа
+            </p>
+          </div>
+          <div
+            className="payment_and_delivery__benefit"
+          >
+            <div
+              className="payment_and_delivery__benefit_img"
+            >
+              <img
+                alt="benefit"
+                src="./icons/car_with_time.png"
+              />
+            </div>
+            <p
+              className="payment_and_delivery__benefit_text text"
+            >
+              Доставка в течении 1 часа
+            </p>
+          </div>
+        </div>
+        <iframe
+          allowFullScreen=""
+          className="payment_and_delivery__map map"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2250.5728539025727!2d37.47757307673972!3d55.66163797305065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTXCsDM5JzQxLjkiTiAzN8KwMjgnNDguNSJF!5e0!3m2!1sen!2sru!4v1721155631161!5m2!1sen!2sru"
+        />
+      </div>
+    </section>
+  </main>,
+  <footer
+    className="footer"
+  >
+    <div
+      className="footer__left_side"
+    >
+      <div
+        className="footer__logo"
+      >
+        <a
+          className="logo"
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="logo"
+            src="./icons/logo_1.png"
+          />
+        </a>
+      </div>
+      <div
+        className="footer__info"
+      >
+        <a
+          className="footer__info_link link"
+          href="#"
+        >
+          Калорийность и состав
+        </a>
+        <a
+          className="footer__info_link link"
+          href="#"
+        >
+          Правовая информация
+        </a>
+      </div>
+      <nav
+        className="footer__nav"
+      >
+        <h6
+          className="footer__nav_title h6"
+        >
+          Мы в соцсетях
+        </h6>
+        <ul
+          className="footer__nav_list"
+        >
+          <li
+            className="footer__nav_item link_in_list__item"
+          >
+            <a
+              className="footer__nav_link link"
+            >
+              YouTube
+            </a>
+          </li>
+          <li
+            className="footer__nav_item link_in_list__item"
+          >
+            <a
+              className="footer__nav_link link"
+            >
+              Facebook
+            </a>
+          </li>
+          <li
+            className="footer__nav_item link_in_list__item"
+          >
+            <a
+              className="footer__nav_link link"
+            >
+              Instagram
+            </a>
+          </li>
+          <li
+            className="footer__nav_item link_in_list__item"
+          >
+            <a
+              className="footer__nav_link link"
+            >
+              ВКонтакте
+            </a>
+          </li>
+          <li
+            className="footer__nav_item"
+          >
+            <address
+              className="footer__nav_address"
+            >
+              <span>
+                 Москва ул. Проспект 
+              </span>
+              <span>
+                 Вернадского 86В 
+              </span>
+            </address>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="footer__copyright"
+      >
+        <span>
+          YaBao Все права защищены © 2021
+        </span>
+        <div
+          className="footer__copyright_imgs"
+        >
+          <div
+            className="footer__copyright_img"
+          >
+            <img
+              alt="visa"
+              src="./icons/visa.png"
+            />
+          </div>
+          <div
+            className="footer__copyright_img"
+          >
+            <img
+              alt="paypal"
+              src="./icons/paypal.png"
+            />
+          </div>
+          <div
+            className="footer__copyright_img"
+          >
+            <img
+              alt="mastercard"
+              src="./icons/mastercard.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="footer__right_side"
+    >
+      <nav
+        className="footer__contacts"
+      >
+        <h6
+          className="footer__contacts_title h6"
+        >
+          Остались вопросы? А мы всегда на связи:
+        </h6>
+        <ul
+          className="footer__contacts_list"
+        >
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link_img link"
+            >
+              <img
+                alt="viber"
+                src="./icons/viber.png"
+              />
+            </a>
+          </li>
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link_img link"
+            >
+              <img
+                alt="skype"
+                src="./icons/skype.png"
+              />
+            </a>
+          </li>
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link_img link"
+            >
+              <img
+                alt="messenger"
+                src="./icons/messenger.png"
+              />
+            </a>
+          </li>
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link_img link"
+            >
+              <img
+                alt="telegram"
+                src="./icons/telegram.png"
+              />
+            </a>
+          </li>
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link_img link"
+            >
+              <img
+                alt="facebook"
+                src="./icons/facebook.png"
+              />
+            </a>
+          </li>
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link_img link"
+            >
+              <img
+                alt="vk"
+                src="./icons/vk.png"
+              />
+            </a>
+          </li>
+          <li
+            className="footer__contacts_item link_in_list__item"
+          >
+            <a
+              className="footer__contacts_link link"
+            >
+              Написать нам
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="footer__phone_info"
+      >
+        <a
+          className="footer__phone_number phone_number"
+          href="tel:84993918449"
+        >
+          8 499 391-84-49
+        </a>
+        <button
+          className="footer__get_call oval_btn"
+        >
+          Заказать звонок
+        </button>
+      </div>
+    </div>
+    <div
+      className="footer__bg_img"
+    >
+      <img
+        alt="bg"
+        src="./content/logo_2.png"
+      />
+    </div>
+  </footer>,
 ]
 `;

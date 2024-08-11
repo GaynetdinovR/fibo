@@ -11,7 +11,7 @@ const Footer = () => {
 
 	const logo = (
 		<div className={styles.footer__logo}>
-			<Logo />
+			<Logo/>
 		</div>
 	);
 

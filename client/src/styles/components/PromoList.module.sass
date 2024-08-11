@@ -1,0 +1,51 @@
+@import '../variables'
+@import '../mixins'
+
+.promo_list
+  max-width: 1550px
+  margin: 0 auto
+  box-sizing: border-box
+  padding: 0 170px
+
+  &__title
+    color: $yellow
+
+  &__content
+    margin-top: 30px
+    justify-items: center
+    @include grid($rows: repeat(auto-fit, 1fr), $columns: 1fr 1fr 1fr, $gap: 30px)
+
+  &__promo
+    box-shadow: 0 4px 12px 0 rgba($black_1, 0.2)
+    max-width: 370px
+    box-sizing: border-box
+    border-radius: 15px
+    position: relative
+    padding: 160px 20px 20px 20px
+    @include flex($d: column, $jc: space-between)
+
+    &_img
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      @include img(370px)
+
+      & img
+        border-radius: 15px 15px 0 0
+        height: 140px
+
+    &_text
+      margin-top: 10px
+      color: $grey_1
+      font-size: 13px
+
+    &_btn
+      margin-top: 20px
+      padding: 10px 30px
+      color: $white
+      background-color: $yellow
+      font-size: 14px
+      @include btn_hover
+
+@import "../media/PromoList.media"

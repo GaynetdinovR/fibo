@@ -1,0 +1,401 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="promo_list"
+>
+  <h4
+    className="promo_list__title h3"
+  >
+    Акции
+  </h4>
+  <div
+    className="promo_list__content"
+  >
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_1.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Дарим кибер-призы!
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Вот так ачивка! Закажите Кибер-комбо и получите доступ к играм от MY.GAMES, а еще кокосовый батончик и шоколадное печенье «Cyber» от Bite.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_2.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Паста для двоих
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите два блюда из категории "Паста" и получите скидку 25% на второй заказ! Двойное удовольствие по вкусной цене.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_3.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Суп + салат
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+           Купите суп и салат вместе — получите скидку 15%! Отличное предложение для полноценного и вкусного обеда.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_4.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Пицца 50%
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите вторую пиццу со скидкой 50%! Порадуйте себя и близких отличной пиццей по суперцене.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_5.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Закуски в кино!
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите закуски на сумму от 1000р и получите бесплатный доступ к онлайн-кинотеатру на 7 дней! Идеально для вечеринки дома.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_6.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Салат-шоу
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Закажите салат и получите шанс стать победителем розыгрыша эксклюзивных кулинарных мастер-классов! Присоединяйтесь к шоу!
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_7.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Сюрприз от шефа!
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите 2 любые пиццы, и шеф-повар приготовит для вас специальный мини-сюрприз! Узнайте, что скрывает наш кулинарный креатив.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_8.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Киберспортивный суп
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Закажите суп и получите промокод на месяц доступа к турнирам по киберспорту! Погружайтесь в мир киберспорта и не забывайте про вкусный суп.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_9.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Бесплатный напиток
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите три блюда из категорий "Пицца" или "Паста" на сумму от 600р и получите бесплатный напиток на ваш выбор.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_10.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Блюдо дня!
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите пиццу и получите блюдо дня со скидкой 45%! Празднуйте с нами вкусно и выгодно.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_11.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Полноценный обед
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Купите салат и суп вместе — получите скидку 15%! Полноценный обед по отличной цене.
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+    <div
+      className="promo_list__promo"
+    >
+      <div
+        className="promo_list__promo_img"
+      >
+        <img
+          alt="promo"
+          src="./content/promo_banner_12.jpg"
+        />
+      </div>
+      <div
+        className="promo_list__promo_info"
+      >
+        <h4
+          className="promo_list__promo_title h4"
+        >
+          Празднуйте день рождения с нами!
+        </h4>
+        <p
+          className="promo_list__promo_text text"
+        >
+          Отметьте день рождения с нами! Закажите любую пиццу в день рождения и получите вторую в подарок. Вкусное торжество для вас и ваших друзей!
+        </p>
+      </div>
+      <button
+        className="promo_list__promo_btn default_button"
+        onClick={[Function]}
+      >
+        Посмотреть
+      </button>
+    </div>
+  </div>
+</section>
+`;

@@ -1,0 +1,44 @@
+@import '../variables'
+@import '../mixins'
+
+@media screen and (max-width: $laptop_medium)
+  .promo_list
+    padding: 0 80px
+
+@media screen and (max-width: $laptop_small)
+  .promo_list
+    padding: 0 40px
+
+@media screen and (max-width: $tablet_large)
+  .promo_list
+    padding: 0 20px
+
+    &__content
+      grid-template-columns: 1fr 1fr
+
+@media screen and (max-width: $tablet_small) and (min-width: $phone_large + 1)
+  .promo_list
+    &__content
+      grid-gap: 15px
+
+    &__promo
+      max-width: 240px
+      border-radius: 10px
+      padding: 110px 10px 10px 10px
+
+      &_title
+        font-size: 18px
+
+      &_img
+        & img
+          border-radius: 10px 10px 0 0
+          height: 100px
+
+@media screen and (max-width: $phone_large)
+  .promo_list
+    &__content
+      grid-template-columns: 1fr
+
+@media screen and (max-width: $phone_medium)
+  .promo_list
+    padding: 0 10px

@@ -29,13 +29,13 @@ const HeaderTopSide = ({ isMenuOpen, setMenu }) => {
 	);
 
 	const phoneNumber = (
-		<PhoneNumber phoneNumber={'8 499 391-84-49'} className={styles.header__phone_number}/>
+		<PhoneNumber phoneNumber={"8 499 391-84-49"} className={styles.header__phone_number} />
 	);
 
 	return (
 		<div className={styles.header__top_side}>
-			<div className={styles.header__logo}>
-				<Logo/>
+			<div className={styles.header__logo} onClick={() => setMenu(false)}>
+				<Logo />
 			</div>
 			<div className={styles.header__left_top_side}>
 				<div className={styles.header__location}>

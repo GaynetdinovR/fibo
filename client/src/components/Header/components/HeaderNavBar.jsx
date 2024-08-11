@@ -54,7 +54,7 @@ const HeaderNavBar = ({ isMenuOpen, setMenu, setAuth }) => {
 					: styles.header__navbar_closed
 			}
 		>
-			<ul className={styles.header__list}>
+			<ul className={styles.header__list} onClick={() => setMenu(false)}>
 				{navbarLinks.map((item, i) => {
 					if (item.isNeedLogIn) {
 						if (!user.isLogged) return;
