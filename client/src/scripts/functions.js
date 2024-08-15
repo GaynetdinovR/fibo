@@ -1,3 +1,5 @@
+import { NotificationManager } from "react-notifications";
+
 /**
  * Возвращает рандомный элемент массива
  * @param array
@@ -60,9 +62,24 @@ const generateCode = () => {
 	return array.join("");
 };
 
+/**
+ * Уведомление о высланном коде
+ */
+const codeSentNotification = () => {
+	const generatedCode = generateCode();
+
+	NotificationManager.success(
+		"Код из СМС: " + generatedCode,
+		"Ваш код выслан"
+	);
+
+	return generatedCode;
+};
+
 export {
 	getRandom4NewProducts,
 	getRandomArrayElem,
 	formatPhone,
-	generateCode
+	generateCode,
+	codeSentNotification
 };

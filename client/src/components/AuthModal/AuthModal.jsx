@@ -9,66 +9,55 @@ import CodeInput from "./components/CodeInput.jsx";
 import BottomSide from "./components/BottomSide.jsx";
 
 import { NotificationManager } from "react-notifications";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/userSlice/userSlice.js";
 
 import { formatPhone } from "../../scripts/functions.js";
 import { authorization } from "../../scripts/api.js";
-
-const reducer = (state, action) => {
-	switch (action.type) {
-		case "switch_disabled_phone":
-			return { ...state, isDisabledPhoneInput: !state.isDisabledPhoneInput };
-		case "set_code_sent":
-			return { ...state, isCodeSent: action.val };
-		case "set_disabled_phone":
-			return { ...state, isDisabledPhoneInput: action.val };
-		case "set_code_errored":
-			return { ...state, isCodeErrored: action.val };
-		case "set_phone_errored":
-			return { ...state, isPhoneErrored: action.val };
-		case "set_code":
-			return { ...state, code: action.val };
-		case "set_code_input_val":
-			return { ...state, codeInputVal: action.val };
-		case "set_phone_input_val":
-			return { ...state, phoneNumberInputVal: action.val };
-		default:
-			throw new Error("Unknown action: " + action.type);
-	}
-};
+import { useNavigate } from "react-router-dom";
 
 const AuthModal = ({ setOpen, isOpen }) => {
-	const initState = {
-		phoneNumberInputVal: "",
-		codeInputVal: "",
-		code: "0000",
-		isCodeSent: false,
-		isDisabledPhoneInput: false,
-		isPhoneErrored: false,
-		isCodeErrored: false
-	};
+	//Code input
+	const [codeInputVal, setCodeInputVal] = useState("");
+	const [isCodeErrored, setCodeErrored] = useState(false);
 
-	const [authModalState, localDispatch] = useReducer(reducer, initState);
+	//Code
+	const [code, setCode] = useState("0000");
+	const [isCodeSent, setCodeSent] = useState(false);
 
-	const setValToAuthState = (type, val) => {
-		localDispatch({ type: type, val: val });
-	};
+	//Phone input
+	const [phoneNumberInputVal, setPhoneNumberInputVal] = useState("");
+	const [isPhoneNumberDisabled, setPhoneNumberDisabled] = useState(false);
+	const [isPhoneNumberErrored, setPhoneNumberErrored] = useState(false);
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	/**
+	 * Действия после нажатия кнопки "Выслать код"
+	 */
+	const getCodeBtnClicked = () => {
+		if (phoneNumberInputVal.length !== 16) return setPhoneNumberErrored(true);
+
+		setCodeSent(true);
+		setPhoneNumberDisabled(true);
+	};
 
 	/**
 	 * Действия после нажатия кнопки "Войти"
 	 */
 	const logInBtnClicked = async () => {
-		if (authModalState.codeInputVal !== authModalState.code)
-			return setValToAuthState("set_code_errored", true);
+		if (codeInputVal !== code) return setCodeErrored(true);
 
-		const phoneNumber = formatPhone(authModalState.phoneNumberInputVal);
+		const phoneNumber = formatPhone(phoneNumberInputVal);
 
 		dispatch(login(phoneNumber));
+
 		NotificationManager.success("Вы успешно зашли в аккаунт");
+
+		navigate("/profile");
+
 		setOpen(false);
 
 		await authorization(phoneNumber);
@@ -91,25 +80,29 @@ const AuthModal = ({ setOpen, isOpen }) => {
 				<H3 className={styles.auth_modal__title}>Вход на сайт</H3>
 
 				<PhoneNumberInput
-					setValToAuthState={setValToAuthState}
-					authModalState={authModalState}
+					inputVal={phoneNumberInputVal}
+					setInputVal={setPhoneNumberInputVal}
+					isPhoneNumberDisabled={isPhoneNumberDisabled}
+					setPhoneNumberDisabled={setPhoneNumberDisabled}
+					isPhoneNumberErrored={isPhoneNumberErrored}
+					setPhoneNumberErrored={setPhoneNumberErrored}
+					isCodeSent={isCodeSent}
 				/>
 
-				{authModalState.isCodeSent ? (
+				{isCodeSent ? (
 					<CodeInput
-						authModalState={authModalState}
-						setValToAuthState={setValToAuthState}
+						setInputVal={setCodeInputVal}
+						setCode={setCode}
+						isCodeErrored={isCodeErrored}
+						setCodeErrored={setCodeErrored}
 					/>
 				) : null}
 
-				{!authModalState.isCodeSent ? (
-					<BottomSide
-						authModalState={authModalState}
-						setValToAuthState={setValToAuthState}
-					/>
+				{!isCodeSent ? (
+					<BottomSide getCodeBtnClicked={getCodeBtnClicked} />
 				) : null}
 
-				{authModalState.isCodeSent ? logInBtn : null}
+				{isCodeSent ? logInBtn : null}
 			</div>
 		</Modal>
 	);

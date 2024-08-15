@@ -18,7 +18,10 @@ const Input = ({ className, placeholder, isDisabled, mask, setVal, errorInfo }) 
 				placeholder={placeholder}
 				disabled={isDisabled}
 			/>
-			<InputErrorAlert error={errorInfo.error} show={errorInfo.isErrored} />
+			<InputErrorAlert
+				error={errorInfo.error}
+				show={errorInfo.isErrored}
+			/>
 		</div>
 	);
 };

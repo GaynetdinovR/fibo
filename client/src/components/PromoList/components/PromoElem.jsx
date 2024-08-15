@@ -7,7 +7,7 @@ const PromoElem = ({ promo }) => {
 	return (
 		<div className={styles.promo_list__promo}>
 			<div className={styles.promo_list__promo_img}>
-				<img src={promo.img} alt="promo" />
+				<img src={promo.img_url} alt="promo" />
 			</div>
 			<div className={styles.promo_list__promo_info}>
 				<H4 className={styles.promo_list__promo_title}>

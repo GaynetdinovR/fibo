@@ -14,21 +14,6 @@ Array [
       onPaste={[Function]}
       placeholder="9"
     />
-    <div
-      className="none"
-    >
-      <div
-        className="input_error_alert__img"
-      >
-        <img
-          alt="warn"
-          src="./icons/warn.png"
-        />
-      </div>
-      <span
-        className="input_error_alert__text"
-      />
-    </div>
   </div>,
   <div
     className="input__wrap"
@@ -71,21 +56,6 @@ Array [
       onFocus={[Function]}
       placeholder="9"
     />
-    <div
-      className="none"
-    >
-      <div
-        className="input_error_alert__img"
-      >
-        <img
-          alt="warn"
-          src="./icons/warn.png"
-        />
-      </div>
-      <span
-        className="input_error_alert__text"
-      />
-    </div>
   </div>,
   <div
     className="input__wrap"

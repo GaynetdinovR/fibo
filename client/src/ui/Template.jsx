@@ -9,7 +9,6 @@ const Template = ({ children }) => {
 	const scrollbarWidth =
 		window.innerWidth - document.documentElement.clientWidth;
 
-	//TODO: решить проблему с overflowy
 	useEffect(() => {
 		if (isAuthOpen) {
 			document.body.style.overflowY = "hidden";

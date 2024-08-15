@@ -1,31 +1,42 @@
 import styles from "../../../styles/components/AuthModal.module.sass";
 import Input from "../../../ui/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
+import { useEffect, useState } from "react";
 
-const PhoneNumberInput = ({ setValToAuthState, authModalState }) => {
-	const setPhoneNumberInputVal = (val) =>
-		setValToAuthState("set_phone_input_val", val);
+const PhoneNumberInput = ({
+	inputVal,
+	setInputVal,
+	isPhoneNumberDisabled,
+	setPhoneNumberDisabled,
+	isPhoneNumberErrored,
+	setPhoneNumberErrored,
+	isCodeSent
+}) => {
 
-	const checkPhoneInput = () => {
-		if (authModalState.phoneNumberInputVal.length !== 16)
-			return setValToAuthState("set_phone_errored", true);
+	/**
+	 * Проверяет заполнен ли инпут
+	 */
+	const checkPhoneNumberInput = () => {
+		if (inputVal.length !== 16) return setPhoneNumberErrored(true);
 
-		setValToAuthState("switch_disabled_phone");
+		setPhoneNumberDisabled(!isPhoneNumberDisabled);
 	};
+
+	//Elements
 
 	const phoneNumberDashedLink = (
 		<DashedLink
-			onClickFn={() => checkPhoneInput()}
+			onClickFn={checkPhoneNumberInput}
 			className={styles.auth_modal__dashed_link}
 		>
-			{authModalState.isDisabledPhoneInput ? "Изменить" : "Сохранить"}
+			{isPhoneNumberDisabled ? "Изменить" : "Сохранить"}
 		</DashedLink>
 	);
 
 	return (
 		<label
 			className={styles.auth_modal__input_wrap}
-			onClick={() => setValToAuthState("set_phone_errored", false)}
+			onClick={() => setPhoneNumberErrored(false)}
 		>
 			<span className={styles.auth_modal__input_label}>
 				Номер телефона
@@ -35,14 +46,15 @@ const PhoneNumberInput = ({ setValToAuthState, authModalState }) => {
 				mask={"+7 999 999-99-99"}
 				placeholder={"+7 999 999-99-99"}
 				className={styles.auth_modal__input}
-				setVal={setPhoneNumberInputVal}
-				isDisabled={authModalState.isDisabledPhoneInput}
+				setVal={setInputVal}
+				isDisabled={isPhoneNumberDisabled}
 				errorInfo={{
-					isErrored: authModalState.isPhoneErrored,
+					isErrored: isPhoneNumberErrored,
 					error: "Неправильный вид номера"
 				}}
 			/>
-			{authModalState.isCodeSent ? phoneNumberDashedLink : ""}
+
+			{isCodeSent ? phoneNumberDashedLink : ""}
 		</label>
 	);
 };

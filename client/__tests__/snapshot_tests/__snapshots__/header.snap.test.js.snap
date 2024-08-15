@@ -189,16 +189,21 @@ Array [
             Контакты
           </a>
         </li>
+        <li
+          className="header__item link_in_list__item"
+        >
+          <a
+            className="header__link link"
+            href="/profile"
+            onClick={[Function]}
+          >
+            Профиль
+          </a>
+        </li>
       </ul>
       <div
         className="header__right_bottom_side"
       >
-        <button
-          className="header__auth"
-          onClick={[Function]}
-        >
-          Войти
-        </button>
         <button
           className="header__cart_btn default_button"
           onClick={[Function]}
@@ -255,23 +260,6 @@ Array [
               onPaste={[Function]}
               placeholder="+7 999 999-99-99"
             />
-            <div
-              className="none"
-            >
-              <div
-                className="input_error_alert__img"
-              >
-                <img
-                  alt="warn"
-                  src="./icons/warn.png"
-                />
-              </div>
-              <span
-                className="input_error_alert__text"
-              >
-                Неправильный вид номера
-              </span>
-            </div>
           </div>
         </label>
         <div
@@ -301,15 +289,15 @@ Array [
     </aside>
   </div>,
   <main>
-    <a
+    <button
       className="button_to_top"
-      href="#"
+      onClick={[Function]}
     >
       <img
         alt="top_arrow"
         src="./icons/top_arrow.png"
       />
-    </a>
+    </button>
     <div
       className="react-multi-carousel-list banners__carousel "
       dir="ltr"

@@ -1,0 +1,95 @@
+@import "../variables"
+@import "../mixins"
+
+//<1024px
+@media screen and (max-width: $laptop_medium)
+  .profile__user_data,
+  .profile__bonuses_wrap
+    padding: 30px 80px
+
+@media screen and (max-width: $laptop_small)
+  .profile
+    &__title
+      font-size: 26px
+      margin-bottom: 10px
+
+    &__user_data,
+    &__bonuses_wrap
+      padding: 30px 40px
+
+    &__bonuses
+      &_bonus
+        max-width: 180px
+        min-height: 280px
+        padding: 20px
+
+        &_img
+          @include img(100px)
+
+        &_text
+          margin-top: 25px
+          font-size: 13px
+
+//<960px
+@media screen and (max-width: $tablet_large)
+  .profile
+    &__user_data,
+    &__bonuses_wrap
+      padding: 20px 20px
+
+//<768px
+@media screen and (max-width: $tablet_medium)
+  .profile
+    &__title
+      width: 100%
+      text-align: left
+
+    &__address_link
+      margin-left: 0
+      margin-top: 10px
+
+    &__input
+      &_wrap
+        flex-direction: column
+        align-items: flex-start
+
+      &_link
+        margin: 10px 0 10px
+
+      &_checkbox
+        margin-top: 20px
+
+//<640px
+@media screen and (max-width: $tablet_small)
+  .profile
+    &__input_wrap
+      align-items: flex-start
+
+    &__bonuses_link
+      display: block
+      margin: 0 auto
+
+//<480px
+@media screen and (max-width: $phone_medium)
+  .profile
+    &__bonuses
+      &_bonus
+        max-width: 150px
+        min-height: 200px
+
+        &_img
+          max-width: 70px
+
+      &_list
+        padding-bottom: 10px
+        @include flex($jc: center, $ai: center)
+
+    &__user_data
+      @include flex($jc: center, $ai: center, $d: column)
+
+    &__user_data,
+    &__bonuses_wrap
+      padding: 20px 10px
+
+    &__input_wrap
+      align-self: baseline

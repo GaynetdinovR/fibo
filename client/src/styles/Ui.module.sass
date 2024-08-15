@@ -105,6 +105,13 @@
     border-color: $grey_3
     outline: none
 
+  &:disabled
+    color: $light_grey_2
+
+    &:focus,
+    &:active
+      border-color: $light_grey_3
+
   &::placeholder
     color: $light_grey_2
 
@@ -162,4 +169,18 @@
     left: 15px
 
 
+.address
+  @include grid($rows: 1fr 1fr, $columns: repeat(3, 195px), $gap: 15px)
+
+  &__city_street_house
+    width: 100%
+    box-sizing: border-box
+  &__city_street_house_wrap
+    grid-column: span 2
+  &__apartment,
+  &__floor,
+  &__intercome_code,
+  &__entrance
+    box-sizing: border-box
+    max-width: 100%
 @import "Ui.media"

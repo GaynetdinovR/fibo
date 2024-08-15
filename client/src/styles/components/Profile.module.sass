@@ -1,0 +1,137 @@
+@import "../variables"
+@import "../mixins"
+
+.profile
+
+  &__title
+    margin-bottom: 20px
+    color: $yellow
+
+  &__bonuses
+    background-color: $light_grey_3
+
+    &_wrap
+      max-width: 1550px
+      padding: 50px 170px
+      margin: 0 auto
+      box-sizing: border-box
+
+    &_list
+      overflow-x: scroll
+      white-space: nowrap
+      padding: 15px 0 35px
+
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track
+        background: none
+
+      &::-webkit-scrollbar-thumb
+        background: $yellow
+        border-radius: 10px
+        cursor: pointer
+
+        &:hover
+          background: $dark_yellow
+
+    &_bonus
+      box-sizing: border-box
+      max-width: 250px
+      min-height: 330px
+      margin: 0 5px
+      background-color: $white
+      border-radius: 10px
+      padding: 35px
+      @include flex($jc: flex-start, $ai: center, $d: column)
+      display: inline-flex
+
+      box-shadow: 0 4px 28px 0 rgba($black_1, 0.08)
+
+      &_img
+        @include img(120px)
+
+      &_text
+        white-space: normal
+        text-align: center
+        margin-top: 35px
+        @include font($s: 14px, $c: $grey_3, $w: 700)
+
+    &_link
+      position: relative
+
+  &__user_data
+    padding: 50px 170px 0
+    max-width: 1550px
+    margin: 0 auto
+    box-sizing: border-box
+
+    &_log_out_btn
+      padding: 15px 40px
+      color: $grey_2
+      background-color: $light_grey_3
+      margin-top: 30px
+      @include btn_hover
+
+  &__address_wrap
+    position: relative
+
+  &__input
+    &_checkbox
+      display: flex
+      align-items: center
+      margin-top: 40px
+
+      & span
+        margin-left: 10px
+        margin-bottom: 0
+
+      & input:checked::before
+        background-color: $yellow
+
+      & input
+        position: relative
+        padding: 0
+        margin: 0
+        appearance: none
+        cursor: pointer
+
+        border-radius: 50%
+        width: 20px
+        height: 20px
+        border: 3px solid $yellow
+
+        &::before
+          content: ''
+          width: 10px
+          height: 10px
+          border-radius: 50%
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+
+    &_wrap
+      margin-top: 10px
+      display: flex
+      align-items: flex-end
+
+    &_label
+      display: flex
+      flex-direction: column
+
+    &_link
+      margin-left: 15px
+      margin-bottom: 15px
+
+    &_span
+      margin-bottom: 5px
+      @include font($s: 14px, $c: rgba($light_black, 0.7), $w: 700)
+
+  &__address
+    display: flex
+    align-items: center
+
+    &_link
+      margin-bottom: 40px
+      margin-left: 15px
+
+@import '../media/Profile.media'
