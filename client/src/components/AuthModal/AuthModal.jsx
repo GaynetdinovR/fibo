@@ -9,15 +9,19 @@ import CodeInput from "./components/CodeInput.jsx";
 import BottomSide from "./components/BottomSide.jsx";
 
 import { NotificationManager } from "react-notifications";
-import { useReducer, useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/userSlice/userSlice.js";
 
-import { formatPhone } from "../../scripts/functions.js";
+import { formatPhoneFromInternational } from "../../scripts/functions.js";
 import { authorization } from "../../scripts/api.js";
 import { useNavigate } from "react-router-dom";
+import { ModalContext } from "../../ui/ModalProvider.jsx";
 
-const AuthModal = ({ setOpen, isOpen }) => {
+const AuthModal = () => {
+	const { setAuth, isAuthOpen } = useContext(ModalContext);
+	const [setOpen, isOpen] = [setAuth, isAuthOpen];
+
 	//Code input
 	const [codeInputVal, setCodeInputVal] = useState("");
 	const [isCodeErrored, setCodeErrored] = useState(false);
@@ -50,7 +54,7 @@ const AuthModal = ({ setOpen, isOpen }) => {
 	const logInBtnClicked = async () => {
 		if (codeInputVal !== code) return setCodeErrored(true);
 
-		const phoneNumber = formatPhone(phoneNumberInputVal);
+		const phoneNumber = formatPhoneFromInternational(phoneNumberInputVal);
 
 		dispatch(login(phoneNumber));
 

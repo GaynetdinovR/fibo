@@ -1,10 +1,10 @@
 import styles from "../../styles/components/Profile.module.sass";
 import classNames from "classnames";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../../store/userSlice/userSlice.js";
+import { logout, setName, setPhone } from "../../store/userSlice/userSlice.js";
 
 import DashedLink from "../../ui/DashedLink.jsx";
 import H3 from "../../ui/H3.jsx";
@@ -13,17 +13,28 @@ import Button from "../../ui/Button.jsx";
 import NameInput from "./components/NameInput.jsx";
 import PhoneInput from "./components/PhoneInput.jsx";
 import CodeInput from "./components/CodeInput.jsx";
-import AddressInput from "./components/AddressInput.jsx";
+import AddressInput from "../../ui/AddressInput.jsx";
 import Bonus from "./components/Bonus.jsx";
 import DefaultBonus from "./components/DefaultBonus.jsx";
 
-import { formatPhone } from "../../scripts/functions.js";
+import { formatPhoneFromInternational, updateUserAddress } from "../../scripts/functions.js";
 import { updateUserDataByPhone } from "../../scripts/api.js";
+import { ModalContext } from "../../ui/ModalProvider.jsx";
+import { setAddressData } from "../../store/userSlice/userSlice.js";
 
 const Profile = () => {
 	const user = useSelector((state) => state.user);
 
 	const [phoneNumberInputVal, setPhoneNumber] = useState("");
+	const [isShowCodeInput, setShowCodeInput] = useState(false);
+	const [isAddressDisabled, setDisabledAddress] = useState(true);
+	const [addressData, setAddressDataLocal] = useState({
+		address: "",
+		entrance: "",
+		floor: "",
+		intercome_code: "",
+		apartment: ""
+	});
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -42,7 +53,9 @@ const Profile = () => {
 	 * @returns {Promise<void>}
 	 */
 	const changePhone = async () => {
-		const phone = formatPhone(phoneNumberInputVal);
+		const phone = formatPhoneFromInternational(phoneNumberInputVal);
+
+		dispatch(setPhone(phone));
 
 		await updateUserDataByPhone(user.phone, { phone: phone });
 	};
@@ -53,7 +66,21 @@ const Profile = () => {
 	 * @returns {Promise<void>}
 	 */
 	const changeName = async (name) => {
+		dispatch(setName(name));
 		await updateUserDataByPhone(user.phone, { name: name });
+	};
+
+	/**
+	 * Оболочка для обновления адреса пользователя
+	 */
+	const updateUserAddressWrapProfile = async () => {
+		if (!isAddressDisabled) {
+			const setAddressToStore = (val) => dispatch(setAddressData(val));
+
+			await updateUserAddress(user.phone, addressData, setAddressToStore);
+		}
+
+		setDisabledAddress(!isAddressDisabled);
 	};
 
 	return (
@@ -81,15 +108,20 @@ const Profile = () => {
 			<div className={styles.profile__user_data}>
 				<H3 className={styles.profile__title}>Личные данные</H3>
 
-				<NameInput changeName={changeName} />
+				<NameInput user={user} changeName={changeName} />
 
 				<PhoneInput
+					user={user}
 					phoneNumber={phoneNumberInputVal}
 					setPhoneNumber={setPhoneNumber}
+					setShowCodeInput={setShowCodeInput}
 				/>
 
-				{phoneNumberInputVal.length === 16 ? (
-					<CodeInput changePhone={changePhone} />
+				{isShowCodeInput ? (
+					<CodeInput
+						setShowCodeInput={setShowCodeInput}
+						changePhone={changePhone}
+					/>
 				) : null}
 
 				<div
@@ -102,14 +134,14 @@ const Profile = () => {
 						<span className={styles.profile__input_span}>
 							Адрес
 						</span>
-						<AddressInput />
+						<AddressInput data={addressData} setData={setAddressDataLocal} isDisabled={isAddressDisabled} />
 					</label>
 
 					<DashedLink
-						onClickFn={() => {}}
+						onClickFn={updateUserAddressWrapProfile}
 						className={styles.profile__address_link}
 					>
-						Изменить
+						{isAddressDisabled ? "Изменить" : "Сохранить"}
 					</DashedLink>
 				</div>
 

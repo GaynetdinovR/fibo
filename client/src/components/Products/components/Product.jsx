@@ -16,16 +16,22 @@ const Product = ({ product }) => {
 				<div className={styles.product__info}>
 					<H4 className={styles.product__name}>{product.name}</H4>
 
-					{product.description !== "-" ?
-						<Text className={styles.product__text}> {product.description} </Text> : null}
-
+					{product.description !== "-" ? (
+						<Text className={styles.product__text}>
+							{" "}
+							{product.description}{" "}
+						</Text>
+					) : null}
 				</div>
 			</div>
 
 			<div className={styles.product__bottom_side}>
 				<span className={styles.product__price}>{product.price} ₽</span>
 
-				<Button className={styles.product__to_cart_btn}>
+				<Button
+					onClickFn={() => console.log("product added to cart")}
+					className={styles.product__to_cart_btn}
+				>
 					В корзину
 				</Button>
 			</div>

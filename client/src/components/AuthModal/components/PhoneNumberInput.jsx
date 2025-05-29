@@ -1,5 +1,5 @@
 import styles from "../../../styles/components/AuthModal.module.sass";
-import Input from "../../../ui/Input.jsx";
+import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
 import { useEffect, useState } from "react";
 

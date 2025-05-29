@@ -25,14 +25,14 @@ const Home = () => {
 	}, []);
 
 	return (
-		<main>
+		<>
 			<ButtonToTop />
 			<Banners />
 			<NewProducts newProducts={getRandom4NewProducts(products)} />
 			<Products products={products} />
 			<OurPromo />
 			<PaymentAndDelivery />
-		</main>
+		</>
 	);
 };
 export default Home;

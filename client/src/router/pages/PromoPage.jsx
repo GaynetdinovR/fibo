@@ -16,9 +16,7 @@ const ContactsPage = () => {
 	}, []);
 
 	return (
-		<main>
-			<PromoList promos={promos} />
-		</main>
+		<PromoList promos={promos} />
 	);
 };
 export default ContactsPage;

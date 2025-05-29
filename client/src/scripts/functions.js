@@ -1,4 +1,6 @@
 import { NotificationManager } from "react-notifications";
+import { updateUserDataByPhone } from "./api.js";
+import { setAddressData } from "../store/userSlice/userSlice.js";
 
 /**
  * Возвращает рандомный элемент массива
@@ -34,11 +36,11 @@ const getRandom4NewProducts = (products) => {
  * @param phone string
  * @returns string
  */
-const formatPhone = (phone) => {
+const formatPhoneFromInternational = (phone) => {
 	let res = "";
 
 	for (const symbol of phone.split("")) {
-		if (symbol === "-" || symbol == " " || symbol === "+") continue;
+		if (symbol === "-" || symbol === " " || symbol === "+") continue;
 
 		res += symbol;
 	}
@@ -46,6 +48,21 @@ const formatPhone = (phone) => {
 	res = "8" + res.slice(1);
 
 	return res;
+};
+
+/**
+ * Форматирует номер телефона из 8999... в +7 999...
+ * @param phone string
+ * @returns string
+ */
+const formatPhoneToInternational = (phone) => {
+	const countryCode = "+7";
+	const areaCode = phone.substring(1, 4);
+	const firstPart = phone.substring(4, 7);
+	const secondPart = phone.substring(7, 9);
+	const thirdPart = phone.substring(9, 11);
+
+	return `${countryCode} ${areaCode} ${firstPart} ${secondPart}-${thirdPart}`;
 };
 
 /**
@@ -76,10 +93,26 @@ const codeSentNotification = () => {
 	return generatedCode;
 };
 
+/**
+ * Действия при обновлении адреса пользователя
+ * @param address object
+ */
+const updateUserAddress = async (userPhone, address, setAddressToStore) => {
+	const userData = { address: JSON.stringify(address) };
+
+	await updateUserDataByPhone(userPhone, userData);
+
+	NotificationManager.success("Адрес успешно изменен");
+
+	setAddressToStore({ ...address });
+};
+
 export {
 	getRandom4NewProducts,
 	getRandomArrayElem,
-	formatPhone,
+	formatPhoneFromInternational,
+	formatPhoneToInternational,
 	generateCode,
-	codeSentNotification
+	codeSentNotification,
+	updateUserAddress
 };

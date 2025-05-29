@@ -38,17 +38,15 @@ const getUserByPhone = async (req, res) => {
 	const userPhone = req.body;
 
 	try {
-		const result = await knex("users")
-			.where(userPhone)
-			.then((data) => res.json(data));
+		const result = await knex("users").where(userPhone);
 
-		if (result) return res.status(200).json({ message: "User found" });
+		if (result) return res.status(200).json(result);
 
 		res.status(404).json({ error: "User not found" });
 	} catch (error) {
 		console.error(error);
 
-		res.status(500).json({ error: "Internal Server Error" });
+		return res.status(500).json({ error: "Internal Server Error" });
 	}
 };
 

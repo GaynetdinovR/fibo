@@ -2,12 +2,14 @@ import express from "express";
 import bodyParser from "body-parser";
 import "./database/database.js";
 import { getProducts, authorization, getUserByPhone, getPromos, updateUserData } from "./database/methods.js";
+import cors from "cors";
 
 const app = express();
 const port = 5000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.post("/auth", authorization);
 

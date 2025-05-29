@@ -1,4 +1,4 @@
-import styles from "../styles/Ui.module.sass";
+import styles from "../../styles/Ui.module.sass";
 import classNames from "classnames";
 import InputMask from "react-input-mask";
 import InputErrorAlert from "./InputErrorAlert.jsx";

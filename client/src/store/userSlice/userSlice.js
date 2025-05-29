@@ -5,8 +5,14 @@ export const userSlice = createSlice({
 	initialState: {
 		isLogged: true,
 		phone: "89603954622",
-		name: "",
-		address: {},
+		name: "Радмир",
+		addressData: {
+			address: "",
+			entrance: "",
+			floor: "",
+			intercome_code: "",
+			apartment: ""
+		},
 		bonuses: []
 	},
 	reducers: {
@@ -14,7 +20,7 @@ export const userSlice = createSlice({
 			state.isLogged = true;
 			state.phone = payload.payload;
 		},
-		logout: (state) => {
+		logout: () => {
 			return {
 				isLogged: false,
 				phone: "",
@@ -23,7 +29,18 @@ export const userSlice = createSlice({
 				bonuses: []
 			};
 		},
-		setUserData: (state, { payload }) => {
+		setPhone: (state, payload) => {
+			state.phone = payload.payload;
+		},
+		setName: (state, payload) => {
+			state.name = payload.payload;
+		},
+		setAddressData: (state, payload) => {
+			state.addressData = payload.payload;
+		},
+		setUserData: (state, payload) => {
+			payload = payload.payload[0];
+
 			state.name = payload.name;
 			state.address = payload.address;
 			state.bonuses = payload.bonuses;
@@ -31,5 +48,7 @@ export const userSlice = createSlice({
 	}
 });
 
-export const { login, logout, setUserData } = userSlice.actions;
+export const { login, logout, setUserData, setName, setPhone, setAddressData } =
+	userSlice.actions;
+
 export default userSlice.reducer;

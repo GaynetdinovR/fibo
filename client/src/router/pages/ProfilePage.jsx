@@ -16,9 +16,7 @@ const ProfilePage = () => {
 	}, []);
 
 	return (
-		<main>
-			<Profile />
-		</main>
+		<Profile />
 	);
 };
 export default ProfilePage;

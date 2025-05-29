@@ -1,38 +1,22 @@
 import Header from "../components/Header/Header.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import AuthModal from "../components/AuthModal/AuthModal.jsx";
+import AddressModal from "../components/AddressModal/AddressModal.jsx";
+
 import { useEffect, useState } from "react";
 import NotificationContainer from "react-notifications/lib/NotificationContainer.js";
+import { ModalProvider } from "./ModalProvider.jsx";
 
 const Template = ({ children }) => {
-	const [isAuthOpen, setAuth] = useState(false);
-	const scrollbarWidth =
-		window.innerWidth - document.documentElement.clientWidth;
-
-	useEffect(() => {
-		if (isAuthOpen) {
-			document.body.style.overflowY = "hidden";
-			document.body.style.marginRight = scrollbarWidth + "px";
-		} else {
-			document.body.style.overflowY = "";
-			document.body.style.marginRight = "";
-		}
-
-		return () => {
-			document.body.style.overflowY = "";
-			document.body.style.marginRight = "";
-		};
-
-	}, [isAuthOpen]);
-
 	return (
-		<>
+		<ModalProvider>
 			<NotificationContainer />
-			<Header setAuth={setAuth} />
-			<AuthModal isOpen={isAuthOpen} setOpen={setAuth} />
-			{children}
+			<Header />
+			<AuthModal />
+			<AddressModal />
+			<main> {children} </main>
 			<Footer />
-		</>
+		</ModalProvider>
 	);
 };
 

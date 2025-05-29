@@ -1,10 +1,12 @@
 import styles from "../../styles/components/Header.module.sass";
 import HeaderNavBar from "./components/HeaderNavBar.jsx";
 import HeaderTopSide from "./components/HeaderTopSide.jsx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import globalStyles from "../../styles/global.sass";
+import { ModalContext } from "../../ui/ModalProvider.jsx";
 
-const Header = ({ setAuth }) => {
+const Header = () => {
+	const { setAuth } = useContext(ModalContext);
 	const [isMenuOpen, setMenu] = useState(false);
 
 	useEffect(() => {

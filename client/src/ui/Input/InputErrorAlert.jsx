@@ -1,4 +1,4 @@
-import styles from "../styles/Ui.module.sass";
+import styles from "../../styles/Ui.module.sass";
 import classNames from "classnames";
 
 const InputErrorAlert = ({ error, show }) => {

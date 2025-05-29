@@ -1,0 +1,70 @@
+@import '../variables'
+@import '../mixins'
+
+.address_modal
+  position: fixed
+  z-index: 999
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+  &__title
+    margin-bottom: 20px
+    color: $yellow
+
+  &__content
+    @include flex($jc: center, $ai: start, $d: column)
+
+    & div:nth-child(4)
+      min-width: 100%
+
+  &__top_side
+    margin-top: 10px
+    margin-bottom: 20px
+    font-size: 18px
+
+  &__top_btn
+    padding: 10px 35px
+
+    &:first-child
+      margin-right: 15px
+
+    &:disabled
+      background-color: $light_grey_1
+      color: $grey_2
+
+      cursor: default
+
+      &:hover
+        filter: none
+
+  &__bottom_btn
+    margin-top: 30px
+    padding: 15px 25px
+    font-size: 15px
+
+  &__top_btn,
+  &__bottom_btn
+    background-color: $yellow
+    color: $light_black
+    cursor: pointer
+
+    &:hover
+      filter: brightness(0.95)
+
+
+@media screen and (max-width: $phone_medium)
+  .address_modal
+    &__title
+      font-size: 25px
+
+    &__top_btn
+      font-size: 14px
+      padding: 10px 20px
+
+    &__top_side
+      margin-top: 0
+
+    &__bottom_btn
+      margin-top: 20px
+      padding: 10px 20px

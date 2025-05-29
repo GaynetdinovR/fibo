@@ -1,12 +1,21 @@
 import styles from "../../../styles/components/Profile.module.sass";
-import Input from "../../../ui/Input.jsx";
+import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const NameInput = ({ changeName }) => {
+const NameInput = ({ user, changeName }) => {
 	const [name, setName] = useState("");
 	const [isNameDisabled, setNameDisabled] = useState(false);
 	const [isNameErrored, setNameErrored] = useState(false);
+
+	useEffect(() => {
+		if (!user.name) return;
+		const input = document.querySelector("." + styles.profile__name_input);
+
+		input.value = user.name;
+		setName(user.name)
+		setNameDisabled(true);
+	}, [user]);
 
 	const checkNameValue = () => {
 		if (name.length === 0) return setNameErrored(true);
@@ -22,7 +31,7 @@ const NameInput = ({ changeName }) => {
 				<span className={styles.profile__input_span}>Имя</span>
 
 				<Input
-					className={styles.profile__input}
+					className={styles.profile__name_input}
 					placeholder={"Имя"}
 					setVal={setName}
 					isDisabled={isNameDisabled}

@@ -1,11 +1,11 @@
 import styles from "../../../styles/components/Profile.module.sass";
-import Input from "../../../ui/Input.jsx";
+import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
 import { codeSentNotification } from "../../../scripts/functions.js";
 import { useState } from "react";
 import { NotificationManager } from "react-notifications";
 
-const CodeInput = ({ changePhone }) => {
+const CodeInput = ({ changePhone, setShowCodeInput }) => {
 	const [code, setCode] = useState("");
 	const [codeInput, setCodeInput] = useState("");
 	const [isCodeErrored, setCodeErrored] = useState(false);
@@ -16,7 +16,7 @@ const CodeInput = ({ changePhone }) => {
 		NotificationManager.success("Вы успешно поменяли номер телефона!");
 		changePhone();
 		setCode("");
-
+		setShowCodeInput(false);
 	};
 
 	return (
