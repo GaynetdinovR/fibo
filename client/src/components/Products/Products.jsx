@@ -2,7 +2,7 @@ import styles from "../../styles/components/Products.module.sass";
 import H3 from "../../ui/H3.jsx";
 import Product from "./components/Product.jsx";
 
-const Products = ({ products }) => {
+const Products = ({ products, chooseProduct }) => {
 	const types = [
 		{ type: "pizza", title: "Пиццы" },
 		{ type: "pasta", title: "Пасты" },
@@ -22,7 +22,7 @@ const Products = ({ products }) => {
 							{products
 								?.filter((product) => product.type === type.type)
 								.map((product, k) => (
-									<Product key={k} product={product} />
+									<Product key={k} product={product} chooseProduct={chooseProduct} />
 								))}
 						</div>
 					</div>

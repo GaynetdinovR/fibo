@@ -1,0 +1,85 @@
+@import '../mixins.sass'
+.product_card_modal
+  min-width: 1000px
+  &__content
+    @include flex($jc: center, $ai: center)
+  &__img
+    position: relative
+    @include img(500px)
+
+    margin-right: 50px
+
+  &__new_tag
+    top: 80px
+    right: 50px
+    position: absolute
+    display: inline-block
+
+    padding: 6px 18px
+    border-radius: 10px
+    background-color: $red
+
+    @include font($s: 20px, $c: $white)
+
+  &__product_info
+    max-width: 400px
+    @include flex($jc: center, $ai: center, $d: column)
+  &__product_name
+    max-width: 360px
+    margin-bottom: 10px
+    margin-right: auto
+  &__product_desc
+    margin-bottom: 10px
+    margin-right: auto
+    @include font(15px)
+
+    & span:last-child
+      margin-right: 0
+    & span
+      margin-right: 15px
+
+  &__options
+  &__ingredients
+  &__selection_btns
+    width: 100%
+    @include grid(auto auto, repeat(6, 1fr), 10px)
+    margin-bottom: 10px
+
+  &__select_btn
+    background-color: rgba($light_grey_1, 0.5)
+    padding: 15px 0
+    @include btn_hover
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3)
+      grid-column: span 2
+
+    &:nth-child(4),
+    &:nth-child(5)
+      grid-column: span 3
+
+    &:disabled
+      cursor: default
+    &:disabled:hover
+      filter: brightness(1)
+
+  &__select_btn__active
+      background-color: $yellow
+
+  &__additional
+    justify-items: center
+    align-items: center
+    width: fit-content
+    margin-bottom: 10px
+    @include grid(repeat(2, 1fr), repeat(3, 1fr), 15px)
+
+  &__add_to_cart_btn
+    width: 100%
+    padding: 20px 40px
+    background-color: $yellow
+
+    @include btn_hover
+
+
+@import "../media/ProductCardModal.media.sass"

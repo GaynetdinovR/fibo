@@ -5,10 +5,11 @@ export const ModalContext = createContext();
 export const ModalProvider = ({ children }) => {
 	const [isAuthOpen, setAuth] = useState(false);
 	const [isAddressOpen, setAddress] = useState(false);
+	const [isProductCardOpen, setProductCard] = useState(false);
 
 	useEffect(() => {
 		const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-		const anyModalOpen = isAuthOpen || isAddressOpen;
+		const anyModalOpen = isAuthOpen || isAddressOpen || isProductCardOpen;
 
 		if (anyModalOpen) {
 			document.body.style.overflowY = "hidden";
@@ -22,14 +23,16 @@ export const ModalProvider = ({ children }) => {
 			document.body.style.overflowY = "";
 			document.body.style.paddingRight = "";
 		};
-	}, [isAuthOpen, isAddressOpen]);
+	}, [isAuthOpen, isAddressOpen, isProductCardOpen]);
 
 	return (
 		<ModalContext.Provider value={{
 			isAuthOpen,
 			isAddressOpen,
+			isProductCardOpen,
 			setAuth,
-			setAddress
+			setAddress,
+			setProductCard
 		}}>
 			{children}
 		</ModalContext.Provider>

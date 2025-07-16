@@ -7,14 +7,16 @@ import OurPromo from "../../components/OurPromo/OurPromo.jsx";
 import PaymentAndDelivery from "../../components/PaymentAndDelivery/PaymentAndDelivery.jsx";
 import ButtonToTop from "../../components/OtherComponents/ButtonToTop.jsx";
 
-import { getRandom4NewProducts } from "../../scripts/functions.js";
+import { getRandom4NewProducts, filterProductsByType } from "../../scripts/functions.js";
 import { getProductsFromDB } from "../../scripts/api.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setProductsFromDB } from "../../store/productsSlice/productsSlice.js";
+import ProductCardModal from "../../components/ProductCardModal/ProductCardModal.jsx";
 
 const Home = () => {
 	const products = useSelector((state) => state.products);
+	const [chosenProduct, setChosenProduct] = useState(null);
 
 	const dispatch = useDispatch();
 
@@ -29,9 +31,10 @@ const Home = () => {
 			<ButtonToTop />
 			<Banners />
 			<NewProducts newProducts={getRandom4NewProducts(products)} />
-			<Products products={products} />
+			<Products products={products} chooseProduct={setChosenProduct} />
 			<OurPromo />
 			<PaymentAndDelivery />
+			<ProductCardModal supplementsData={filterProductsByType(products, 'supplement')} product={chosenProduct}/>
 		</>
 	);
 };

@@ -89,7 +89,7 @@
     bottom: 0
     left: 0
     right: 0
-    z-index: 990
+    z-index: 1001
 
   &__none
     display: none
@@ -215,5 +215,30 @@
     &:hover
       filter: brightness(0.95)
 
+
+.supplement
+  border: $light_grey_3 1px solid
+  border-radius: 25px
+  width: 120px
+  padding: 20px
+  box-sizing: border-box
+  height: 180px
+  background-color: $white
+  cursor: pointer
+  @include flex($jc: center, $ai: center, $d: column)
+  @include btn_hover
+
+  &__active
+    border: $yellow 1px solid
+
+  &__img
+    @include img(80px)
+
+  &__name
+    margin-bottom: 5px
+    @include font($w: 600, $s: 16px)
+
+  &__price
+    @include font($w: 600, $s: 16px, $c: $yellow)
 
 @import "Ui.media"

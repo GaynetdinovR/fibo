@@ -1,6 +1,5 @@
 import { NotificationManager } from "react-notifications";
 import { updateUserDataByPhone } from "./api.js";
-import { setAddressData } from "../store/userSlice/userSlice.js";
 
 /**
  * Возвращает рандомный элемент массива
@@ -107,6 +106,12 @@ const updateUserAddress = async (userPhone, address, setAddressToStore) => {
 	setAddressToStore({ ...address });
 };
 
+const filterProductsByType = (products, type) => {
+	return products.filter((item) => item.type === type);
+}
+
+const roundToTwo = (num) => Math.round(num * 100) / 100;
+
 export {
 	getRandom4NewProducts,
 	getRandomArrayElem,
@@ -114,5 +119,7 @@ export {
 	formatPhoneToInternational,
 	generateCode,
 	codeSentNotification,
-	updateUserAddress
+	updateUserAddress,
+	filterProductsByType,
+	roundToTwo
 };
