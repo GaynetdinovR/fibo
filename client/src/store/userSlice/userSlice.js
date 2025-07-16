@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
 	name: "user",
 	initialState: {
-		isLogged: true,
-		phone: "89603954622",
-		name: "Радмир",
+		isLogged: false,
+		phone: "",
+		name: "",
 		addressData: {
 			address: "",
 			entrance: "",

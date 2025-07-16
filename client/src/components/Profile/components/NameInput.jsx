@@ -1,28 +1,56 @@
 import styles from "../../../styles/components/Profile.module.sass";
 import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { updateUserDataByPhone } from "../../../scripts/api.js";
+import { useDispatch } from "react-redux";
+import { setName } from "../../../store/userSlice/userSlice.js";
+import { useFormState } from "../../../scripts/hooks.js";
 
-const NameInput = ({ user, changeName }) => {
-	const [name, setName] = useState("");
-	const [isNameDisabled, setNameDisabled] = useState(false);
-	const [isNameErrored, setNameErrored] = useState(false);
+const NameInput = ({ userData }) => {
+	const dispatch = useDispatch();
+
+	const [
+		value,
+		setVal,
+		isNameDisabled,
+		setNameDisabled,
+		isNameErrored,
+		setNameErrored
+	] = useFormState();
+
+	/**
+	 * Устанавливает имя в input из store
+	 */
+	const setUserNameToInput = () => {
+		setVal(userData.name);
+
+		setNameDisabled(true);
+	};
 
 	useEffect(() => {
-		if (!user.name) return;
-		const input = document.querySelector("." + styles.profile__name_input);
+		if (!userData.name) return;
 
-		input.value = user.name;
-		setName(user.name)
-		setNameDisabled(true);
-	}, [user]);
+		setUserNameToInput();
+	}, [userData.phone]);
 
-	const checkNameValue = () => {
-		if (name.length === 0) return setNameErrored(true);
+	/**
+	 * Логика при нажатии "Изменить" или "Сохранить"
+	 * Если имя вписано в input, то оно обновляется в БД и в store
+	 */
+	const changeOrSaveClicked = async () => {
+		if (value.length === 0) return setNameErrored(true);
 
-		setNameErrored(false);
-		setNameDisabled(!isNameDisabled);
-		changeName(name);
+		try {
+			setNameErrored(false);
+			dispatch(setName(value));
+			await updateUserDataByPhone(userData.phone, { name: value });
+			setNameDisabled(!isNameDisabled);
+		} catch (error) {
+			console.error("Update user data by phone errored:", error);
+			setNameErrored(true);
+		}
+
 	};
 
 	return (
@@ -33,7 +61,7 @@ const NameInput = ({ user, changeName }) => {
 				<Input
 					className={styles.profile__name_input}
 					placeholder={"Имя"}
-					setVal={setName}
+					setVal={setVal}
 					isDisabled={isNameDisabled}
 					errorInfo={{
 						isErrored: isNameErrored,
@@ -43,7 +71,7 @@ const NameInput = ({ user, changeName }) => {
 			</label>
 
 			<DashedLink
-				onClickFn={() => checkNameValue()}
+				onClickFn={() => changeOrSaveClicked()}
 				className={styles.profile__input_link}
 			>
 				{isNameDisabled ? "Изменить" : "Сохранить"}

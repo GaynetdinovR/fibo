@@ -10,6 +10,7 @@ const getProducts = (req, res) => {
 		knex("products").then((data) => res.json(data));
 	} catch (error) {
 		console.error(error);
+
 		res.status(500).json({ error: "Internal Server Error" });
 	}
 };
@@ -24,6 +25,7 @@ const getPromos = (req, res) => {
 		knex("promos").then((data) => res.json(data));
 	} catch (error) {
 		console.error(error);
+
 		res.status(500).json({ error: "Internal Server Error" });
 	}
 };

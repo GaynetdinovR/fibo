@@ -5,13 +5,14 @@ import { codeSentNotification } from "../../../scripts/functions.js";
 import { useState } from "react";
 import { NotificationManager } from "react-notifications";
 
-const CodeInput = ({ changePhone, setShowCodeInput }) => {
+const CodeInput = ({ changePhone, setShowCodeInput, phone }) => {
 	const [code, setCode] = useState("");
 	const [codeInput, setCodeInput] = useState("");
 	const [isCodeErrored, setCodeErrored] = useState(false);
 
 	const checkCode = () => {
 		if (codeInput !== code) return setCodeErrored(true);
+		if ( phone.length !== 16 ) return;
 
 		NotificationManager.success("Вы успешно поменяли номер телефона!");
 		changePhone();

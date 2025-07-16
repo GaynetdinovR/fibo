@@ -1,27 +1,35 @@
 import styles from "../../../styles/components/Profile.module.sass";
 import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { useEffect, useState } from "react";
+import { useFormState } from "../../../scripts/hooks.js";
+import { useEffect } from "react";
 import { formatPhoneToInternational } from "../../../scripts/functions.js";
 
-const PhoneInput = ({ user, phoneNumber, setPhoneNumber, setShowCodeInput }) => {
-	const [isPhoneDisabled, setPhoneDisabled] = useState(false);
-	const [isPhoneErrored, setPhoneErrored] = useState(false);
+const PhoneInput = ({userData, codeInputData}) => {
+	const [
+		phone,
+		setPhone,
+		isPhoneDisabled,
+		setPhoneDisabled,
+		isPhoneErrored,
+		setPhoneErrored
+	] = useFormState();
 
 	useEffect(() => {
-		if (!user.phone) return;
+		if (!userData.phone) return;
 		const input = document.querySelector("." + styles.profile__phone_input);
-		const phone = formatPhoneToInternational(user.phone);
+		const phone = formatPhoneToInternational(userData.phone);
 
 		input.placeholder = phone;
-		setPhoneNumber(phone);
+		setPhone(phone);
 		setPhoneDisabled(true);
-	}, [user]);
+	}, [userData]);
 
 	const checkPhoneInput = () => {
-		if (phoneNumber.length !== 16) return setPhoneErrored(true);
+		if (phone.length !== 16) return setPhoneErrored(true);
+		if (codeInputData.isShowCodeInput) return;
 
-		setShowCodeInput(true);
+		codeInputData.setShowCodeInput(true);
 		setPhoneErrored(false);
 		setPhoneDisabled(!isPhoneDisabled);
 	};
@@ -37,7 +45,7 @@ const PhoneInput = ({ user, phoneNumber, setPhoneNumber, setShowCodeInput }) => 
 					className={styles.profile__phone_input}
 					placeholder={"+7 999 999 99-99"}
 					mask={"+7 999 999 99-99"}
-					setVal={setPhoneNumber}
+					setVal={setPhone}
 					isDisabled={isPhoneDisabled}
 					errorInfo={{
 						isErrored: isPhoneErrored,
@@ -50,7 +58,7 @@ const PhoneInput = ({ user, phoneNumber, setPhoneNumber, setShowCodeInput }) => 
 				onClickFn={() => checkPhoneInput()}
 				className={styles.profile__input_link}
 			>
-				{isPhoneDisabled ? "Изменить" : "Сохранить"}
+				{isPhoneDisabled && !codeInputData.isShowCodeInput ? "Изменить" : "Сохранить"}
 			</DashedLink>
 		</div>
 	);
