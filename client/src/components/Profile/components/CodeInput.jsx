@@ -1,60 +1,60 @@
 import styles from "../../../styles/components/Profile.module.sass";
 import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { codeSentNotification } from "../../../scripts/functions.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NotificationManager } from "react-notifications";
+import { generateCode } from "../../../utils/functions.js";
 
-const CodeInput = ({ changePhone, setShowCodeInput, phone }) => {
+const CodeInput = ({ onConfirm, generatedCode, setGeneratedCode }) => {
 	const [code, setCode] = useState("");
-	const [codeInput, setCodeInput] = useState("");
-	const [isCodeErrored, setCodeErrored] = useState(false);
+	const [isErrored, setIsErrored] = useState(false);
 
-	const checkCode = () => {
-		if (codeInput !== code) return setCodeErrored(true);
-		if ( phone.length !== 16 ) return;
+	useEffect(() => {
+		sendCode();
+	}, []);
 
-		NotificationManager.success("Вы успешно поменяли номер телефона!");
-		changePhone();
-		setCode("");
-		setShowCodeInput(false);
+	const sendCode = () => {
+		const newCode = generateCode();
+		setGeneratedCode(newCode);
+		NotificationManager.info(`Код подтверждения: ${newCode}`);
+	};
+
+	const handleConfirm = () => {
+		if (code !== generatedCode) {
+			return setIsErrored(true);
+		}
+
+		setIsErrored(false);
+		onConfirm();
 	};
 
 	return (
 		<div className={styles.profile__input_wrap}>
-			<label
-				className={styles.profile__input_label}
-				onClick={() => setCodeErrored(false)}
-			>
-				<span className={styles.profile__input_span}>Код</span>
-
+			<label className={styles.profile__input_label}>
+				<span className={styles.profile__input_span}>Код подтверждения</span>
 				<Input
 					className={styles.profile__input}
-					placeholder={"9999"}
+					placeholder={"Введите 4-значный код"}
 					mask={"9999"}
-					val={codeInput}
-					setVal={setCodeInput}
+					val={code}
+					setVal={setCode}
 					isDisabled={false}
 					errorInfo={{
-						isErrored: isCodeErrored,
-						error: "Неверный код"
+						isErrored: isErrored,
+						error: "Неверный код подтверждения"
 					}}
 				/>
 			</label>
 
-			{code ? (
-				<DashedLink
-					onClickFn={checkCode}
-					className={styles.profile__input_link}
-				>
-					Поменять номер
-				</DashedLink>
-			) : null}
+			<DashedLink
+				onClickFn={handleConfirm}
+				className={styles.profile__input_link}
+			>
+				Подтвердить
+			</DashedLink>
 
 			<DashedLink
-				onClickFn={() => {
-					setCode(codeSentNotification());
-				}}
+				onClickFn={sendCode}
 				className={styles.profile__input_link}
 			>
 				Выслать код

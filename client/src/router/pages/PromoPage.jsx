@@ -1,7 +1,7 @@
 import PromoList from "../../components/PromoList/PromoList.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPromosFromDB } from "../../scripts/api.js";
+import { getPromosFromDB } from "../../utils/api.js";
 import { setPromosFromDB } from "../../store/promosSlice/promosSlice.js";
 
 const ContactsPage = () => {

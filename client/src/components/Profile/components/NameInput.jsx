@@ -1,11 +1,14 @@
 import styles from "../../../styles/components/Profile.module.sass";
-import Input from "../../../ui/Input/Input.jsx";
-import DashedLink from "../../../ui/DashedLink.jsx";
+
 import { useEffect } from "react";
-import { updateUserDataByPhone } from "../../../scripts/api.js";
+import { updateUserDataByPhone } from "../../../utils/api.js";
 import { useDispatch } from "react-redux";
 import { setName } from "../../../store/userSlice/userSlice.js";
-import { useFormState } from "../../../scripts/hooks.js";
+import { useFormState } from "../../../utils/hooks.js";
+
+import Input from "../../../ui/Input/Input.jsx";
+import DashedLink from "../../../ui/DashedLink.jsx";
+import { NotificationManager } from "react-notifications";
 
 const NameInput = ({ userData }) => {
 	const dispatch = useDispatch();
@@ -19,39 +22,35 @@ const NameInput = ({ userData }) => {
 		setNameErrored
 	] = useFormState();
 
-	/**
-	 * Устанавливает имя в input из store
-	 */
-	const setUserNameToInput = () => {
-		setVal(userData.name);
-
-		setNameDisabled(true);
-	};
-
 	useEffect(() => {
-		if (!userData.name) return;
-
-		setUserNameToInput();
-	}, [userData.phone]);
+		setVal(userData.name || "");
+		setNameDisabled(true);
+	}, [userData.name]);
 
 	/**
 	 * Логика при нажатии "Изменить" или "Сохранить"
 	 * Если имя вписано в input, то оно обновляется в БД и в store
 	 */
-	const changeOrSaveClicked = async () => {
-		if (value.length === 0) return setNameErrored(true);
+	const handleChangeOrSave = async () => {
+		if (!isNameDisabled) {
+			if (value.trim().length === 0) return setNameErrored(true);
 
-		try {
-			setNameErrored(false);
-			dispatch(setName(value));
-			await updateUserDataByPhone(userData.phone, { name: value });
-			setNameDisabled(!isNameDisabled);
-		} catch (error) {
-			console.error("Update user data by phone errored:", error);
-			setNameErrored(true);
+			try {
+				setNameErrored(false);
+				dispatch(setName(value));
+				await updateUserDataByPhone(userData.phone, { name: value });
+				setNameDisabled(true);
+				NotificationManager.success('Имя изменено')
+			} catch (error) {
+				console.error("Update user data by phone errored:", error);
+				setNameErrored(true);
+			}
+		} else {
+			setNameDisabled(false);
 		}
-
 	};
+
+	const placeholder = userData.name ? userData.name : "Имя";
 
 	return (
 		<div className={styles.profile__input_wrap}>
@@ -60,7 +59,7 @@ const NameInput = ({ userData }) => {
 
 				<Input
 					className={styles.profile__name_input}
-					placeholder={"Имя"}
+					placeholder={placeholder}
 					setVal={setVal}
 					isDisabled={isNameDisabled}
 					errorInfo={{
@@ -71,7 +70,7 @@ const NameInput = ({ userData }) => {
 			</label>
 
 			<DashedLink
-				onClickFn={() => changeOrSaveClicked()}
+				onClickFn={handleChangeOrSave}
 				className={styles.profile__input_link}
 			>
 				{isNameDisabled ? "Изменить" : "Сохранить"}

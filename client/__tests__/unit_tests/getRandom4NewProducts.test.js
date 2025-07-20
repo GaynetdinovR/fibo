@@ -1,5 +1,5 @@
 import { test, expect } from "@jest/globals";
-import { getRandom4NewProducts } from "../../src/scripts/functions.js";
+import { getRandom4NewProducts } from "../../src/utils/functions.js";
 
 const products = [
 	{ is_new: true },

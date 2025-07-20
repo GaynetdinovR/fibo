@@ -8,7 +8,8 @@ export const ModalProvider = ({ children }) => {
 	const [isProductCardOpen, setProductCard] = useState(false);
 
 	useEffect(() => {
-		const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+		const scrollbarWidth =
+			window.innerWidth - document.documentElement.clientWidth;
 		const anyModalOpen = isAuthOpen || isAddressOpen || isProductCardOpen;
 
 		if (anyModalOpen) {
@@ -26,14 +27,16 @@ export const ModalProvider = ({ children }) => {
 	}, [isAuthOpen, isAddressOpen, isProductCardOpen]);
 
 	return (
-		<ModalContext.Provider value={{
-			isAuthOpen,
-			isAddressOpen,
-			isProductCardOpen,
-			setAuth,
-			setAddress,
-			setProductCard
-		}}>
+		<ModalContext.Provider
+			value={{
+				isAuthOpen,
+				isAddressOpen,
+				isProductCardOpen,
+				setAuth,
+				setAddress,
+				setProductCard
+			}}
+		>
 			{children}
 		</ModalContext.Provider>
 	);

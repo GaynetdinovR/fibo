@@ -1,12 +1,14 @@
-import styles from '../styles/Ui.module.sass'
+import styles from "../styles/Ui.module.sass";
 import { Link } from "react-router-dom";
 
-const Logo = () => {
+const Logo = ({ className, onClick = () => {} }) => {
 	return (
-		<Link to={'/'} className={styles.logo}>
-			<img src="./icons/logo_1.png" alt="logo" />
-		</Link>
-	)
-}
+		<div className={className}>
+			<Link onClick={onClick} to={"/"} className={styles.logo}>
+				<img src="./icons/logo_1.png" alt="logo" />
+			</Link>
+		</div>
+	);
+};
 
 export default Logo;

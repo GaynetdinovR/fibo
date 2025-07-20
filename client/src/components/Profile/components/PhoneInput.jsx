@@ -1,38 +1,24 @@
 import styles from "../../../styles/components/Profile.module.sass";
 import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { useFormState } from "../../../scripts/hooks.js";
-import { useEffect } from "react";
-import { formatPhoneToInternational } from "../../../scripts/functions.js";
+import { useEffect, useState } from "react";
+import { formatPhoneToInternational } from "../../../utils/functions.js";
 
-const PhoneInput = ({userData, codeInputData}) => {
-	const [
-		phone,
-		setPhone,
-		isPhoneDisabled,
-		setPhoneDisabled,
-		isPhoneErrored,
-		setPhoneErrored
-	] = useFormState();
+const PhoneInput = ({ phone, setPhone, isEditing, setIsEditing, onSubmit }) => {
+	const [isErrored, setIsErrored] = useState(false);
 
-	useEffect(() => {
-		if (!userData.phone) return;
-		const input = document.querySelector("." + styles.profile__phone_input);
-		const phone = formatPhoneToInternational(userData.phone);
-
-		input.placeholder = phone;
-		setPhone(phone);
-		setPhoneDisabled(true);
-	}, [userData]);
-
-	const checkPhoneInput = () => {
-		if (phone.length !== 16) return setPhoneErrored(true);
-		if (codeInputData.isShowCodeInput) return;
-
-		codeInputData.setShowCodeInput(true);
-		setPhoneErrored(false);
-		setPhoneDisabled(!isPhoneDisabled);
+	const handleAction = () => {
+		if (isEditing) {
+			if (phone.length !== 16) {
+				return setIsErrored(true);
+			}
+			setIsErrored(false);
+			onSubmit();
+		} else {
+			setIsEditing(true);
+		}
 	};
+
 
 	return (
 		<div className={styles.profile__input_wrap}>
@@ -40,25 +26,26 @@ const PhoneInput = ({userData, codeInputData}) => {
 				<span className={styles.profile__input_span}>
 					Номер телефона
 				</span>
-
 				<Input
 					className={styles.profile__phone_input}
-					placeholder={"+7 999 999 99-99"}
+					placeholder={
+						formatPhoneToInternational(phone) || "+7 999 999 99-99"
+					}
 					mask={"+7 999 999 99-99"}
 					setVal={setPhone}
-					isDisabled={isPhoneDisabled}
+					isDisabled={!isEditing}
 					errorInfo={{
-						isErrored: isPhoneErrored,
-						error: "Неправильный вид номера"
+						isErrored: isErrored,
+						error: "Неправильный формат номера"
 					}}
 				/>
 			</label>
 
 			<DashedLink
-				onClickFn={() => checkPhoneInput()}
+				onClickFn={handleAction}
 				className={styles.profile__input_link}
 			>
-				{isPhoneDisabled && !codeInputData.isShowCodeInput ? "Изменить" : "Сохранить"}
+				{isEditing ? "Подтвердить" : "Изменить"}
 			</DashedLink>
 		</div>
 	);

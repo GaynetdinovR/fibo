@@ -5,63 +5,31 @@ import PhoneNumber from "../../ui/PhoneNumber.jsx";
 import LinkUI from "../../ui/LinkUI.jsx";
 import FooterNavBar from "./components/FooterNavBar.jsx";
 import FooterContacts from "./components/FooterContacts.jsx";
+import Copyright from "./components/Copyright.jsx";
+import PhoneInfo from "./components/PhoneInfo.jsx";
 
 const Footer = () => {
 	const windowWidth = window.innerWidth;
 
-	const logo = (
-		<div className={styles.footer__logo}>
-			<Logo/>
-		</div>
-	);
-
-	const cardTypes = [
-		{ src: "./icons/visa.png", alt: "visa" },
-		{ src: "./icons/paypal.png", alt: "paypal" },
-		{ src: "./icons/mastercard.png", alt: "mastercard" }
-	];
-
-	const copyright = (
-		<div className={styles.footer__copyright}>
-			<span>YaBao Все права защищены © 2021</span>
-			<div className={styles.footer__copyright_imgs}>
-				{cardTypes.map((item, i) => (
-					<div key={i} className={styles.footer__copyright_img}>
-						<img src={item.src} alt={item.alt} />
-					</div>
-				))}
-			</div>
-		</div>
-	);
-
-	const phoneInfo = (
-		<div className={styles.footer__phone_info}>
-			<PhoneNumber
-				phoneNumber={"8 499 391-84-49"}
-				className={styles.footer__phone_number}
-			/>
-
-			<OvalButton className={styles.footer__get_call}>
-				Заказать звонок
-			</OvalButton>
-		</div>
-	);
-
-	const phoneMediumContainer = (
-		<div className={styles.footer__phone_medium_container}>
-			{logo} {phoneInfo}
-		</div>
-	);
+	const isMobile = windowWidth <= 540;
+	const isTablet = windowWidth <= 960 && windowWidth > 540;
+	const isDesktop = windowWidth > 960;
 
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.footer__left_side}>
-				{windowWidth <= 540 ? phoneMediumContainer : null}
+				{isMobile && (
+					<div className={styles.footer__phone_medium_container}>
+						<Logo className={styles.footer__logo} />
 
-				{windowWidth > 960 ? logo : null}
+						<PhoneInfo />
+					</div>
+				)}
+
+				{isDesktop && <Logo className={styles.footer__logo} />}
 
 				<div className={styles.footer__info}>
-					{windowWidth <= 960 && windowWidth > 540 ? logo : null}
+					{isTablet && <Logo className={styles.footer__logo} />}
 
 					<LinkUI className={styles.footer__info_link} href={"#"}>
 						Калорийность и состав
@@ -74,15 +42,15 @@ const Footer = () => {
 
 				<FooterNavBar />
 
-				{windowWidth > 960 ? <>{copyright}</> : null}
+				{isDesktop && <Copyright />}
 			</div>
 
 			<div className={styles.footer__right_side}>
 				<FooterContacts />
 
-				{windowWidth > 540 ? phoneInfo : null}
+				{!isMobile && <PhoneInfo />}
 
-				{windowWidth <= 960 ? copyright : null}
+				{!isDesktop && <Copyright />}
 			</div>
 
 			<div className={styles.footer__bg_img}>

@@ -1,7 +1,7 @@
 import styles from "../styles/Ui.module.sass";
 import InputMask from "react-input-mask";
 import classNames from "classnames";
-import { getAddressHint } from "../scripts/api.js";
+import { getAddressHint } from "../utils/api.js";
 import { useState } from "react";
 
 const AddressInput = ({ isDisabled, data, setData }) => {

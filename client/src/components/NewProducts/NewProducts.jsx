@@ -1,38 +1,32 @@
 import styles from "../../styles/components/NewProducts.module.sass";
+
 import H4 from "../../ui/H4.jsx";
-import H5 from "../../ui/H5.jsx";
-import { getRandom4NewProducts } from "../../scripts/functions.js";
+import NewProductButton from "./components/NewProductButton.jsx";
+import { useContext } from "react";
+import { ModalContext } from "../../ui/ModalProvider.jsx";
 
-const NewProducts = ({ newProducts }) => {
-	const typeName = {
-		salad: "Салат",
-		pizza: "Пицца",
-		pasta: "Паста",
-		snack: "Закуска",
-		soup: "Суп"
-	};
+const TYPE_NAMES = {
+	salad: "Салат",
+	pizza: "Пицца",
+	pasta: "Паста",
+	snack: "Закуска",
+	soup: "Суп"
+};
 
+const NewProducts = ({ chooseProduct, newProducts }) => {
 	return (
 		<aside className={styles.new_products}>
 			<H4 className={styles.new_products__title}>Новинки</H4>
 			<div className={styles.new_products__content}>
 				{newProducts.map((product, i) => (
-					<button
-						className={styles.new_products__new_product}
+					<NewProductButton
+						chooseProduct={chooseProduct}
+						product={{
+							...product,
+							type_text: TYPE_NAMES[product?.type]
+						}}
 						key={i}
-					>
-						<div className={styles.new_product__img}>
-							<img src={product?.img_url} alt="product" />
-						</div>
-						<div className={styles.new_product__info}>
-							<H5 className={styles.new_product__name}>
-								{typeName[product?.type]}
-							</H5>
-							<span className={styles.new_product__price}>
-								{product?.price} ₽
-							</span>
-						</div>
-					</button>
+					/>
 				))}
 			</div>
 		</aside>

@@ -1,25 +1,17 @@
 import styles from "../../styles/components/Header.module.sass";
-import HeaderNavBar from "./components/HeaderNavBar.jsx";
-import HeaderTopSide from "./components/HeaderTopSide.jsx";
-import { useContext, useEffect, useState } from "react";
+
+import { useContext, useState } from "react";
 import { ModalContext } from "../../ui/ModalProvider.jsx";
+import { useBodyScrollLock } from "../../utils/hooks.js";
+
+import HeaderTopSide from "./components/HeaderTopSide.jsx";
+import HeaderNavBar from "./components/HeaderNavBar.jsx";
 
 const Header = () => {
 	const { setAuth } = useContext(ModalContext);
 	const [isMenuOpen, setMenu] = useState(false);
 
-	useEffect(() => {
-		if (isMenuOpen) {
-			document.body.style.overflowY = "hidden";
-		} else {
-			document.body.style.overflowY = "";
-		}
-
-		return () => {
-			document.body.style.overflowY = "";
-		};
-
-	}, [isMenuOpen]);
+	useBodyScrollLock(isMenuOpen);
 
 	return (
 		<header className={styles.header}>

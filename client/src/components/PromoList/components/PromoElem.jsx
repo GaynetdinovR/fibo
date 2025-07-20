@@ -17,7 +17,7 @@ const PromoElem = ({ promo }) => {
 					{promo.text}
 				</Text>
 			</div>
-			<Button className={styles.promo_list__promo_btn}>
+			<Button onClickFn={() => console.log('some promo open')} className={styles.promo_list__promo_btn}>
 				Посмотреть
 			</Button>
 		</div>

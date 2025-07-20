@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { roundToTwo } from "../../scripts/functions.js";
+import { roundToTwo } from "../../utils/functions.js";
 
 import styles from "../../styles/components/ProductCardModal.module.sass";
 
@@ -40,10 +40,13 @@ const ProductCardModal = ({ product, supplementsData }) => {
 	]);
 
 	const [supplements, setSupplements] = useState(() =>
-		supplementsData.reduce((acc, item) => ({
-			...acc,
-			[item.supplement_id]: false
-		}), {})
+		supplementsData.reduce(
+			(acc, item) => ({
+				...acc,
+				[item.supplement_id]: false
+			}),
+			{}
+		)
 	);
 
 	const [totalPrice, setTotalPrice] = useState(0);
@@ -105,14 +108,14 @@ const ProductCardModal = ({ product, supplementsData }) => {
 	 * Возвращает текст выбранного размера
 	 * @returns {*}
 	 */
-	const getChosenSize = () =>
+	const getChosenSizeText = () =>
 		TEXT_SIZES[sizes.find((item) => item.active)?.id];
 
 	/**
 	 * Возвращает текст выбранного типа
 	 * @returns {*}
 	 */
-	const getChosenType = () =>
+	const getChosenTypeText = () =>
 		TEXT_TYPES[types.find((item) => item.active)?.id];
 
 	return (
@@ -131,9 +134,9 @@ const ProductCardModal = ({ product, supplementsData }) => {
 					<ProductInfo
 						productInfo={{
 							name: product?.name,
-							sizeText: getChosenSize()[0],
-							typeText: getChosenType(),
-							weight: getChosenSize()[1]
+							sizeText: getChosenSizeText()[0],
+							typeText: getChosenTypeText(),
+							weight: getChosenSizeText()[1]
 						}}
 					/>
 
@@ -144,7 +147,6 @@ const ProductCardModal = ({ product, supplementsData }) => {
 					/>
 
 					<Supplements
-						supplements={supplements}
 						supplementsData={supplementsData}
 						setSupplements={setSupplements}
 					/>

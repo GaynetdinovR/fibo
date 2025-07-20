@@ -3,7 +3,6 @@ import Footer from "../components/Footer/Footer.jsx";
 import AuthModal from "../components/AuthModal/AuthModal.jsx";
 import AddressModal from "../components/AddressModal/AddressModal.jsx";
 
-import { useEffect, useState } from "react";
 import NotificationContainer from "react-notifications/lib/NotificationContainer.js";
 import { ModalProvider } from "./ModalProvider.jsx";
 

@@ -1,9 +1,19 @@
 import styles from "../../../styles/components/AuthModal.module.sass";
 import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { codeSentNotification } from "../../../scripts/functions.js";
+import { generateCode } from "../../../utils/functions.js";
+import { NotificationManager } from "react-notifications";
 
-const CodeInput = ({ setInputVal, setCode, isCodeErrored, setCodeErrored }) => {
+const CodeInput = ({ codeState }) => {
+	const { setCodeInput, setCode, setCodeErrored, isCodeErrored } = codeState;
+
+	const handleClick = () => {
+		const generatedCode = generateCode();
+
+		NotificationManager.info("Код из СМС: " + generatedCode);
+
+		setCode(generatedCode);
+	};
 
 	return (
 		<label
@@ -18,7 +28,7 @@ const CodeInput = ({ setInputVal, setCode, isCodeErrored, setCodeErrored }) => {
 				mask={"9999"}
 				placeholder={"9999"}
 				className={styles.auth_modal__code_input}
-				setVal={setInputVal}
+				setVal={setCodeInput}
 				errorInfo={{
 					isErrored: isCodeErrored,
 					error: "Неверный код"
@@ -26,7 +36,7 @@ const CodeInput = ({ setInputVal, setCode, isCodeErrored, setCodeErrored }) => {
 			/>
 
 			<DashedLink
-				onClickFn={() => setCode(codeSentNotification())}
+				onClickFn={handleClick}
 				className={styles.auth_modal__dashed_link}
 			>
 				Получить новый код

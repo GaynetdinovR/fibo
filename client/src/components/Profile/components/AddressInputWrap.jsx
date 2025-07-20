@@ -2,55 +2,39 @@ import styles from "../../../styles/components/Profile.module.sass";
 import classNames from "classnames";
 import AddressInput from "../../../ui/AddressInput.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
-import { useState } from "react";
-import { setAddressData } from "../../../store/userSlice/userSlice.js";
-import { updateUserAddress } from "../../../scripts/functions.js";
-import { useDispatch } from "react-redux";
+import { useContext, useEffect, useState } from "react";
+import { ModalContext } from "../../../ui/ModalProvider.jsx";
 
 const AddressInputWrap = ({ userData }) => {
-	const dispatch = useDispatch();
+	const { setAddress } = useContext(ModalContext);
 
-	const [isAddressDisabled, setDisabledAddress] = useState(true);
 	const [addressData, setAddressDataLocal] = useState({
-		address: userData?.address || "",
-		entrance: userData?.entrance || "",
-		floor: userData?.floor || "",
-		intercome_code: userData?.intercome_code || "",
-		apartment: userData?.apartment || ""
+		address: "",
+		entrance: "",
+		floor: "",
+		intercome_code: "",
+		apartment: ""
 	});
 
-	/**
-	 * @param val address(object)
-	 */
-	const setAddressToStore = (val) => dispatch(setAddressData(val));
+	useEffect(() => {
+		if (userData?.address) {
+			try {
+				const parsedAddress = JSON.parse(userData.address);
 
-	/**
-	 * Проверяет пустой ли адрес(input)
-	 * @returns boolean
-	 */
-	const isAddressDataEmpty = () => {
-		for (let key in addressData) {
-			if (!addressData[key]) return true;
+				setAddressDataLocal({
+					address: parsedAddress?.address || "",
+					entrance: parsedAddress?.entrance || "",
+					floor: parsedAddress?.floor || "",
+					intercome_code: parsedAddress?.intercome_code || "",
+					apartment: parsedAddress?.apartment || ""
+				});
+			} catch (e) {
+				console.error("Error parsing address:", e);
+			}
 		}
+	}, [userData]);
 
-		return false;
-	};
-
-	/**
-	 * Логика при нажатии "Изменить" или "Сохранить"
-	 * Если input не пустой, то адрес обновляется в БД
-	 */
-	const changeOrSaveClicked = async () => {
-		if (isAddressDisabled) return setDisabledAddress(false);
-		if (isAddressDataEmpty()) return;
-
-		try {
-			await updateUserAddress(userData.phone, addressData, setAddressToStore);
-			setDisabledAddress(true);
-		} catch (error) {
-			console.error("User address update error:", error);
-		}
-	};
+	const handleClick = () => setAddress(true);
 
 	return (
 		<div
@@ -64,15 +48,15 @@ const AddressInputWrap = ({ userData }) => {
 				<AddressInput
 					data={addressData}
 					setData={setAddressDataLocal}
-					isDisabled={isAddressDisabled}
+					isDisabled={true}
 				/>
 			</label>
 
 			<DashedLink
-				onClickFn={changeOrSaveClicked}
+				onClickFn={handleClick}
 				className={styles.profile__address_link}
 			>
-				{isAddressDisabled ? "Изменить" : "Сохранить"}
+				Изменить
 			</DashedLink>
 		</div>
 	);

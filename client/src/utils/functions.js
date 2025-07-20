@@ -55,6 +55,8 @@ const formatPhoneFromInternational = (phone) => {
  * @returns string
  */
 const formatPhoneToInternational = (phone) => {
+	if(!phone) return false;
+
 	const countryCode = "+7";
 	const areaCode = phone.substring(1, 4);
 	const firstPart = phone.substring(4, 7);
@@ -82,14 +84,7 @@ const generateCode = () => {
  * Уведомление о высланном коде
  */
 const codeSentNotification = () => {
-	const generatedCode = generateCode();
 
-	NotificationManager.success(
-		"Код из СМС: " + generatedCode,
-		"Ваш код выслан"
-	);
-
-	return generatedCode;
 };
 
 /**
@@ -106,10 +101,21 @@ const updateUserAddress = async (userPhone, address, setAddressToStore) => {
 	setAddressToStore({ ...address });
 };
 
+/**
+ * Возвращает список продуктов по типу
+ * @param products
+ * @param type
+ * @returns {*}
+ */
 const filterProductsByType = (products, type) => {
 	return products.filter((item) => item.type === type);
 }
 
+/**
+ * Округляет числа до сотых
+ * @param num
+ * @returns {number}
+ */
 const roundToTwo = (num) => Math.round(num * 100) / 100;
 
 export {

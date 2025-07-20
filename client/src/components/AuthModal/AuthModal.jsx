@@ -2,111 +2,54 @@ import styles from "../../styles/components/AuthModal.module.sass";
 
 import Modal from "../../ui/Modal.jsx";
 import H3 from "../../ui/H3.jsx";
-import Button from "../../ui/Button.jsx";
-
-import PhoneNumberInput from "./components/PhoneNumberInput.jsx";
 import CodeInput from "./components/CodeInput.jsx";
 import BottomSide from "./components/BottomSide.jsx";
+import LogInButton from "./components/LogInButton.jsx";
+import PhoneInput from "./components/PhoneInput.jsx";
 
-import { NotificationManager } from "react-notifications";
-import { useContext, useState } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../../store/userSlice/userSlice.js";
-
-import { formatPhoneFromInternational } from "../../scripts/functions.js";
-import { authorization } from "../../scripts/api.js";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { ModalContext } from "../../ui/ModalProvider.jsx";
+import { useAuthForm } from "../../utils/useAuthForm.js";
 
 const AuthModal = () => {
 	const { setAuth, isAuthOpen } = useContext(ModalContext);
 	const [setOpen, isOpen] = [setAuth, isAuthOpen];
 
-	//Code input
-	const [codeInputVal, setCodeInputVal] = useState("");
-	const [isCodeErrored, setCodeErrored] = useState(false);
-
-	//Code
-	const [code, setCode] = useState("0000");
-	const [isCodeSent, setCodeSent] = useState(false);
-
-	//Phone input
-	const [phoneNumberInputVal, setPhoneNumberInputVal] = useState("");
-	const [isPhoneNumberDisabled, setPhoneNumberDisabled] = useState(false);
-	const [isPhoneNumberErrored, setPhoneNumberErrored] = useState(false);
-
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
-
-	/**
-	 * Действия после нажатия кнопки "Выслать код"
-	 */
-	const getCodeBtnClicked = () => {
-		if (phoneNumberInputVal.length !== 16) return setPhoneNumberErrored(true);
-
-		setCodeSent(true);
-		setPhoneNumberDisabled(true);
-	};
-
-	/**
-	 * Действия после нажатия кнопки "Войти"
-	 */
-	const logInBtnClicked = async () => {
-		if (codeInputVal !== code) return setCodeErrored(true);
-
-		const phoneNumber = formatPhoneFromInternational(phoneNumberInputVal);
-
-		dispatch(login(phoneNumber));
-
-		NotificationManager.success("Вы успешно зашли в аккаунт");
-
-		navigate("/profile");
-
-		setOpen(false);
-
-		await authorization(phoneNumber);
-	};
-
-	//Elements
-
-	const logInBtn = (
-		<Button
-			onClickFn={logInBtnClicked}
-			className={styles.auth_modal__log_in_btn}
-		>
-			Войти
-		</Button>
-	);
+	const { formState, handlers } = useAuthForm(() => setOpen(false));
 
 	return (
 		<Modal className={styles.auth_modal} setOpen={setOpen} isOpen={isOpen}>
 			<div className={styles.auth_modal__content}>
 				<H3 className={styles.auth_modal__title}>Вход на сайт</H3>
 
-				<PhoneNumberInput
-					inputVal={phoneNumberInputVal}
-					setInputVal={setPhoneNumberInputVal}
-					isPhoneNumberDisabled={isPhoneNumberDisabled}
-					setPhoneNumberDisabled={setPhoneNumberDisabled}
-					isPhoneNumberErrored={isPhoneNumberErrored}
-					setPhoneNumberErrored={setPhoneNumberErrored}
-					isCodeSent={isCodeSent}
+				<PhoneInput
+					phoneState={{
+						phone: formState.phone,
+						setPhone: handlers.setPhone,
+						isPhoneDisabled: formState.isPhoneDisabled,
+						setPhoneDisabled: handlers.setPhoneDisabled,
+						isPhoneErrored: formState.errors.phone,
+						setPhoneErrored: handlers.setPhoneErrored
+					}}
+					isCodeSent={formState.isCodeSent}
 				/>
 
-				{isCodeSent ? (
+				{formState.isCodeSent && (
 					<CodeInput
-						setInputVal={setCodeInputVal}
-						setCode={setCode}
-						isCodeErrored={isCodeErrored}
-						setCodeErrored={setCodeErrored}
+						codeState={{
+							setCodeInput: handlers.setCodeInput,
+							setCode: handlers.setCode,
+							isCodeErrored: formState.errors.code,
+							setCodeErrored: handlers.setCodeErrored
+						}}
 					/>
-				) : null}
+				)}
 
-				{!isCodeSent ? (
-					<BottomSide getCodeBtnClicked={getCodeBtnClicked} />
-				) : null}
+				{!formState.isCodeSent && (
+					<BottomSide sendCode={handlers.sendCode} />
+				)}
 
-				{isCodeSent ? logInBtn : null}
+				{formState.isCodeSent && <LogInButton handler={handlers.handleLogin} />}
 			</div>
 		</Modal>
 	);
