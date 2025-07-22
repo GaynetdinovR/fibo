@@ -13,7 +13,7 @@ const PhoneInput = ({ phoneState, isCodeSent }) => {
 	} = phoneState;
 
 	/**
-	 * Проверяет заполнен ли инпут
+	 * Проверяет длину введенного номера телефона
 	 */
 	const checkPhoneInput = () => {
 		if (phone.length !== 16) return setPhoneErrored(true);

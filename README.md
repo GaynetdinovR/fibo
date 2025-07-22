@@ -1,7 +1,7 @@
 # fibo | pasta bar
 
 ![Static Badge](https://img.shields.io/badge/status-in_progress-orange)
-![Static Badge](https://img.shields.io/badge/done-75%25-yellow)
+![Static Badge](https://img.shields.io/badge/done-85%25-yellow)
 ![Static Badge](https://img.shields.io/badge/petproject-purple)
 
 **fibo — интернет-магазин по заказу и доставке пиццы.** Удобный интерфейс позволяет авторизоваться, выбрать пиццу, добавить ее в корзину и оформить заказ.
@@ -79,6 +79,7 @@ npm run test
 - Адаптивность под различные дисплеи
 - Рабочая корзина товаров
 - Форма авторизации
+- Форма заказа
 - [Sqlite3 DataBase](https://ru.wikipedia.org/wiki/SQLite)
 - [Single-page application (SPA)](https://en.wikipedia.org/wiki/Single-page_application)
 - [Unit-testing](https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)

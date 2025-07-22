@@ -7,6 +7,9 @@ import { NotificationManager } from "react-notifications";
 const CodeInput = ({ codeState }) => {
 	const { setCodeInput, setCode, setCodeErrored, isCodeErrored } = codeState;
 
+	/**
+	 * Обработчик кнопки "Получить новый код"
+	 */
 	const handleClick = () => {
 		const generatedCode = generateCode();
 

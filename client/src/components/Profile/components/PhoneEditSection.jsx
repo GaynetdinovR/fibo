@@ -14,11 +14,18 @@ const PhoneEditSection = ({ user }) => {
 	const [isEditingPhone, setIsEditingPhone] = useState(false);
 	const [showCodeInput, setShowCodeInput] = useState(false);
 	const [generatedCode, setGeneratedCode] = useState("");
+
+	/**
+	 * Обработчик изменения телефона
+	 */
 	const handlePhoneSubmit = () => {
 		setShowCodeInput(true);
 		setIsEditingPhone(false);
 	};
 
+	/**
+	 * Обработчик подтверждения кода
+	 */
 	const handleCodeConfirm = async () => {
 		try {
 			const formattedPhone = formatPhoneFromInternational(tempPhone);

@@ -14,7 +14,10 @@ const Profile = () => {
 	const navigate = useNavigate();
 	const user = useSelector((state) => state.user);
 
-	const logoutClicked = () => {
+	/**
+	 * Обработчик кнопки "Выйти"
+	 */
+	const handleLogout = () => {
 		dispatch(logout());
 		navigate("/");
 	};
@@ -42,7 +45,7 @@ const Profile = () => {
 				</div>
 
 				<Button
-					onClickFn={logoutClicked}
+					onClickFn={handleLogout}
 					className={styles.profile__user_data_log_out_btn}
 				>
 					Выйти

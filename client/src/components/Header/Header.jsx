@@ -1,17 +1,21 @@
 import styles from "../../styles/components/Header.module.sass";
 
-import { useContext, useState } from "react";
+import { lazy, Suspense, useContext, useState } from "react";
 import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { useBodyScrollLock } from "../../utils/hooks.js";
+import { MenuContext } from "../../ui/MenuProvider.jsx";
 
 import HeaderTopSide from "./components/HeaderTopSide.jsx";
 import HeaderNavBar from "./components/HeaderNavBar.jsx";
+const LazyCart = lazy(() => import("../CartMenu/CartMenu.jsx"));
 
 const Header = () => {
 	const { setAuth } = useContext(ModalContext);
+	const { isCartOpen, setCart } = useContext(MenuContext);
+
 	const [isMenuOpen, setMenu] = useState(false);
 
-	useBodyScrollLock(isMenuOpen);
+	const isSmallDisplay = window.innerWidth < 620;
+	const shouldRenderCart = isCartOpen && !isSmallDisplay;
 
 	return (
 		<header className={styles.header}>
@@ -20,7 +24,13 @@ const Header = () => {
 				setMenu={setMenu}
 				setAuth={setAuth}
 				isMenuOpen={isMenuOpen}
+				cartData={{ isCartOpen: isCartOpen, setCart: setCart }}
 			/>
+			{shouldRenderCart && (
+				<Suspense>
+					<LazyCart />
+				</Suspense>
+			)}
 		</header>
 	);
 };

@@ -7,6 +7,9 @@ import { formatPhoneToInternational } from "../../../utils/functions.js";
 const PhoneInput = ({ phone, setPhone, isEditing, setIsEditing, onSubmit }) => {
 	const [isErrored, setIsErrored] = useState(false);
 
+	/**
+	 * Обработчик действия
+	 */
 	const handleAction = () => {
 		if (isEditing) {
 			if (phone.length !== 16) {

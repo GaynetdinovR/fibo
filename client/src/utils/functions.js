@@ -30,6 +30,7 @@ const getRandom4NewProducts = (products) => {
 	return res;
 };
 
+
 /**
  * Форматирует номер телефона из +7 999... в 8999...
  * @param phone string
@@ -80,12 +81,6 @@ const generateCode = () => {
 	return array.join("");
 };
 
-/**
- * Уведомление о высланном коде
- */
-const codeSentNotification = () => {
-
-};
 
 /**
  * Действия при обновлении адреса пользователя
@@ -118,14 +113,34 @@ const filterProductsByType = (products, type) => {
  */
 const roundToTwo = (num) => Math.round(num * 100) / 100;
 
+/**
+ * Форматирует продукт для добавления в корзину (продукт без дополнений)
+ * @param product
+ * @returns {{img_url: (string|*), additional_info: {supplements: *[], size: string, type: string}, price: (number|*), name: *, id: *, type: *}}
+ */
+const formatDefaultProductToCart = (product) => {
+	return {
+		id: product?.id,
+		name: product?.name,
+		img_url: product?.img_url,
+		price: product?.price,
+		type: product?.type,
+		additional_info: {
+			size: "medium",
+			type: "traditional",
+			supplements: []
+		}
+	};
+}
+
 export {
 	getRandom4NewProducts,
 	getRandomArrayElem,
 	formatPhoneFromInternational,
 	formatPhoneToInternational,
 	generateCode,
-	codeSentNotification,
 	updateUserAddress,
 	filterProductsByType,
-	roundToTwo
+	roundToTwo,
+	formatDefaultProductToCart
 };

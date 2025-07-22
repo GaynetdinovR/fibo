@@ -2,17 +2,41 @@ import styles from "../../../styles/components/NewProducts.module.sass";
 import H5 from "../../../ui/H5.jsx";
 import { ModalContext } from "../../../ui/ModalProvider.jsx";
 import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../store/cartSlice/cartSlice.js";
+import { formatDefaultProductToCart } from "../../../utils/functions.js";
+import { useProductInCart } from "../../../utils/useProductInCart.js";
 
 const NewProductButton = ({ chooseProduct, product }) => {
 	const { setProductCard } = useContext(ModalContext);
+	const dispatch = useDispatch();
 
-	const handleClick = () => {
-		if (product?.type !== "pizza") {
-			return; // TODO: add to cart not pizzas
-		};
+	const { isProductInCart } = useProductInCart();
 
+	/**
+	 * Действия, если продукт - не пицца
+	 */
+	const handleNonPizzaProduct = () => {
+		dispatch(addToCart(formatDefaultProductToCart(product)));
+	};
+
+	/**
+	 * Действия, если продукт - пицца
+	 */
+	const handlePizzaProduct = () => {
 		chooseProduct(product);
 		setProductCard(true);
+	};
+
+	/**
+	 * Обработчик клика
+	 */
+	const handleClick = () => {
+		if (!product || isProductInCart(product?.id)) return;
+
+		product.type === "pizza"
+			? handlePizzaProduct()
+			: handleNonPizzaProduct();
 	};
 
 	return (

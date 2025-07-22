@@ -25,10 +25,18 @@ export const useAuthForm = (closeModal) => {
 		}
 	});
 
+	/**
+	 * Обновляет состояние
+	 * @param newState
+	 */
 	const updateState = (newState) => {
 		setFormState(prev => ({ ...prev, ...newState }));
 	};
 
+	/**
+	 * Валидация номера телефона по длине
+	 * @returns {boolean}
+	 */
 	const validatePhone = () => {
 		const isValid = formState.phone.length === PHONE_LENGTH;
 
@@ -37,6 +45,9 @@ export const useAuthForm = (closeModal) => {
 		return isValid;
 	};
 
+	/**
+	 * Отправляет код подтверждение в уведомлении при условии, что телефон введен верно
+	 */
 	const sendCode = () => {
 		if (!validatePhone()) return;
 
@@ -51,6 +62,10 @@ export const useAuthForm = (closeModal) => {
 		NotificationManager.info(`Код подтверждения: ${newCode}`);
 	};
 
+	/**
+	 * Обработчик кнопки "Войти"
+	 * @returns {Promise<void>}
+	 */
 	const handleLogin = async () => {
 
 		if (formState.codeInput !== formState.code) {
@@ -73,6 +88,9 @@ export const useAuthForm = (closeModal) => {
 		}
 	};
 
+	/**
+	 * Сбрасывает данные формы
+	 */
 	const resetForm = () => {
 		updateState({
 			phone: "",

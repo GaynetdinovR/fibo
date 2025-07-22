@@ -5,12 +5,15 @@ import AddressModal from "../components/AddressModal/AddressModal.jsx";
 
 import NotificationContainer from "react-notifications/lib/NotificationContainer.js";
 import { ModalProvider } from "./ModalProvider.jsx";
+import MenuProvider from "./MenuProvider.jsx";
 
 const Template = ({ children }) => {
 	return (
 		<ModalProvider>
 			<NotificationContainer />
-			<Header />
+			<MenuProvider>
+				<Header />
+			</MenuProvider>
 			<AuthModal />
 			<AddressModal />
 			<main> {children} </main>

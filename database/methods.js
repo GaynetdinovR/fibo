@@ -31,7 +31,7 @@ const getPromos = (req, res) => {
 };
 
 /**
- * Получает номер телефона и отправляет соответсвующего пользователя
+ * Получает номер телефона и отправляет соответствующего пользователя
  * @param req
  * @param res
  * @returns {Promise<void>}
@@ -83,6 +83,8 @@ const authorization = async (req, res) => {
 		const user = await knex("users").where(userPhone).first();
 
 		if (!user) await knex("users").insert(userPhone);
+
+		res.status(200).json({ message: "Authorizated" });
 	} catch (error) {
 		console.error(error);
 

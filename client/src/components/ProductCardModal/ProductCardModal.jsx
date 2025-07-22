@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { roundToTwo } from "../../utils/functions.js";
+import { formatDefaultProductToCart, roundToTwo } from "../../utils/functions.js";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cartSlice/cartSlice.js";
 
 import styles from "../../styles/components/ProductCardModal.module.sass";
 
@@ -22,32 +24,39 @@ const TEXT_TYPES = {
 	thin: "тонкое тесто"
 };
 
+const INIT_SIZES = [
+	{ text: "Маленькая", id: "small", active: false },
+	{ text: "Средняя", id: "medium", active: true },
+	{ text: "Большая", id: "large", active: false }
+];
+
+const INIT_TYPES = [
+	{ text: "Традиционное", id: "traditional", active: true },
+	{ text: "Тонкое", id: "thin", active: false }
+];
+
+const INIT_SUPPLEMENTS = (supplementsData) =>
+	supplementsData.reduce(
+		(acc, item) => ({
+			...acc,
+			[item.supplement_id]: false
+		}),
+		{}
+	);
+
 const ProductCardModal = ({ product, supplementsData }) => {
 	const { setProductCard, isProductCardOpen } = useContext(ModalContext);
 	const [setOpen, isOpen] = [setProductCard, isProductCardOpen];
 
+	const dispatch = useDispatch();
+
 	// Variables
 
-	const [sizes, setSizes] = useState([
-		{ text: "Маленькая", id: "small", active: false },
-		{ text: "Средняя", id: "medium", active: true },
-		{ text: "Большая", id: "large", active: false }
-	]);
+	const [sizes, setSizes] = useState(INIT_SIZES);
 
-	const [types, setTypes] = useState([
-		{ text: "Традиционное", id: "traditional", active: true },
-		{ text: "Тонкое", id: "thin", active: false }
-	]);
+	const [types, setTypes] = useState(INIT_TYPES);
 
-	const [supplements, setSupplements] = useState(() =>
-		supplementsData.reduce(
-			(acc, item) => ({
-				...acc,
-				[item.supplement_id]: false
-			}),
-			{}
-		)
-	);
+	const [supplements, setSupplements] = useState(INIT_SUPPLEMENTS(supplementsData));
 
 	const [totalPrice, setTotalPrice] = useState(0);
 
@@ -105,6 +114,45 @@ const ProductCardModal = ({ product, supplementsData }) => {
 	};
 
 	/**
+	 * Возвращает массив выбранных добавок
+	 */
+	const getChosenSupplements = () => {
+		return Object.entries(supplements)
+			.filter(([key, status]) => status === true)
+			.map(([key]) => key);
+	};
+
+	/**
+	 * Сбрасывает введенные данные
+	 */
+	const reset = () => {
+		setSizes(INIT_SIZES);
+		setTypes(INIT_TYPES);
+		setSupplements(INIT_SUPPLEMENTS(supplementsData));
+	};
+
+	/**
+	 * Обработчик добавления в корзину
+	 */
+	const handleAddToCartBtn = () => {
+		const productToCart = formatDefaultProductToCart(product);
+
+		const editedInfo = {
+			price: totalPrice,
+			additional_info: {
+				size: sizes.find(size => size.active).id,
+				type: types.find(type => type.active).id,
+				supplements: getChosenSupplements()
+			}
+		};
+
+		dispatch(addToCart({ ...productToCart, ...editedInfo }));
+
+		setOpen(false);
+		reset();
+	};
+
+	/**
 	 * Возвращает текст выбранного размера
 	 * @returns {*}
 	 */
@@ -152,7 +200,7 @@ const ProductCardModal = ({ product, supplementsData }) => {
 					/>
 
 					<Button
-						onClickFn={() => console.log("some shit added to cart")}
+						onClickFn={handleAddToCartBtn}
 						className={styles.product_card_modal__add_to_cart_btn}
 					>
 						Добавить в корзину {totalPrice} ₽

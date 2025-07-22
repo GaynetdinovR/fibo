@@ -10,8 +10,9 @@ import Modal from "../../ui/Modal.jsx";
 import H3 from "../../ui/H3.jsx";
 import AddressInput from "../../ui/AddressInput.jsx";
 import Button from "../../ui/Button.jsx";
+import DeliveryType from "./components/DeliveryType.jsx";
 
-const DELIVERY_TYPES = {
+export const DELIVERY_TYPES = {
 	DELIVERY: "delivery",
 	SELF_PICKUP: "self_pickup"
 };
@@ -33,10 +34,18 @@ const AddressModal = ({ isCanChoose = false }) => {
 
 	const [deliveryType, setDeliveryType] = useState(DELIVERY_TYPES.DELIVERY);
 	const [addressData, setAddressDataLocal] = useState(INITIAL_ADDRESS_STATE);
+
+	/**
+	 * Обработчик изменения типа доставки
+	 * @param type
+	 */
 	const handleDeliveryTypeChange = (type) => {
 		setDeliveryType(type);
 	};
 
+	/**
+	 * Сбрасывает данные формы
+	 */
 	const resetAddressForm = () => {
 		setAddressDataLocal(INITIAL_ADDRESS_STATE);
 	};
@@ -62,23 +71,10 @@ const AddressModal = ({ isCanChoose = false }) => {
 				<H3 className={styles.address_modal__title}>Куда доставить?</H3>
 
 				{isCanChoose && (
-					<div className={styles.address_modal__top_side}>
-						<Button
-							className={styles.address_modal__top_btn}
-							onClickFn={() => handleDeliveryTypeChange(DELIVERY_TYPES.DELIVERY)}
-							isDisabled={deliveryType === DELIVERY_TYPES.DELIVERY}
-						>
-							Доставка
-						</Button>
-
-						<Button
-							className={styles.address_modal__top_btn}
-							onClickFn={() => handleDeliveryTypeChange(DELIVERY_TYPES.SELF_PICKUP)}
-							isDisabled={deliveryType === DELIVERY_TYPES.SELF_PICKUP}
-						>
-							Самовывоз
-						</Button>
-					</div>
+					<DeliveryType
+						handleDeliveryTypeChange={handleDeliveryTypeChange}
+						deliveryType={deliveryType}
+					/>
 				)}
 
 				<AddressInput

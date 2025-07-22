@@ -1,6 +1,9 @@
 import styles from "../../styles/components/Other.module.sass";
 
 const ButtonToTop = () => {
+	/**
+	 * Скролл на верх страницы
+	 */
 	const scrollToTop = () => {
 		window.scrollTo(0, 0);
 	};

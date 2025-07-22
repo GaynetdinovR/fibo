@@ -71,6 +71,13 @@
     color: $white
     background-color: $yellow
 
+    &:disabled
+      cursor: initial
+      filter: brightness(0.8)
+
+    &:disabled:hover
+      filter: brightness(0.8)
+
     @include btn_hover
 
 @import "../media/Products.media"

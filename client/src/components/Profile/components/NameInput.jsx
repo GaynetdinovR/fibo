@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import { updateUserDataByPhone } from "../../../utils/api.js";
 import { useDispatch } from "react-redux";
 import { setName } from "../../../store/userSlice/userSlice.js";
-import { useFormState } from "../../../utils/hooks.js";
 
 import Input from "../../../ui/Input/Input.jsx";
 import DashedLink from "../../../ui/DashedLink.jsx";
 import { NotificationManager } from "react-notifications";
+import { useFormState } from "../../../utils/useFormState.js";
 
 const NameInput = ({ userData }) => {
 	const dispatch = useDispatch();
@@ -40,7 +40,7 @@ const NameInput = ({ userData }) => {
 				dispatch(setName(value));
 				await updateUserDataByPhone(userData.phone, { name: value });
 				setNameDisabled(true);
-				NotificationManager.success('Имя изменено')
+				NotificationManager.success("Имя изменено");
 			} catch (error) {
 				console.error("Update user data by phone errored:", error);
 				setNameErrored(true);

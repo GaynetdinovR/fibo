@@ -245,4 +245,27 @@
   &__price
     @include font($w: 600, $s: 16px, $c: $yellow)
 
+
+.quantity_selector
+  background-color: $light_grey_1
+  width: 100px
+  box-sizing: border-box
+  border-radius: 10px
+  @include flex($jc: space-between, $ai: center)
+
+  &__step_btn:first-of-type
+    border-radius: 10px 0 0 10px
+  &__step_btn:last-of-type
+    border-radius: 0 10px 10px 0
+  &__step_btn
+    background-color: $light_grey_1
+    box-sizing: border-box
+    border: none
+    padding: 8px 15px
+    @include font(20px, 700, $grey_2, 18px)
+    @include btn_hover
+
+  &__count
+    @include font(18px, 700, $grey_2)
+
 @import "Ui.media"

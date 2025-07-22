@@ -21,6 +21,10 @@ const NAVBAR_LINKS = [
 
 const HeaderNavBar = ({ isMenuOpen, setMenu, setAuth }) => {
 	const user = useSelector((state) => state.user);
+
+	/**
+	 * Обработчик кнопки "Войти"
+	 */
 	const handleLogin = () => {
 		setAuth(true);
 		setMenu(false);

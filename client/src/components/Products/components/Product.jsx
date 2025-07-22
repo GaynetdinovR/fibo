@@ -2,20 +2,27 @@ import styles from "../../../styles/components/Products.module.sass";
 import H4 from "../../../ui/H4.jsx";
 import Text from "../../../ui/Text.jsx";
 import Button from "../../../ui/Button.jsx";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { ModalContext } from "../../../ui/ModalProvider.jsx";
 import NewTag from "../../../ui/NewTag.jsx";
+import { useProductActions } from "../../../utils/useProductActions.js";
+import { useProductInCart } from "../../../utils/useProductInCart.js";
 
 const Product = ({ product, chooseProduct }) => {
 	const { setProductCard } = useContext(ModalContext);
-	const handleAddToCart = () => {
-		if (product.type !== "pizza") {
-			return; // TODO: add to cart not pizzas
-		};
 
-		chooseProduct(product);
-		setProductCard(true);
-	};
+	const { isProductInCart } = useProductInCart();
+	const { handleProductClick } = useProductActions();
+
+	/**
+	 * Обработчик клика
+	 */
+	const handleClick = useCallback(() => {
+		handleProductClick(product, {
+			chooseProduct,
+			setProductCard
+		});
+	}, [product, chooseProduct, setProductCard, handleProductClick]);
 
 	const hasDescription = product.description && product.description !== "-";
 
@@ -44,10 +51,11 @@ const Product = ({ product, chooseProduct }) => {
 				<span className={styles.product__price}>{product.price} ₽</span>
 
 				<Button
-					onClickFn={handleAddToCart}
+					isDisabled={isProductInCart(product.id)}
+					onClickFn={handleClick}
 					className={styles.product__to_cart_btn}
 				>
-					В корзину
+					{!isProductInCart(product.id) ? 'В корзину' : 'Добавлено'}
 				</Button>
 			</div>
 		</div>
