@@ -1,5 +1,5 @@
 import styles from "../../../styles/components/CartMenu.module.sass";
-import RecommendatedProduct from "./RecommendatedProduct.jsx";
+import RecommendatedProduct from "../../../ui/RecommendatedProduct.jsx";
 import { useRecommendations } from "../../../utils/useReccomendations.js";
 import { useRecommendationsUpdate } from "../../../utils/useRecommendationsUpdate.js";
 

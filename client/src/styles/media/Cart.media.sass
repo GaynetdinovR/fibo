@@ -1,0 +1,76 @@
+@import "../variables"
+@import "../mixins"
+
+//<1280px
+@media screen and (max-width: $laptop_medium)
+  .cart
+    padding: 20px 80px
+//<1024px
+@media screen and (max-width: $laptop_small)
+  .cart
+    padding: 20px 40px
+  .cart__recommendations_carousel
+    max-width: 510px
+
+// <960px
+@media screen and (max-width: $tablet_large)
+  .cart
+    padding: 20px
+  .cart__control_sum
+    & span:first-child
+      margin-right: 10px
+      font-size: 18px
+
+    & span:last-child
+      font-size: 24px
+
+//<768px
+@media screen and (max-width: $tablet_medium)
+  .cart__product
+    &_price, &_quantity_selector
+      margin: 10px 0 0 0
+    &_control
+      flex-direction: column
+  .cart__promocode_input
+      max-width: 150px
+  .cart__sauces_sauce
+    margin-right: 15px
+
+//<640px
+@media screen and (max-width: $tablet_small)
+  .cart__product
+    grid-template-rows: 1fr 50px
+    grid-template-columns: 70px 1fr
+    &_control
+      flex-direction: row-reverse
+      grid-column: span 2
+
+  .cart__sauces
+    &_sauce
+      margin: 0
+    &_content
+      align-items: center
+      justify-items: center
+      @include grid(repeat(2, 130px), repeat(3, 100px), 15px)
+
+  .cart__promocode
+    &_title
+      text-align: center
+
+  .cart__control
+    &_top_side
+      flex-direction: column
+    &_bottom_side
+      flex-direction: column
+    &_next_step
+      margin-top: 20px
+
+
+//<540px
+@media screen and (max-width: $phone_large)
+  .cart__recommendations_carousel
+    max-width: 250px
+//<480px
+@media screen and (max-width: $phone_medium)
+  .cart
+    padding: 10px

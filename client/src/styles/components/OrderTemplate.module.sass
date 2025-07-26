@@ -1,0 +1,101 @@
+@import "../variables"
+@import "../mixins"
+
+.order_header
+  max-width: 1550px
+  box-sizing: border-box
+  margin: 0 auto
+  padding: 20px 170px
+  @include flex($jc: space-between, $ai: center)
+
+  &__logo
+    margin-top: 30px
+
+  &__status
+    @include flex($jc: space-between, $ai: center)
+
+    &_step:nth-child(1),
+    &_step:nth-child(2)
+      margin-right: 140px
+
+      &::after
+        content: ''
+        position: absolute
+        width: 100px
+        top: 20px
+        left: 60px
+        right: 0
+        height: 1px
+        background: transparent
+        border-top: 1px dashed $light_grey_2
+        z-index: -1
+
+    &_step
+      position: relative
+
+      &.active
+        .order_header__status_name
+          color: $black_2
+
+        .order_header__status_circle
+          background-color: $yellow
+
+        .order_header__status_circle_num
+          color: $black_2
+
+    &_name
+      position: absolute
+      margin-top: 10px
+      white-space: nowrap
+      left: 50%
+      transform: translateX(-50%)
+      @include font(14px, 600, $grey_1)
+
+    &_circle
+      width: 36px
+      height: 36px
+      border-radius: 50%
+      border: 2px solid $yellow
+      @include flex($jc: center, $ai: center)
+
+      span
+        @include font(15px, 700, $yellow)
+
+
+//<1280px
+@media screen and (max-width: $laptop_medium)
+  .order_header
+    padding: 20px 80px
+
+//<1024px
+@media screen and (max-width: $laptop_small)
+  .order_header
+    padding: 20px 40px
+  .order_header__status
+    margin-right: 30px
+
+// <960px
+@media screen and (max-width: $tablet_large)
+  .order_header
+    padding: 20px
+
+//<540px
+@media screen and (max-width: $phone_large)
+  .order_header__logo
+    margin-top: 0
+  .order_header__status
+    margin-right: 0
+    &_step:nth-child(1),
+    &_step:nth-child(2)
+      margin-right: 40px
+
+      &::after
+        width: 20px
+        left: 50px
+    &_name
+      display: none
+
+//<480px
+@media screen and (max-width: $phone_medium)
+  .order_header
+    padding: 10px

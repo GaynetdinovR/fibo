@@ -3,7 +3,14 @@ import classNames from "classnames";
 import InputMask from "react-input-mask";
 import InputErrorAlert from "./InputErrorAlert.jsx";
 
-const Input = ({ className, placeholder, isDisabled, mask, setVal, errorInfo }) => {
+const Input = ({
+	className,
+	placeholder,
+	isDisabled,
+	mask,
+	setVal,
+	errorInfo
+}) => {
 	const classNamesString = errorInfo.isErrored
 		? classNames(className, styles.input__errored, styles.input)
 		: classNames(className, styles.input);

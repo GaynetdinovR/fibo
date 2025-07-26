@@ -1,0 +1,143 @@
+@import "../variables"
+@import "../mixins"
+
+.cart
+  padding: 20px 170px
+  margin: 0 auto
+  max-width: 1150px
+
+  &__title
+    color: $yellow
+
+  &__products
+    margin-top: 20px
+
+  &__product
+    padding: 20px 0
+    justify-items: center
+    align-items: center
+    @include grid(1fr, 70px minmax(200px, 600px) 1fr, 0 10px)
+
+    &_img
+      @include img(70px)
+
+    &_info
+      min-width: 200px
+      width: 100%
+      max-width: 600px
+
+    &_name
+      @include font(17px, 700)
+
+    &_description
+      margin-top: 5px
+
+    &_price
+      margin-right: 10px
+      @include font(24px, 700, $yellow)
+
+    &_quantity_selector
+      margin-right: 10px
+
+    &_control
+      max-width: 350px
+      width: 100%
+      @include flex($jc: space-between, $ai: center, $d: row-reverse)
+
+    &_delete_btn
+      position: relative
+
+  &__recommendations
+    &_title
+      color: $yellow
+
+    &_content
+      margin-top: 20px
+
+    &_carousel
+      margin: 0 auto
+      max-width: 800px
+
+  &__sauces
+    margin-top: 10px
+
+    &_title
+      color: $yellow
+
+    &_content
+      @include flex($jc: center, $ai: center, $w: wrap)
+      margin-top: 20px
+
+    &_sauce
+      margin-top: 10px
+      margin-right: 30px
+
+    &_sauce:last-child
+      margin-right: 0
+
+  &__control
+    margin-top: 20px
+    &_top_side
+      @include flex(space-between, center)
+
+    &_bottom_side
+      margin-top: 40px
+      @include flex(space-between, center)
+
+    &_back_to_shop
+      @include font(15px, 700, $grey_3)
+      @include flex(flex-start, center)
+
+      &::before
+        content: ''
+        margin-right: 5px
+        @include arrow(left, 6px, $grey_3, 3px)
+
+    &_next_step
+      background-color: $yellow
+      padding: 15px 30px
+      color: $black_2
+      @include flex(center, center)
+      @include btn_hover
+
+      &::after
+        content: ''
+        margin-left: 10px
+        @include arrow(right, 6px, $black_2, 3px)
+
+    &_sum
+      margin-top: 50px
+      @include font(24px, 700)
+      @include flex(center, center)
+
+      & span:first-child
+        margin-right: 20px
+        color: $black_2
+        font-size: 24px
+
+      & span:last-child
+        color: $yellow
+        font-size: 36px
+
+  &__promocode
+    &_title
+      color: $pink
+
+    &_wrap
+      margin-top: 20px
+      @include flex($jc: flex-start, $ai: center)
+
+    &_input
+      border-radius: 10px 0 0 10px
+      box-sizing: border-box
+      height: 50px
+      border-right: none
+
+    &_btn
+      border-radius: 0 10px 10px 0
+      box-sizing: border-box
+      height: 50px
+      background-color: $yellow
+      @include btn_hover
+
+@import "../media/Cart.media"

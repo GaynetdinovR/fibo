@@ -3,8 +3,12 @@ import { useState } from "react";
 import QuantitySelector from "../../../ui/QuantitySelector.jsx";
 import H5 from "../../../ui/H5.jsx";
 import { useDispatch } from "react-redux";
-import { removeFromCartById, setProductCountById } from "../../../store/cartSlice/cartSlice.js";
+import {
+	removeFromCartById,
+	setProductCountById
+} from "../../../store/cartSlice/cartSlice.js";
 import { roundToTwo } from "../../../utils/functions.js";
+import DeleteCrossButton from "../../../ui/DeleteCrossButton.jsx";
 
 const Product = ({ product }) => {
 	const [localCount, setLocalCount] = useState(product?.count);
@@ -29,10 +33,10 @@ const Product = ({ product }) => {
 
 	return (
 		<div className={styles.cart_menu__product}>
-			<button onClick={handleDeletebtn} className={styles.cart_menu__product_delete_btn}>
-				<div></div>
-				<div></div>
-			</button>
+			<DeleteCrossButton
+				onClick={handleDeletebtn}
+				className={styles.cart_menu__product_delete_btn}
+			/>
 
 			<div className={styles.cart_menu__product_img}>
 				<img src={product?.img_url} alt="product" />

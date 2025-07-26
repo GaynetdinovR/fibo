@@ -52,3 +52,33 @@
     filter: brightness(0.95)
   &:active
     filter: brightness(0.95)
+
+@mixin arrow($direction: right, $size: 10px, $color: #000, $thickness: 2px)
+  display: inline-block
+  width: $size
+  height: $size
+  border: none
+  background: transparent
+
+  @if $direction == right
+    border-top: $thickness solid $color
+    border-right: $thickness solid $color
+    transform: rotate(45deg)
+
+
+  @else if $direction == left
+          border-top: $thickness solid $color
+          border-left: $thickness solid $color
+          transform: rotate(-45deg)
+
+
+  @else if $direction == up
+          border-top: $thickness solid $color
+          border-right: $thickness solid $color
+          transform: rotate(-45deg)
+
+
+  @else if $direction == down
+          border-bottom: $thickness solid $color
+          border-right: $thickness solid $color
+          transform: rotate(45deg)

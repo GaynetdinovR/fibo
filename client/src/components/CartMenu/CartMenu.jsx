@@ -8,7 +8,7 @@ import NoProducts from "./components/NoProducts.jsx";
 import RouterLink from "../../ui/RouterLink.jsx";
 import Recommendations from "./components/Recommendations.jsx";
 import DivideLine from "./components/DivideLine.jsx";
-import { roundToTwo } from "../../utils/functions.js";
+import { getCartSum, roundToTwo } from "../../utils/functions.js";
 
 const CartMenu = () => {
 	const cart = useSelector((state) => state.cart);
@@ -23,10 +23,6 @@ const CartMenu = () => {
 		if (remainCount === 1) return `${text} позиция`;
 		if (remainCount < 5 && remainCount >= 2) return `${text} позиции`;
 		if (remainCount >= 5) return `${text} позиций`;
-	};
-
-	const getCartSum = () => {
-		return roundToTwo(cart.reduce((sum, product) => sum + (product?.price * product?.count), 0));
 	};
 
 	return (
@@ -66,7 +62,7 @@ const CartMenu = () => {
 
 					<div className={styles.cart_menu__sum}>
 						<span>Сумма заказа</span>
-						<span>{getCartSum()}₽</span>
+						<span>{roundToTwo(getCartSum(cart))}₽</span>
 					</div>
 
 					<DivideLine />

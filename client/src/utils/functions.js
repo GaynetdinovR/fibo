@@ -56,7 +56,7 @@ const formatPhoneFromInternational = (phone) => {
  * @returns string
  */
 const formatPhoneToInternational = (phone) => {
-	if(!phone) return false;
+	if (!phone) return false;
 
 	const countryCode = "+7";
 	const areaCode = phone.substring(1, 4);
@@ -103,8 +103,8 @@ const updateUserAddress = async (userPhone, address, setAddressToStore) => {
  * @returns {*}
  */
 const filterProductsByType = (products, type) => {
-	return products.filter((item) => item.type === type);
-}
+	return products?.filter((item) => item.type === type);
+};
 
 /**
  * Округляет числа до сотых
@@ -123,6 +123,7 @@ const formatDefaultProductToCart = (product) => {
 		id: product?.id,
 		name: product?.name,
 		img_url: product?.img_url,
+		description: product.description,
 		price: product?.price,
 		type: product?.type,
 		additional_info: {
@@ -131,6 +132,20 @@ const formatDefaultProductToCart = (product) => {
 			supplements: []
 		}
 	};
+};
+
+const getShortFormattedName = (name) => {
+	if (name.length > 20) return name.slice(0, 17) + "...";
+
+	return name;
+};
+
+const getCartSum = (cart) => {
+	return cart.reduce((sum, product) => sum + (product?.price * product?.count), 0);
+};
+
+const getSumWithDiscount = (startSum, discount) => {
+	return roundToTwo(startSum * (1 - discount));
 }
 
 export {
@@ -142,5 +157,8 @@ export {
 	updateUserAddress,
 	filterProductsByType,
 	roundToTwo,
-	formatDefaultProductToCart
+	formatDefaultProductToCart,
+	getShortFormattedName,
+	getCartSum,
+	getSumWithDiscount
 };

@@ -1,8 +1,8 @@
 import styles from "../../styles/components/Banners.module.sass";
 import "react-multi-carousel/lib/styles.css";
 
-import Carousel from "react-multi-carousel";
 import BannerItem from "./components/BannerItem.jsx";
+import CarouselWithArrows from "../../ui/CarouselWithArrows.jsx";
 
 const BANNERS = [
 	{ src: "./content/banner_1.jpg", alt: "Специальное предложение на пиццу" },
@@ -28,28 +28,16 @@ const CAROUSEL_RESPONSIVE = {
 	}
 };
 
-const CAROUSEL_SETTINGS = {
-	swipeable: true,
-	draggable: false,
-	showDots: false,
-	ssr: true,
-	infinite: true,
-	autoPlay: true,
-	autoPlaySpeed: 4000,
-	keyBoardControl: true
-};
-
 const Banners = ({ banners = BANNERS }) => {
 	return (
-		<Carousel
-			{...CAROUSEL_SETTINGS}
-			responsive={CAROUSEL_RESPONSIVE}
-			containerClass={styles.banners__carousel}
+		<CarouselWithArrows
+			className={styles.banners__carousel}
+			responsiveSettings={CAROUSEL_RESPONSIVE}
 		>
 			{banners.map((banner, i) => (
 				<BannerItem key={i} src={banner.src} alt={banner.alt} />
 			))}
-		</Carousel>
+		</CarouselWithArrows>
 	);
 };
 export default Banners;

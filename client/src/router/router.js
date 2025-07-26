@@ -4,6 +4,8 @@ import Template from "../ui/Template.jsx";
 import ContactsPage from "./pages/ContactsPage.jsx";
 import PromoPage from "./pages/PromoPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import OrderTemplate from "../ui/OrderTemplate/OrderTemplate.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
 			<Template>
 				<ProfilePage />
 			</Template>
+		)
+	},
+	{
+		path: "cart",
+		element: (
+			<OrderTemplate status={"cart"}>
+				<CartPage />
+			</OrderTemplate>
 		)
 	}
 ]);

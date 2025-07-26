@@ -26,7 +26,7 @@ const EMPTY_CART_RECOMMENDATION_TYPES = [
 const PRIORITY_RULES = [
 	{
 		condition: hasType(PRODUCT_TYPES.PIZZA),
-		typesToSuggest: [PRODUCT_TYPES.SNACK, PRODUCT_TYPES.SAUCE]
+		typesToSuggest: [PRODUCT_TYPES.SNACK]
 	},
 	{
 		condition: hasType(PRODUCT_TYPES.PASTA),
@@ -98,7 +98,7 @@ export const useRecommendations = () => {
 
 	/**
 	 * Возвращает рекомендации согласно корзине в два этапа
-	 * 1. Подбор наиболее подходящих продуктов для корзины (только пицца -> снеки и соусы и т.д)
+	 * 1. Подбор наиболее подходящих продуктов для корзины (только пицца -> снеки и т.д)
 	 * 2. При недоборе продуктов для рекомендации, добавляет случайные продукты
 	 * @type {(function([]=): (*[]))|*}
 	 */
@@ -126,9 +126,11 @@ export const useRecommendations = () => {
 				}
 			}
 
+			// Любые типы продуктов, кроме соусов и добавок
 			const remainingTypes = Object.values(PRODUCT_TYPES).filter(
 				(type) =>
 					type !== PRODUCT_TYPES.SUPPLEMENT &&
+					type !== PRODUCT_TYPES.SAUCE &&
 					!cartTypes.includes(type)
 			);
 

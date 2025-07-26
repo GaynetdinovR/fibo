@@ -12,5 +12,33 @@ body
 .notification-container
   @include font($s: 15px, $c: $white, $w: 500)
 
+.react-multi-carousel-list
+  overflow-x: initial
+  clip-path: inset(0 0 0 0)
+
+.react-multiple-carousel__arrow
+    background: $yellow
+    border-radius: 50%
+    min-width: 40px
+    min-height: 40px
+    transition: 250ms
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    z-index: 1
+
+    &--left
+      left: -40px
+    &--right
+      right: -40px
+
+    &:hover
+      background-color: $dark_yellow
+
+    &::before
+      color: $grey_3
+      font-size: 20px
+      font-weight: 900
+
 .none
   display: none
