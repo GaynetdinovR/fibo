@@ -5,10 +5,10 @@ import { Fragment } from "react";
 
 import Product from "./components/Product.jsx";
 import NoProducts from "./components/NoProducts.jsx";
-import RouterLink from "../../ui/RouterLink.jsx";
+import RouterLink from "../../ui/TextElements/RouterLink.jsx";
 import Recommendations from "./components/Recommendations.jsx";
 import DivideLine from "./components/DivideLine.jsx";
-import { getCartSum, roundToTwo } from "../../utils/functions.js";
+import { getCartSum, roundToTwo } from "../../utils/index.js";
 
 const CartMenu = () => {
 	const cart = useSelector((state) => state.cart);
@@ -16,6 +16,10 @@ const CartMenu = () => {
 	const isCartEmpty = cart.length === 0;
 	const isCartHasMoreThanTwoProducts = cart.length > 2;
 
+	/**
+	 * Возвращает локализованный текст оставшихся позиций
+	 * @returns {string}
+	 */
 	const getRemainText = () => {
 		const remainCount = cart.length - 2;
 		const text = `Еще ${remainCount}`;

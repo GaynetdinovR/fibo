@@ -1,6 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
-import LinkInList from "../../../ui/LinkInList.jsx";
-import RouterLinkInList from "../../../ui/RouterLinkInList.jsx";
+import { useLocation } from "react-router-dom";
+import ListItem from "../../../ui/TextElements/ListItem.jsx";
+import Link from "../../../ui/TextElements/Link.jsx";
+import RouterLink from "../../../ui/TextElements/RouterLink.jsx";
 
 const NavItem = ({ to, href, children, liClass, aClass }) => {
 	const location = useLocation();
@@ -8,16 +9,20 @@ const NavItem = ({ to, href, children, liClass, aClass }) => {
 
 	if (isCurrentPage) {
 		return (
-			<LinkInList liClass={liClass} href={href} className={aClass}>
-				{children}
-			</LinkInList>
+			<ListItem liClass={liClass}>
+				<Link href={href} className={aClass}>
+					{children}
+				</Link>
+			</ListItem>
 		);
 	}
 
 	return (
-		<RouterLinkInList liClass={liClass} to={to} className={aClass}>
-			{children}
-		</RouterLinkInList>
+		<ListItem liClass={liClass}>
+			<RouterLink to={to} className={aClass}>
+				{children}
+			</RouterLink>
+		</ListItem>
 	);
 };
 

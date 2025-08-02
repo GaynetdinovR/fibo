@@ -304,6 +304,7 @@
 
 
 .recommendated_product
+  margin: 0 5px
   padding: 10px 15px
   background-color: $white
   border: 1px solid $light_grey_3
@@ -347,5 +348,114 @@
 
   &__price
     @include font(15px, 700, $pink)
+
+.input_user
+  &__name_input,
+  &__phone_input,
+  &__code_input,
+  &__address_input
+    position: relative
+  &__wrap
+    margin-top: 10px
+    display: flex
+    align-items: flex-end
+
+  &__label
+    display: flex
+    flex-direction: column
+
+  &__address_link
+    margin-left: 15px
+    margin-bottom: 40px
+  &__link
+    margin-left: 15px
+    margin-bottom: 15px
+
+  &__span
+    margin-bottom: 5px
+    @include font($s: 14px, $c: rgba($light_black, 0.7), $w: 700)
+
+  &__checkbox
+    display: flex
+    align-items: center
+
+    &_icon
+      margin-left: 10px
+      @include icon(26px)
+
+    & span
+      margin-left: 5px
+      margin-bottom: 0
+
+    & input:checked::before
+      background-color: $yellow
+
+    & input
+      position: relative
+      padding: 0
+      margin: 0
+      appearance: none
+      cursor: pointer
+
+      border-radius: 50%
+      width: 20px
+      height: 20px
+      border: 3px solid $yellow
+
+      &::before
+        content: ''
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+.promocode
+  &__title
+    color: $pink
+
+  &__wrap
+    margin-top: 20px
+    @include flex($jc: flex-start, $ai: center)
+
+  &__input
+    border-radius: 10px 0 0 10px
+    box-sizing: border-box
+    height: 50px
+    border-right: none
+
+  &__btn
+    border-radius: 0 10px 10px 0
+    box-sizing: border-box
+    height: 50px
+    background-color: $yellow
+    @include btn_hover
+
+.control_btns
+    margin-top: 40px
+    @include flex(space-between, center)
+
+    &__back_btn
+      @include font(15px, 700, $grey_3)
+      @include flex(flex-start, center)
+
+      &::before
+        content: ''
+        margin-right: 5px
+        @include arrow(left, 6px, $grey_3, 3px)
+
+    &__continue_btn
+      background-color: $yellow
+      padding: 15px 30px
+      color: $black_2
+      @include flex(center, center)
+      @include btn_hover
+
+      &::after
+        content: ''
+        margin-left: 10px
+        @include arrow(right, 6px, $black_2, 3px)
 
 @import "Ui.media"

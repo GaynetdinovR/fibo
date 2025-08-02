@@ -1,8 +1,8 @@
 import styles from "../../../styles/components/Cart.module.sass";
 import { useSelector } from "react-redux";
-import { filterProductsByType } from "../../../utils/functions.js";
+import { filterProductsByType } from "../../../utils/index.js";
 import Sauce from "./Sauce.jsx";
-import H4 from "../../../ui/H4.jsx";
+import H4 from "../../../ui/Titles/H4.jsx";
 
 const Sauces = ({setTotalSum}) => {
 	const products = useSelector(state => state.products);

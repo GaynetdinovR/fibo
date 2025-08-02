@@ -70,60 +70,14 @@
       margin-top: 30px
       @include btn_hover
 
-  &__address_wrap
-    position: relative
-
-  &__name_input,
+  &__address_input
+  &__name_input
   &__phone_input
-    position: relative
+  &__code_input
+  &__checkbox
+    margin-top: 40px
+
   &__input
-    &_checkbox
-      display: flex
-      align-items: center
-      margin-top: 40px
-
-      & span
-        margin-left: 10px
-        margin-bottom: 0
-
-      & input:checked::before
-        background-color: $yellow
-
-      & input
-        position: relative
-        padding: 0
-        margin: 0
-        appearance: none
-        cursor: pointer
-
-        border-radius: 50%
-        width: 20px
-        height: 20px
-        border: 3px solid $yellow
-
-        &::before
-          content: ''
-          width: 10px
-          height: 10px
-          border-radius: 50%
-          position: absolute
-          top: 50%
-          left: 50%
-          transform: translate(-50%, -50%)
-
-    &_wrap
-      margin-top: 10px
-      display: flex
-      align-items: flex-end
-
-    &_label
-      display: flex
-      flex-direction: column
-
-    &_link
-      margin-left: 15px
-      margin-bottom: 15px
-
     &_span
       margin-bottom: 5px
       @include font($s: 14px, $c: rgba($light_black, 0.7), $w: 700)
@@ -132,8 +86,5 @@
     display: flex
     align-items: center
 
-    &_link
-      margin-bottom: 40px
-      margin-left: 15px
 
 @import '../media/Profile.media'

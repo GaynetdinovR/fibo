@@ -1,12 +1,12 @@
 import styles from "../../../styles/components/Products.module.sass";
-import H4 from "../../../ui/H4.jsx";
-import Text from "../../../ui/Text.jsx";
-import Button from "../../../ui/Button.jsx";
+import H4 from "../../../ui/Titles/H4.jsx";
+import Text from "../../../ui/TextElements/Text.jsx";
+import Button from "../../../ui/Buttons/Button.jsx";
 import { useCallback, useContext } from "react";
-import { ModalContext } from "../../../ui/ModalProvider.jsx";
-import NewTag from "../../../ui/NewTag.jsx";
-import { useProductActions } from "../../../utils/useProductActions.js";
-import { useProductInCart } from "../../../utils/useProductInCart.js";
+import { ModalContext } from "../../../ui/Providers/ModalProvider.jsx";
+import NewTag from "../../../ui/Other/NewTag.jsx";
+import { useProductActions } from "../../../hooks/useProductActions.js";
+import { useProductInCart } from "../../../hooks/useProductInCart.js";
 
 const Product = ({ product, chooseProduct }) => {
 	const { setProductCard } = useContext(ModalContext);

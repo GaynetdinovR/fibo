@@ -1,6 +1,6 @@
 import styles from "../../styles/components/OurPromo.module.sass";
-import H2 from "../../ui/H2.jsx";
-import OvalButton from "../../ui/OvalButton.jsx";
+import H2 from "../../ui/Titles/H2.jsx";
+import OvalButton from "../../ui/Buttons/OvalButton.jsx";
 
 const PROMOS = [
 	{ src: "./content/promo_1.jpg" },

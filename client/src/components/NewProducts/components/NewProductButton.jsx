@@ -1,11 +1,11 @@
 import styles from "../../../styles/components/NewProducts.module.sass";
-import H5 from "../../../ui/H5.jsx";
-import { ModalContext } from "../../../ui/ModalProvider.jsx";
+import H5 from "../../../ui/Titles/H5.jsx";
+import { ModalContext } from "../../../ui/Providers/ModalProvider.jsx";
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../store/cartSlice/cartSlice.js";
-import { formatDefaultProductToCart } from "../../../utils/functions.js";
-import { useProductInCart } from "../../../utils/useProductInCart.js";
+import { formatDefaultProductToCart } from "../../../utils/index.js";
+import { useProductInCart } from "../../../hooks/useProductInCart.js";
 
 const NewProductButton = ({ chooseProduct, product }) => {
 	const { setProductCard } = useContext(ModalContext);

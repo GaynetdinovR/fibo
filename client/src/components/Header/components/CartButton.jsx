@@ -1,9 +1,9 @@
 import styles from "../../../styles/components/Header.module.sass";
-import Button from "../../../ui/Button.jsx";
+import Button from "../../../ui/Buttons/Button.jsx";
 import { useSelector } from "react-redux";
 import { useContext } from "react";
-import { MenuContext } from "../../../ui/MenuProvider.jsx";
-import RouterLink from "../../../ui/RouterLink.jsx";
+import { MenuContext } from "../../../ui/Providers/MenuProvider.jsx";
+import RouterLink from "../../../ui/TextElements/RouterLink.jsx";
 import { useNavigate } from "react-router-dom";
 
 const CartButton = () => {

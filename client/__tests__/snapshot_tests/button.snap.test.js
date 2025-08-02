@@ -1,6 +1,6 @@
 import renderer from "react-test-renderer";
 import { it, expect } from "@jest/globals";
-import Button from "../../src/ui/Button.jsx";
+import Button from "../../src/ui/Buttons/Button.jsx";
 
 it("renders correctly", () => {
 	const tree = renderer.create(<Button>Button</Button>).toJSON();

@@ -77,33 +77,9 @@
 
   &__control
     margin-top: 20px
+    &_bottom_side
     &_top_side
       @include flex(space-between, center)
-
-    &_bottom_side
-      margin-top: 40px
-      @include flex(space-between, center)
-
-    &_back_to_shop
-      @include font(15px, 700, $grey_3)
-      @include flex(flex-start, center)
-
-      &::before
-        content: ''
-        margin-right: 5px
-        @include arrow(left, 6px, $grey_3, 3px)
-
-    &_next_step
-      background-color: $yellow
-      padding: 15px 30px
-      color: $black_2
-      @include flex(center, center)
-      @include btn_hover
-
-      &::after
-        content: ''
-        margin-left: 10px
-        @include arrow(right, 6px, $black_2, 3px)
 
     &_sum
       margin-top: 50px
@@ -120,24 +96,6 @@
         font-size: 36px
 
   &__promocode
-    &_title
-      color: $pink
 
-    &_wrap
-      margin-top: 20px
-      @include flex($jc: flex-start, $ai: center)
-
-    &_input
-      border-radius: 10px 0 0 10px
-      box-sizing: border-box
-      height: 50px
-      border-right: none
-
-    &_btn
-      border-radius: 0 10px 10px 0
-      box-sizing: border-box
-      height: 50px
-      background-color: $yellow
-      @include btn_hover
 
 @import "../media/Cart.media"

@@ -12,6 +12,7 @@
 
     &__img
       max-width: 60px
+
 @media screen and (max-width: $laptop_small)
   .logo
     max-width: 50px
@@ -28,7 +29,10 @@
   body .link_in_list__link
     font-size: 18px
 
+//<768px
 @media screen and (max-width: $tablet_medium)
+  .promocode__input
+    max-width: 150px
   .address
     grid-template-columns: 195px 195px
   .modal
@@ -37,11 +41,28 @@
     &__close_btn
       top: 25px
       right: 25px
+  .input_user
+    &__wrap
+      flex-direction: column
+      align-items: flex-start
 
+    &__link
+      margin: 10px 0 10px
+
+//<640px
 @media screen and (max-width: $tablet_small)
+  .control_btns
+    flex-direction: column
+    &__continue_btn
+      margin-top: 20px
+  .input_user__wrap
+    align-items: flex-start
+  .promocode__title
+    text-align: center
   .logo
     max-width: 60px
 
+//<480px
 @media screen and (max-width: $phone_medium)
   .address
     grid-template-columns: 130px 130px
@@ -65,3 +86,6 @@
 
     &::placeholder
       font-size: 13px
+
+  .input_user__wrap
+    align-self: baseline

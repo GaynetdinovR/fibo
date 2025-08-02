@@ -1,6 +1,6 @@
 import styles from "../../../styles/components/Profile.module.sass";
-import H3 from "../../../ui/H3.jsx";
-import DashedLink from "../../../ui/DashedLink.jsx";
+import H3 from "../../../ui/Titles/H3.jsx";
+import DashedLink from "../../../ui/TextElements/DashedLink.jsx";
 import DefaultBonus from "./DefaultBonus.jsx";
 import Bonus from "./Bonus.jsx";
 import { useNavigate } from "react-router-dom";

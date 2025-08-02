@@ -1,16 +1,20 @@
 import styles from "../../../styles/components/Cart.module.sass";
-import Supplement from "../../../ui/Supplement.jsx";
-import { formatDefaultProductToCart, getShortFormattedName } from "../../../utils/functions.js";
+import Supplement from "../../../ui/Other/Supplement.jsx";
+import { formatDefaultProductToCart, getShortFormattedText } from "../../../utils/index.js";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCartById } from "../../../store/cartSlice/cartSlice.js";
-import { useProductActions } from "../../../utils/useProductActions.js";
-import { useProductInCart } from "../../../utils/useProductInCart.js";
+import { useProductActions } from "../../../hooks/useProductActions.js";
+import { useProductInCart } from "../../../hooks/useProductInCart.js";
 
 const Sauce = ({ sauce }) => {
 	const dispatch = useDispatch();
 	const { handleProductClick } = useProductActions();
 	const { isProductInCart } = useProductInCart();
 
+	/**
+	 * Обработчик клика
+	 * @returns {*}
+	 */
 	const handleClick = () => {
 		if (isProductInCart(sauce?.id))
 			return dispatch(removeFromCartById(sauce?.id));
@@ -23,7 +27,7 @@ const Sauce = ({ sauce }) => {
 			className={styles.cart__sauces_sauce}
 			onClickFn={handleClick}
 			supplement={{
-				name: getShortFormattedName(sauce?.name),
+				name: getShortFormattedText(sauce?.name, 20),
 				img_url: sauce?.img_url,
 				price: sauce?.price
 			}}

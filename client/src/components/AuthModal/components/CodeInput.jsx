@@ -1,7 +1,7 @@
 import styles from "../../../styles/components/AuthModal.module.sass";
-import Input from "../../../ui/Input/Input.jsx";
-import DashedLink from "../../../ui/DashedLink.jsx";
-import { generateCode } from "../../../utils/functions.js";
+import Input from "../../../ui/Inputs/Input/Input.jsx";
+import DashedLink from "../../../ui/TextElements/DashedLink.jsx";
+import { generateCode } from "../../../utils/index.js";
 import { NotificationManager } from "react-notifications";
 
 const CodeInput = ({ codeState }) => {

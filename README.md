@@ -1,7 +1,7 @@
 # fibo | pasta bar
 
-![Static Badge](https://img.shields.io/badge/status-in_progress-orange)
-![Static Badge](https://img.shields.io/badge/done-85%25-yellow)
+![Static Badge](https://img.shields.io/badge/status-refactoring-yellow)
+![Static Badge](https://img.shields.io/badge/done-100%25-green)
 ![Static Badge](https://img.shields.io/badge/petproject-purple)
 
 **fibo — интернет-магазин по заказу и доставке пиццы.** Удобный интерфейс позволяет авторизоваться, выбрать пиццу, добавить ее в корзину и оформить заказ.

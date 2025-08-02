@@ -1,7 +1,7 @@
 import styles from "../../styles/components/PaymentAndDelivery.module.sass";
-import GoogleMap from "../../ui/GoogleMap.jsx";
-import H3 from "../../ui/H3.jsx";
-import Text from "../../ui/Text.jsx";
+import GoogleMap from "../../ui/Other/GoogleMap.jsx";
+import H3 from "../../ui/Titles/H3.jsx";
+import Text from "../../ui/TextElements/Text.jsx";
 
 const BENEFITS = [
 	{ src: "./icons/shop.png", text: "Широкий выбор блюд" },

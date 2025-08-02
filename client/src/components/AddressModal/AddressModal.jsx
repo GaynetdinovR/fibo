@@ -2,14 +2,14 @@ import styles from "../../styles/components/AddressModal.module.sass";
 
 import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { setAddressData } from "../../store/userSlice/userSlice.js";
-import { updateUserAddress } from "../../utils/functions.js";
+import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
+import { setAddress } from "../../store/userSlice/userSlice.js";
+import { updateUserAddress } from "../../utils/index.js";
 
-import Modal from "../../ui/Modal.jsx";
-import H3 from "../../ui/H3.jsx";
-import AddressInput from "../../ui/AddressInput.jsx";
-import Button from "../../ui/Button.jsx";
+import Modal from "../../ui/Templates/Modal.jsx";
+import H3 from "../../ui/Titles/H3.jsx";
+import AddressInput from "../../ui/Inputs/AddressInput.jsx";
+import Button from "../../ui/Buttons/Button.jsx";
 import DeliveryType from "./components/DeliveryType.jsx";
 
 export const DELIVERY_TYPES = {
@@ -26,8 +26,8 @@ const INITIAL_ADDRESS_STATE = {
 };
 
 const AddressModal = ({ isCanChoose = false }) => {
-	const { setAddress, isAddressOpen } = useContext(ModalContext);
-	const [setOpen, isOpen] = [setAddress, isAddressOpen];
+	const { setAddressOpen, isAddressOpen } = useContext(ModalContext);
+	const [setOpen, isOpen] = [setAddressOpen, isAddressOpen];
 
 	const user = useSelector(state => state.user);
 	const dispatch = useDispatch();
@@ -54,11 +54,13 @@ const AddressModal = ({ isCanChoose = false }) => {
 	 * Обновляет адрес пользователя и очищает форму
 	 */
 	const updateUserAddressAndClose = async () => {
-		const setAddressToStore = (val) => dispatch(setAddressData(val));
-		await updateUserAddress(user.phone, addressData, setAddressToStore);
+		if (!isCanChoose && deliveryType === DELIVERY_TYPES.DELIVERY) {
+			const setAddressToStore = (val) => dispatch(setAddress(val));
+			await updateUserAddress(user.phone, addressData, setAddressToStore);
+			resetAddressForm();
+		}
 
 		setOpen(false);
-		resetAddressForm();
 	};
 
 	return (
@@ -88,7 +90,7 @@ const AddressModal = ({ isCanChoose = false }) => {
 					onClickFn={updateUserAddressAndClose}
 					isDisabled={deliveryType === DELIVERY_TYPES.DELIVERY && !addressData.address}
 				>
-					Подтвердить {deliveryType === DELIVERY_TYPES.DELIVERY && 'адрес'}
+					Подтвердить {deliveryType === DELIVERY_TYPES.DELIVERY && "адрес"}
 				</Button>
 			</div>
 		</Modal>

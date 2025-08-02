@@ -1,7 +1,7 @@
 import styles from "../../styles/components/PromoList.module.sass";
 
 import PromoElem from "./components/PromoElem.jsx";
-import H3 from "../../ui/H3.jsx";
+import H3 from "../../ui/Titles/H3.jsx";
 
 const PromoList = ({promos}) => {
 	return (

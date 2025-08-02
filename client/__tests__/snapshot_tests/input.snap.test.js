@@ -1,6 +1,6 @@
 import renderer from "react-test-renderer";
 import { it, expect } from "@jest/globals";
-import Input from "../../src/ui/Input/Input.jsx";
+import Input from "../../src/ui/Inputs/Input/Input.jsx";
 
 it("renders correctly", () => {
 	const tree = renderer

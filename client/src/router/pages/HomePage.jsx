@@ -10,24 +10,33 @@ import ButtonToTop from "../../components/OtherComponents/ButtonToTop.jsx";
 import {
 	getRandom4NewProducts,
 	filterProductsByType
-} from "../../utils/functions.js";
+} from "../../utils/index.js";
 import { getProductsFromDB } from "../../utils/api.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setProductsFromDB } from "../../store/productsSlice/productsSlice.js";
 import ProductCardModal from "../../components/ProductCardModal/ProductCardModal.jsx";
+import { NotificationManager } from "react-notifications";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
 	const products = useSelector((state) => state.products);
 	const [chosenProduct, setChosenProduct] = useState(null);
 
 	const dispatch = useDispatch();
+	const location = useLocation();
 
 	const newProducts = useMemo(() => {
 		return getRandom4NewProducts(products);
 	}, [products]);
 
 	useEffect(() => {
+
+		if (location.state?.showOrderSuccess) {
+			NotificationManager.success("Заказ успешно оформлен");
+			window.history.replaceState({}, "");
+		}
+
 		getProductsFromDB()
 			.then((res) => dispatch(setProductsFromDB(res)))
 			.catch((err) => console.log(err));

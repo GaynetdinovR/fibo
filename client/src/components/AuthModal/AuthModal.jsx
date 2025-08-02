@@ -1,15 +1,15 @@
 import styles from "../../styles/components/AuthModal.module.sass";
 
-import Modal from "../../ui/Modal.jsx";
-import H3 from "../../ui/H3.jsx";
+import Modal from "../../ui/Templates/Modal.jsx";
+import H3 from "../../ui/Titles/H3.jsx";
 import CodeInput from "./components/CodeInput.jsx";
 import BottomSide from "./components/BottomSide.jsx";
 import LogInButton from "./components/LogInButton.jsx";
 import PhoneInput from "./components/PhoneInput.jsx";
 
 import { useContext } from "react";
-import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { useAuthForm } from "../../utils/useAuthForm.js";
+import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
+import { useAuthForm } from "../../hooks/useAuthForm.js";
 
 const AuthModal = () => {
 	const { setAuth, isAuthOpen } = useContext(ModalContext);

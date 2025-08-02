@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
-import Template from "../ui/Template.jsx";
+import Template from "../ui/Templates/Template.jsx";
 import ContactsPage from "./pages/ContactsPage.jsx";
 import PromoPage from "./pages/PromoPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import CartPage from "./pages/CartPage.jsx";
-import OrderTemplate from "../ui/OrderTemplate/OrderTemplate.jsx";
+import OrderTemplate from "../ui/Templates/OrderTemplate/OrderTemplate.jsx";
+import OrderPage from "./pages/OrderPage.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
 		element: (
 			<OrderTemplate status={"cart"}>
 				<CartPage />
+			</OrderTemplate>
+		)
+	},
+	{
+		path: "order",
+		element: (
+			<OrderTemplate status={"registration"}>
+				<OrderPage />
 			</OrderTemplate>
 		)
 	}

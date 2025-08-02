@@ -1,4 +1,4 @@
-import Button from "../../../ui/Button.jsx";
+import Button from "../../../ui/Buttons/Button.jsx";
 import styles from "../../../styles/components/AuthModal.module.sass";
 
 const LogInButton = ({ handler }) => {

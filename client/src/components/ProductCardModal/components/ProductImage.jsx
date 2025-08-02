@@ -1,5 +1,5 @@
 import styles from "../../../styles/components/ProductCardModal.module.sass";
-import NewTag from "../../../ui/NewTag.jsx";
+import NewTag from "../../../ui/Other/NewTag.jsx";
 
 const ProductImage = ({ imgUrl, isNew }) => {
 	return (

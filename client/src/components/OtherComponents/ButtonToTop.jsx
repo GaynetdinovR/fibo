@@ -5,7 +5,7 @@ const ButtonToTop = () => {
 	 * Скролл на верх страницы
 	 */
 	const scrollToTop = () => {
-		window.scrollTo(0, 0);
+		scroll(0, 0);
 	};
 
 	return (

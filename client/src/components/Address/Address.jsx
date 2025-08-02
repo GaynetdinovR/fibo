@@ -1,7 +1,7 @@
 import styles from "../../styles/components/Address.module.sass";
-import PhoneNumber from "../../ui/PhoneNumber.jsx";
-import GoogleMap from "../../ui/GoogleMap.jsx";
-import Text from "../../ui/Text.jsx";
+import PhoneNumber from "../../ui/Other/PhoneNumber.jsx";
+import GoogleMap from "../../ui/Other/GoogleMap.jsx";
+import Text from "../../ui/TextElements/Text.jsx";
 
 const Address = () => {
 	return (

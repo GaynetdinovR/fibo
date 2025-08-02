@@ -1,8 +1,6 @@
 import styles from "../../styles/components/Footer.module.sass";
-import Logo from "../../ui/Logo.jsx";
-import OvalButton from "../../ui/OvalButton.jsx";
-import PhoneNumber from "../../ui/PhoneNumber.jsx";
-import LinkUI from "../../ui/LinkUI.jsx";
+import Logo from "../../ui/Other/Logo.jsx";
+import Link from "../../ui/TextElements/Link.jsx";
 import FooterNavBar from "./components/FooterNavBar.jsx";
 import FooterContacts from "./components/FooterContacts.jsx";
 import Copyright from "./components/Copyright.jsx";
@@ -31,13 +29,13 @@ const Footer = () => {
 				<div className={styles.footer__info}>
 					{isTablet && <Logo className={styles.footer__logo} />}
 
-					<LinkUI className={styles.footer__info_link} href={"#"}>
+					<Link className={styles.footer__info_link} href={"#"}>
 						Калорийность и состав
-					</LinkUI>
+					</Link>
 
-					<LinkUI className={styles.footer__info_link} href={"#"}>
+					<Link className={styles.footer__info_link} href={"#"}>
 						Правовая информация
-					</LinkUI>
+					</Link>
 				</div>
 
 				<FooterNavBar />

@@ -2,7 +2,7 @@ import styles from "../../styles/components/Banners.module.sass";
 import "react-multi-carousel/lib/styles.css";
 
 import BannerItem from "./components/BannerItem.jsx";
-import CarouselWithArrows from "../../ui/CarouselWithArrows.jsx";
+import CarouselWithArrows from "../../ui/Other/CarouselWithArrows.jsx";
 
 const BANNERS = [
 	{ src: "./content/banner_1.jpg", alt: "Специальное предложение на пиццу" },

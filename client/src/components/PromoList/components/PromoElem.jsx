@@ -1,7 +1,7 @@
 import styles from "../../../styles/components/PromoList.module.sass";
-import Button from "../../../ui/Button.jsx";
-import H4 from "../../../ui/H4.jsx";
-import Text from "../../../ui/Text.jsx";
+import Button from "../../../ui/Buttons/Button.jsx";
+import H4 from "../../../ui/Titles/H4.jsx";
+import Text from "../../../ui/TextElements/Text.jsx";
 
 const PromoElem = ({ promo }) => {
 	return (

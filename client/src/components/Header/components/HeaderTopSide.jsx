@@ -2,9 +2,9 @@ import styles from "../../../styles/components/Header.module.sass";
 
 import classNames from "classnames";
 
-import Logo from "../../../ui/Logo.jsx";
-import OvalButton from "../../../ui/OvalButton.jsx";
-import PhoneNumber from "../../../ui/PhoneNumber.jsx";
+import Logo from "../../../ui/Other/Logo.jsx";
+import OvalButton from "../../../ui/Buttons/OvalButton.jsx";
+import PhoneNumber from "../../../ui/Other/PhoneNumber.jsx";
 import CartButton from "./CartButton.jsx";
 import MenuButton from "./MenuButton.jsx";
 import Service from "./Service.jsx";

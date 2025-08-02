@@ -1,6 +1,6 @@
 import styles from "../../../styles/components/Footer.module.sass";
-import PhoneNumber from "../../../ui/PhoneNumber.jsx";
-import OvalButton from "../../../ui/OvalButton.jsx";
+import PhoneNumber from "../../../ui/Other/PhoneNumber.jsx";
+import OvalButton from "../../../ui/Buttons/OvalButton.jsx";
 
 const PhoneInfo = () => {
 	return (

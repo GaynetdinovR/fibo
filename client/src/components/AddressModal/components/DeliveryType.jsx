@@ -1,5 +1,5 @@
 import styles from "../../../styles/components/AddressModal.module.sass";
-import Button from "../../../ui/Button.jsx";
+import Button from "../../../ui/Buttons/Button.jsx";
 import { DELIVERY_TYPES } from "../AddressModal.jsx";
 
 const DeliveryType = ({ handleDeliveryTypeChange, deliveryType }) => {

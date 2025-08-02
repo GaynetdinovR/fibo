@@ -1,6 +1,6 @@
 import renderer from "react-test-renderer";
 import { it, expect } from "@jest/globals";
-import Logo from "../../src/ui/Logo.jsx";
+import Logo from "../../src/ui/Other/Logo.jsx";
 import router from "../../src/router/router.js";
 import { RouterProvider } from "react-router-dom";
 import store from "../../src/store/store.js";

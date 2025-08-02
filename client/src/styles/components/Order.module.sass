@@ -1,0 +1,168 @@
+@import "../mixins"
+@import '../variables'
+
+.order
+  padding: 20px 170px
+  margin: 0 auto
+  max-width: 1550px
+  box-sizing: border-box
+  @include flex($jc: space-between, $ai: flex-start)
+
+  &__left_side
+    width: 750px
+
+  &__title
+    color: $yellow
+
+  &__product:first-child
+    margin-top: 0
+
+  &__product
+    margin-top: 20px
+    @include grid(1fr 1fr, 1fr 0.2fr)
+
+    &_name
+      font-size: 15px
+
+    &_price
+      color: $black_2
+      font-weight: 700
+
+    &_info
+      font-size: 13px
+
+  &__composition
+    padding: 20px
+    box-shadow: 0 4px 28px 0 rgba($black_1, 0.16)
+    border-radius: 5px
+    width: 340px
+    box-sizing: border-box
+    @include font(17px, 600, $grey_3)
+
+    &_title
+      color: $yellow
+
+    &_delivery_sum
+      margin-top: 20px
+      width: 100%
+      text-align: center
+      font-weight: 700
+
+    &_sum
+      margin-top: 60px
+      width: 100%
+      @include flex($jc: space-between, $ai: center)
+      color: $black_2
+
+      & span:last-of-type
+        font-weight: 700
+
+    &_content
+      margin-top: 20px
+
+  &__is_pickup_checkbox
+    margin-right: auto
+    & span
+      font-size: 18px
+
+  &__payment_type
+    width: 100%
+    margin-top: 40px
+    padding: 40px 30px
+    background-color: $light_grey_1
+    border-radius: 5px
+
+    &_title
+      color: $pink
+
+    &_text
+      margin-top: 10px
+      display: block
+      max-width: 500px
+      @include font(10px, 500, $grey_2)
+
+
+    &_checkbox:first-of-type
+      margin-top: 20px
+
+    &_checkbox:last-of-type
+      margin-top: 10px
+
+    &_checkbox
+      & span
+        margin-left: 10px
+        font-size: 18px
+
+      & input:checked::before
+        background-color: $pink
+
+      & input
+        border: 3px solid $pink
+
+
+  &__user_data
+    @include flex($jc: center, $ai: flex-end, $d: column)
+
+  &__name_input,
+  &__phone_input,
+  &__code_input,
+  &__address_input
+    margin: 10px 0
+    position: relative
+    width: 100%
+
+    & label
+      width: 100%
+      @include flex($jc: space-between, $ai: center)
+
+      & > div
+        max-width: 540px
+        display: block
+        width: 100%
+
+    & input
+      margin: 5px 0
+      box-sizing: border-box
+      width: 100%
+
+    & span
+      margin-right: 20px
+
+    & button
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+
+    & button:first-of-type
+      right: 130px
+
+    & button:last-of-type
+      right: 20px
+
+  &__promocode
+    margin-top: 40px
+
+    & h4
+      color: $yellow
+
+  &__checkbox
+    margin-top: 40px
+
+  &__bottom_side
+    margin-top: 40px
+
+  &__card_wrap
+    max-width: 500px
+    margin-top: 20px
+    @include grid(1fr 1fr, 1fr 1fr, 10px)
+
+    & div:first-of-type
+      grid-column: span 2
+
+  &__cvc_input,
+  &__date_input,
+  &__card_input
+    box-sizing: border-box
+    width: 100%
+
+

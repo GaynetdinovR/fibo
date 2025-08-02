@@ -1,5 +1,5 @@
 import styles from "../../../styles/components/ProductCardModal.module.sass";
-import H4 from "../../../ui/H4.jsx";
+import H4 from "../../../ui/Titles/H4.jsx";
 
 const ProductInfo = ({ productInfo }) => {
 	const { name, sizeText, typeText, weight } = productInfo;

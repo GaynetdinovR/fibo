@@ -13,7 +13,7 @@ body
   @include font($s: 15px, $c: $white, $w: 500)
 
 .react-multi-carousel-list
-  overflow-x: initial
+  overflow: unset
   clip-path: inset(0 0 0 0)
 
 .react-multiple-carousel__arrow
@@ -25,12 +25,6 @@ body
     position: absolute
     top: 50%
     transform: translateY(-50%)
-    z-index: 1
-
-    &--left
-      left: -40px
-    &--right
-      right: -40px
 
     &:hover
       background-color: $dark_yellow

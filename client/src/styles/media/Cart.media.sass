@@ -31,13 +31,13 @@
       margin: 10px 0 0 0
     &_control
       flex-direction: column
-  .cart__promocode_input
-      max-width: 150px
+
   .cart__sauces_sauce
     margin-right: 15px
 
 //<640px
 @media screen and (max-width: $tablet_small)
+
   .cart__product
     grid-template-rows: 1fr 50px
     grid-template-columns: 70px 1fr
@@ -53,18 +53,10 @@
       justify-items: center
       @include grid(repeat(2, 130px), repeat(3, 100px), 15px)
 
-  .cart__promocode
-    &_title
-      text-align: center
 
   .cart__control
     &_top_side
       flex-direction: column
-    &_bottom_side
-      flex-direction: column
-    &_next_step
-      margin-top: 20px
-
 
 //<540px
 @media screen and (max-width: $phone_large)

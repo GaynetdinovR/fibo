@@ -2,7 +2,7 @@ import styles from "../../../styles/components/Header.module.sass";
 
 import { useSelector } from "react-redux";
 
-import PhoneNumber from "../../../ui/PhoneNumber.jsx";
+import PhoneNumber from "../../../ui/Other/PhoneNumber.jsx";
 import NavItem from "./NavItem.jsx";
 import CartButton from "./CartButton.jsx";
 import LogInButton from "./LogInButton.jsx";

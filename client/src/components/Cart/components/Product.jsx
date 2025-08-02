@@ -1,9 +1,9 @@
 import styles from "../../../styles/components/Cart.module.sass";
-import H5 from "../../../ui/H5.jsx";
-import QuantitySelector from "../../../ui/QuantitySelector.jsx";
-import { roundToTwo } from "../../../utils/functions.js";
-import DeleteCrossButton from "../../../ui/DeleteCrossButton.jsx";
-import Text from "../../../ui/Text.jsx";
+import H5 from "../../../ui/Titles/H5.jsx";
+import QuantitySelector from "../../../ui/Other/QuantitySelector.jsx";
+import { roundToTwo } from "../../../utils/index.js";
+import DeleteCrossButton from "../../../ui/Buttons/DeleteCrossButton.jsx";
+import Text from "../../../ui/TextElements/Text.jsx";
 import {
 	removeFromCartById,
 	setProductCountById
@@ -20,6 +20,10 @@ const Product = ({ product }) => {
 		dispatch(removeFromCartById(product?.id));
 	};
 
+	/**
+	 * Оболочка для установки количества продукта
+	 * @param val
+	 */
 	const setCountWrap = (val) => {
 		dispatch(setProductCountById({ id: product?.id, count: val }));
 	};

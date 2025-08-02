@@ -1,6 +1,6 @@
 import styles from "../../../styles/components/AuthModal.module.sass";
-import Button from "../../../ui/Button.jsx";
-import Text from "../../../ui/Text.jsx";
+import Button from "../../../ui/Buttons/Button.jsx";
+import Text from "../../../ui/TextElements/Text.jsx";
 
 const BottomSide = ({ sendCode }) => {
 	return (

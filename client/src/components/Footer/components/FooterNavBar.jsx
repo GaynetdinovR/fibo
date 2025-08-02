@@ -1,6 +1,7 @@
 import styles from "../../../styles/components/Footer.module.sass";
-import H6 from "../../../ui/H6.jsx";
-import LinkInList from "../../../ui/LinkInList.jsx";
+import H6 from "../../../ui/Titles/H6.jsx";
+import Link from "../../../ui/TextElements/Link.jsx";
+import ListItem from "../../../ui/TextElements/ListItem.jsx";
 
 const LINKS = ["YouTube", "Facebook", "Instagram", "ВКонтакте"];
 
@@ -10,15 +11,10 @@ const FooterNavBar = () => {
 			<H6 className={styles.footer__nav_title}>Мы в соцсетях</H6>
 			<ul className={styles.footer__nav_list}>
 				{LINKS.map((item, i) => (
-					<LinkInList
-						key={i}
-						liClass={styles.footer__nav_item}
-						aClass={styles.footer__nav_link}
-					>
-						{item}
-					</LinkInList>
+					<ListItem key={i} className={styles.footer__nav_item}>
+						<Link className={styles.footer__nav_link}>{item}</Link>
+					</ListItem>
 				))}
-
 				<li className={styles.footer__nav_item}>
 					<address className={styles.footer__nav_address}>
 						<span> Москва ул. Проспект </span>

@@ -1,8 +1,8 @@
 import styles from "../../styles/components/Products.module.sass";
 
-import H3 from "../../ui/H3.jsx";
+import H3 from "../../ui/Titles/H3.jsx";
 import Product from "./components/Product.jsx";
-import { filterProductsByType } from "../../utils/functions.js";
+import { filterProductsByType } from "../../utils/index.js";
 
 const PRODUCT_CATEGORIES = [
 	{ type: "pizza", title: "Пиццы" },

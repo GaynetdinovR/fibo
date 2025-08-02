@@ -1,38 +1,29 @@
 import { useContext, useEffect, useState } from "react";
-import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { formatDefaultProductToCart, roundToTwo } from "../../utils/functions.js";
+import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
+import { formatDefaultProductToCart, roundToTwo } from "../../utils/index.js";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSlice/cartSlice.js";
 
 import styles from "../../styles/components/ProductCardModal.module.sass";
 
-import Modal from "../../ui/Modal.jsx";
-import Button from "../../ui/Button.jsx";
+import Modal from "../../ui/Templates/Modal.jsx";
+import Button from "../../ui/Buttons/Button.jsx";
 import Supplements from "./components/Supplements.jsx";
 import ProductImage from "./components/ProductImage.jsx";
 import ProductInfo from "./components/ProductInfo.jsx";
 import SizeTypeSelector from "./components/SizeTypeSelector.jsx";
 
-const TEXT_SIZES = {
-	small: ["25 см", "320 г"],
-	medium: ["32 см", "560 г"],
-	large: ["45 см", "880 г"]
-};
-
-const TEXT_TYPES = {
-	traditional: "традиционное тесто",
-	thin: "тонкое тесто"
-};
+import { TEXT_SIZES, TEXT_TYPES } from "../../constants/product_localization.js";
 
 const INIT_SIZES = [
-	{ text: "Маленькая", id: "small", active: false },
-	{ text: "Средняя", id: "medium", active: true },
-	{ text: "Большая", id: "large", active: false }
+	{ id: "small", active: false },
+	{ id: "medium", active: true },
+	{ id: "large", active: false }
 ];
 
 const INIT_TYPES = [
-	{ text: "Традиционное", id: "traditional", active: true },
-	{ text: "Тонкое", id: "thin", active: false }
+	{ id: "traditional", active: true },
+	{ id: "thin", active: false }
 ];
 
 const INIT_SUPPLEMENTS = (supplementsData) =>

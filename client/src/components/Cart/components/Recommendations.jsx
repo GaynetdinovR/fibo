@@ -1,9 +1,9 @@
 import styles from "../../../styles/components/Cart.module.sass";
-import H4 from "../../../ui/H4.jsx";
-import { useRecommendations } from "../../../utils/useReccomendations.js";
-import { useRecommendationsUpdate } from "../../../utils/useRecommendationsUpdate.js";
-import RecommendatedProduct from "../../../ui/RecommendatedProduct.jsx";
-import CarouselWithArrows from "../../../ui/CarouselWithArrows.jsx";
+import H4 from "../../../ui/Titles/H4.jsx";
+import { useRecommendations } from "../../../hooks/useReccomendations.js";
+import { useRecommendationsUpdate } from "../../../hooks/useRecommendationsUpdate.js";
+import RecommendatedProduct from "../../../ui/Other/RecommendatedProduct.jsx";
+import CarouselWithArrows from "../../../ui/Other/CarouselWithArrows.jsx";
 
 const CAROUSEL_RESPONSIVE = {
 	desktop: {

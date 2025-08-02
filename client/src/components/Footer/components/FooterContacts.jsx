@@ -1,6 +1,7 @@
 import styles from "../../../styles/components/Footer.module.sass";
-import H6 from "../../../ui/H6.jsx";
-import LinkInList from "../../../ui/LinkInList.jsx";
+import H6 from "../../../ui/Titles/H6.jsx";
+import ListItem from "../../../ui/TextElements/ListItem.jsx";
+import Link from "../../../ui/TextElements/Link.jsx";
 
 const CONTACTS = [
 	{ src: "./icons/viber.png", alt: "viber" },
@@ -20,21 +21,18 @@ const FooterContacts = () => {
 
 			<ul className={styles.footer__contacts_list}>
 				{CONTACTS.map((item, i) => (
-					<LinkInList
-						key={i}
-						liClass={styles.footer__contacts_item}
-						aClass={styles.footer__contacts_link_img}
-					>
-						<img src={item.src} alt={item.alt} />
-					</LinkInList>
+					<ListItem key={i} liClass={styles.footer__contacts_item}>
+						<Link className={styles.footer__contacts_link_img}>
+							<img src={item.src} alt={item.alt} />
+						</Link>
+					</ListItem>
 				))}
 
-				<LinkInList
-					liClass={styles.footer__contacts_item}
-					aClass={styles.footer__contacts_link}
-				>
-					Написать нам
-				</LinkInList>
+				<ListItem liClass={styles.footer__contacts_item}>
+					<Link className={styles.footer__contacts_link}>
+						Написать нам
+					</Link>
+				</ListItem>
 			</ul>
 		</nav>
 	);

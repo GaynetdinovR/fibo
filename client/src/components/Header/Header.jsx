@@ -1,8 +1,8 @@
 import styles from "../../styles/components/Header.module.sass";
 
 import { lazy, Suspense, useContext, useState } from "react";
-import { ModalContext } from "../../ui/ModalProvider.jsx";
-import { MenuContext } from "../../ui/MenuProvider.jsx";
+import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
+import { MenuContext } from "../../ui/Providers/MenuProvider.jsx";
 
 import HeaderTopSide from "./components/HeaderTopSide.jsx";
 import HeaderNavBar from "./components/HeaderNavBar.jsx";

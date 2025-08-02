@@ -1,4 +1,4 @@
-import H3 from "../../ui/H3.jsx";
+import H3 from "../../ui/Titles/H3.jsx";
 import styles from "../../styles/components/Cart.module.sass";
 import Recommendations from "./components/Recommendations.jsx";
 import Sauces from "./components/Sauces.jsx";
@@ -6,7 +6,7 @@ import ControlSection from "./components/ControlSection.jsx";
 import Products from "./components/Products.jsx";
 import { useSelector } from "react-redux";
 import { useCallback, useEffect, useState } from "react";
-import { getCartSum } from "../../utils/functions.js";
+import { getCartSum } from "../../utils/index.js";
 const Cart = () => {
 	const cart = useSelector(state => state.cart);
 	const [totalSum, setTotalSum] = useState(0);

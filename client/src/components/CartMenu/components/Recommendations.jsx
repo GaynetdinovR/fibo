@@ -1,7 +1,7 @@
 import styles from "../../../styles/components/CartMenu.module.sass";
-import RecommendatedProduct from "../../../ui/RecommendatedProduct.jsx";
-import { useRecommendations } from "../../../utils/useReccomendations.js";
-import { useRecommendationsUpdate } from "../../../utils/useRecommendationsUpdate.js";
+import RecommendatedProduct from "../../../ui/Other/RecommendatedProduct.jsx";
+import { useRecommendations } from "../../../hooks/useReccomendations.js";
+import { useRecommendationsUpdate } from "../../../hooks/useRecommendationsUpdate.js";
 
 const Recommendations = ({cart}) => {
 	const { generateRecommendationsByCart } = useRecommendations();

@@ -1,6 +1,6 @@
 import styles from "../../../styles/components/AuthModal.module.sass";
-import Input from "../../../ui/Input/Input.jsx";
-import DashedLink from "../../../ui/DashedLink.jsx";
+import Input from "../../../ui/Inputs/Input/Input.jsx";
+import DashedLink from "../../../ui/TextElements/DashedLink.jsx";
 
 const PhoneInput = ({ phoneState, isCodeSent }) => {
 	const {

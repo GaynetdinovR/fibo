@@ -1,5 +1,5 @@
 import styles from "../../../styles/components/ProductCardModal.module.sass";
-import Supplement from "../../../ui/Supplement.jsx";
+import Supplement from "../../../ui/Other/Supplement.jsx";
 
 const Supplements = ({ supplementsData, setSupplements }) => {
 	return (
