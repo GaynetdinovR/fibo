@@ -1,5 +1,5 @@
 const API_CONFIG = {
-	baseUrl: "",
+	baseUrl: "https://fibo-d8ma.onrender.com/",
 	headers: {
 		"Content-Type": "application/json"
 	}
