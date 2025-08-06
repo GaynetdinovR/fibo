@@ -1,9 +1,9 @@
 import styles from "../../../styles/components/Footer.module.sass";
 
 const CARD_TYPES = [
-	{ src: "./icons/visa.png", alt: "visa" },
-	{ src: "./icons/paypal.png", alt: "paypal" },
-	{ src: "./icons/mastercard.png", alt: "mastercard" }
+	{ src: "./icons/visa.webp", alt: "visa" },
+	{ src: "./icons/paypal.webp", alt: "paypal" },
+	{ src: "./icons/mastercard.webp", alt: "mastercard" }
 ];
 
 const Copyright = () => {

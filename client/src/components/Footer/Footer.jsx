@@ -5,6 +5,7 @@ import FooterNavBar from "./components/FooterNavBar.jsx";
 import FooterContacts from "./components/FooterContacts.jsx";
 import Copyright from "./components/Copyright.jsx";
 import PhoneInfo from "./components/PhoneInfo.jsx";
+import { memo } from "react";
 
 const Footer = () => {
 	const windowWidth = window.innerWidth;
@@ -52,9 +53,9 @@ const Footer = () => {
 			</div>
 
 			<div className={styles.footer__bg_img}>
-				<img src="./content/logo_2.png" alt="bg" />
+				<img src="./content/logo_2.webp" alt="bg" />
 			</div>
 		</footer>
 	);
 };
-export default Footer;
+export default memo(Footer);

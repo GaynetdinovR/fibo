@@ -1,6 +1,6 @@
 import styles from "../../styles/components/AddressModal.module.sass";
 
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
 import { setAddress } from "../../store/userSlice/userSlice.js";
@@ -54,6 +54,8 @@ const AddressModal = ({ isCanChoose = false }) => {
 	 * Обновляет адрес пользователя и очищает форму
 	 */
 	const updateUserAddressAndClose = async () => {
+		console.log(addressData);
+
 		if (!isCanChoose && deliveryType === DELIVERY_TYPES.DELIVERY) {
 			const setAddressToStore = (val) => dispatch(setAddress(val));
 			await updateUserAddress(user.phone, addressData, setAddressToStore);
@@ -80,7 +82,7 @@ const AddressModal = ({ isCanChoose = false }) => {
 				)}
 
 				<AddressInput
-					isDisabled={deliveryType === DELIVERY_TYPES.SELF_PICKUP}
+					isDisabled={false}
 					data={addressData}
 					setData={setAddressDataLocal}
 				/>
@@ -97,4 +99,4 @@ const AddressModal = ({ isCanChoose = false }) => {
 	);
 };
 
-export default AddressModal;
+export default memo(AddressModal);

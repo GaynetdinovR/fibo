@@ -6,14 +6,14 @@ import cartReducer from "./cartSlice/cartSlice.js";
 import localStorageMiddleware from "./localStorageMiddleware.js";
 
 const loadFromLocalStorage = () => {
-	const serializedState = localStorage.getItem("reduxState");
-
-	if (serializedState === null) return undefined;
-
-	return JSON.parse(serializedState);
+	try {
+		const serializedState = localStorage.getItem("reduxState");
+		return serializedState ? JSON.parse(serializedState) : undefined;
+	} catch (e) {
+		console.error("Failed to load state from localStorage", e);
+		return undefined;
+	}
 };
-
-const preloadedState = loadFromLocalStorage();
 
 const store = configureStore({
 	reducer: {
@@ -24,7 +24,7 @@ const store = configureStore({
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(localStorageMiddleware),
-	preloadedState
+	preloadedState: loadFromLocalStorage()
 });
 
 export default store;

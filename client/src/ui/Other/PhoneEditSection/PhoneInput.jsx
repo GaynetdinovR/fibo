@@ -21,7 +21,7 @@ const PhoneInput = ({
 	 */
 	const handleAction = () => {
 		if (isEditing) {
-			if (phone.length !== 12) {
+			if (phone.length !== 16) {
 				return setIsErrored(true);
 			}
 			setIsErrored(false);
@@ -39,6 +39,7 @@ const PhoneInput = ({
 				placeholder: placeholder,
 				setVal: setPhone,
 				isDisabled: !isEditing,
+				mask: "+7 999 999 99 99",
 				errorInfo: {
 					isErrored: isErrored,
 					error: "Неправильный формат номера"

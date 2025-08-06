@@ -14,7 +14,7 @@ const Modal = ({ children, className, isOpen, setOpen }) => {
 						setOpen(false);
 					}}
 				>
-					<img src="./icons/cross.png" alt="close" />
+					<img src="./icons/cross.webp" alt="close" />
 				</button>
 				{children}
 			</aside>

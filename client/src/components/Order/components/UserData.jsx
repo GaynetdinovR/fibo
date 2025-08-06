@@ -1,13 +1,6 @@
 import styles from "../../../styles/components/Order.module.sass";
-import { useSelector } from "react-redux";
 import NameInput from "../../../ui/Inputs/NameInput.jsx";
 import AddressInputWrap from "../../../ui/Inputs/AddressInputWrap.jsx";
-import PhoneInput from "../../../ui/Other/PhoneEditSection/PhoneInput.jsx";
-import { useContext, useEffect, useState } from "react";
-import { ModalContext } from "../../../ui/Providers/ModalProvider.jsx";
-import InputWithDashedLink from "../../../ui/Inputs/InputWithDashedLink.jsx";
-import { formatPhoneToInternational } from "../../../utils/index.js";
-import PhoneEditSection from "../../../ui/Other/PhoneEditSection/PhoneEditSection.jsx";
 import PhoneInputSection from "./PhoneInputSection.jsx";
 import Checkbox from "../../../ui/Inputs/Checkbox.jsx";
 

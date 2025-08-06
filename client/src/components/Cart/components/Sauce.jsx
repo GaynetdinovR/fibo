@@ -1,8 +1,8 @@
 import styles from "../../../styles/components/Cart.module.sass";
 import Supplement from "../../../ui/Other/Supplement.jsx";
-import { formatDefaultProductToCart, getShortFormattedText } from "../../../utils/index.js";
+import { getShortFormattedText } from "../../../utils/index.js";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCartById } from "../../../store/cartSlice/cartSlice.js";
+import { removeFromCartById } from "../../../store/cartSlice/cartSlice.js";
 import { useProductActions } from "../../../hooks/useProductActions.js";
 import { useProductInCart } from "../../../hooks/useProductInCart.js";
 

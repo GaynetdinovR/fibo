@@ -1,16 +1,18 @@
 import styles from "../../styles/Ui.module.sass";
 import classNames from "classnames";
+import { useMemo } from "react";
 
 const PhoneNumber = ({ phoneNumber, className }) => {
-	const formatPhoneNumber = () => {
-		return phoneNumber
-			.split("")
-			.filter(item => !isNaN(item) && item != ' ')
-			.join('')
-	};
+	const formattedNumber = useMemo(() => {
+		return phoneNumber.replace(/\D/g, "");
+	}, [phoneNumber]);
 
 	return (
-		<a href={`tel:${formatPhoneNumber(phoneNumber)}`} className={classNames(className, styles.phone_number)}>
+		<a
+			href={`tel:${formattedNumber}`}
+			className={classNames(className, styles.phone_number)}
+			aria-label="Позвонить по номеру телефона"
+		>
 			{phoneNumber}
 		</a>
 	);

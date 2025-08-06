@@ -1,9 +1,8 @@
 import styles from "../../../styles/components/Cart.module.sass";
 import H4 from "../../../ui/Titles/H4.jsx";
-import { useRecommendations } from "../../../hooks/useReccomendations.js";
-import { useRecommendationsUpdate } from "../../../hooks/useRecommendationsUpdate.js";
 import RecommendatedProduct from "../../../ui/Other/RecommendatedProduct.jsx";
 import CarouselWithArrows from "../../../ui/Other/CarouselWithArrows.jsx";
+import { useRecommendations } from "../../../hooks/useRecommendations.js";
 
 const CAROUSEL_RESPONSIVE = {
 	desktop: {
@@ -26,13 +25,8 @@ const CAROUSEL_RESPONSIVE = {
 	}
 };
 
-const Recommendations = ({ cart }) => {
-	const { generateRecommendationsByCart } = useRecommendations();
-
-	const recommendations = useRecommendationsUpdate(
-		cart,
-		generateRecommendationsByCart
-	);
+const Recommendations = () => {
+	const recommendations = useRecommendations();
 
 	return (
 		<div className={styles.cart__recommendations}>

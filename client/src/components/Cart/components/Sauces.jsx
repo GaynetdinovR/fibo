@@ -4,9 +4,9 @@ import { filterProductsByType } from "../../../utils/index.js";
 import Sauce from "./Sauce.jsx";
 import H4 from "../../../ui/Titles/H4.jsx";
 
-const Sauces = ({setTotalSum}) => {
+const Sauces = ({ setTotalSum }) => {
 	const products = useSelector(state => state.products);
-	const sauces = filterProductsByType(products, 'sauce');
+	const sauces = filterProductsByType(products, "sauce");
 
 	return (
 		<div className={styles.cart__sauces}>

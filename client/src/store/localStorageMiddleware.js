@@ -1,25 +1,32 @@
+const TARGET_ACTIONS = [
+	"cart/addToCart",
+	"cart/removeFromCartById",
+	"cart/setProductCountById",
+	"cart/clearCart",
+	"user/login",
+	"user/logout",
+	"user/setUserData",
+	"user/setPhone",
+	"user/setName",
+	"user/setAddress"
+];
+
 const localStorageMiddleware = (store) => (next) => (action) => {
 	const result = next(action);
 
-	if (
-		[
-			"cart/addToCart",
-			"cart/removeFromCartById",
-			"cart/setProductCountById",
-			"cart/clearCart",
-			"user/login",
-			"user/logout",
-			"user/setUserData"
-		].includes(action.type)
-	) {
+	if (TARGET_ACTIONS.includes(action.type)) {
 		const state = store.getState();
-		localStorage.setItem(
-			"reduxState",
-			JSON.stringify({
-				user: state.user,
-				cart: state.cart
-			})
-		);
+		try {
+			localStorage.setItem(
+				"reduxState",
+				JSON.stringify({
+					user: state.user,
+					cart: state.cart
+				})
+			);
+		} catch (e) {
+			console.error("Failed to save state to localStorage", e);
+		}
 	}
 
 	return result;

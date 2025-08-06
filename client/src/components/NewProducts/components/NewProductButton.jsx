@@ -2,45 +2,28 @@ import styles from "../../../styles/components/NewProducts.module.sass";
 import H5 from "../../../ui/Titles/H5.jsx";
 import { ModalContext } from "../../../ui/Providers/ModalProvider.jsx";
 import { useContext } from "react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/cartSlice/cartSlice.js";
-import { formatDefaultProductToCart } from "../../../utils/index.js";
-import { useProductInCart } from "../../../hooks/useProductInCart.js";
+import { useProductActions } from "../../../hooks/useProductActions.js";
 
 const NewProductButton = ({ chooseProduct, product }) => {
 	const { setProductCard } = useContext(ModalContext);
-	const dispatch = useDispatch();
+	const { handleProductClick } = useProductActions();
 
-	const { isProductInCart } = useProductInCart();
-
-	/**
-	 * Действия, если продукт - не пицца
-	 */
-	const handleNonPizzaProduct = () => {
-		dispatch(addToCart(formatDefaultProductToCart(product)));
-	};
-
-	/**
-	 * Действия, если продукт - пицца
-	 */
-	const handlePizzaProduct = () => {
-		chooseProduct(product);
-		setProductCard(true);
-	};
-
-	/**
-	 * Обработчик клика
-	 */
 	const handleClick = () => {
-		if (!product || isProductInCart(product?.id)) return;
+		const callbacks = {
+			setProductCard: setProductCard,
+			chooseProduct: chooseProduct
+		};
 
-		product.type === "pizza"
-			? handlePizzaProduct()
-			: handleNonPizzaProduct();
+		handleProductClick(product, callbacks);
 	};
+
+	if (!product) return null;
 
 	return (
-		<button onClick={handleClick} className={styles.new_products__new_product}>
+		<button
+			onClick={handleClick}
+			className={styles.new_products__new_product}
+		>
 			<div className={styles.new_product__img}>
 				<img src={product?.img_url} alt="product" />
 			</div>

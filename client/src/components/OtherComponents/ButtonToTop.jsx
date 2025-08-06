@@ -9,8 +9,12 @@ const ButtonToTop = () => {
 	};
 
 	return (
-		<button onClick={scrollToTop} className={styles.button_to_top}>
-			<img src="./icons/top_arrow.png" alt="top_arrow" />
+		<button
+			aria-label="Scroll To Top"
+			onClick={scrollToTop}
+			className={styles.button_to_top}
+		>
+			<div className={styles.button_to_top__arrow}></div>
 		</button>
 	);
 };

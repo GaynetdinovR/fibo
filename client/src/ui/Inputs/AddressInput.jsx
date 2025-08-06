@@ -15,7 +15,7 @@ const AddressInput = ({ isDisabled, data, setData }) => {
 
 	const formatHints = (hints) => {
 		if (!hints || !hints?.suggestions) return;
-		
+
 		const result = hints.suggestions.map((hint) => {
 			if (hint.data.qc_geo < 2) return hint.value;
 		});
@@ -23,6 +23,7 @@ const AddressInput = ({ isDisabled, data, setData }) => {
 		setHints(result);
 	};
 
+	//TODO: доделать
 	const setAddressWithHints = (value) => {
 		getAddressHint(value).then((res) => formatHints(res));
 
@@ -38,7 +39,9 @@ const AddressInput = ({ isDisabled, data, setData }) => {
 					disabled={isDisabled}
 					id={"city_street_house"}
 					mask={""}
-					onChange={(e) => setAddressWithHints(e.target.value)}
+					onChange={(e) =>
+						setData({ ...data, address: e.target.value })
+					}
 					onClick={() => setHintsShow(true)}
 					value={data?.address}
 				/>

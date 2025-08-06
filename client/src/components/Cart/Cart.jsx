@@ -5,7 +5,7 @@ import Sauces from "./components/Sauces.jsx";
 import ControlSection from "./components/ControlSection.jsx";
 import Products from "./components/Products.jsx";
 import { useSelector } from "react-redux";
-import { useCallback, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { getCartSum } from "../../utils/index.js";
 const Cart = () => {
 	const cart = useSelector(state => state.cart);
@@ -26,4 +26,4 @@ const Cart = () => {
 	);
 };
 
-export default Cart;
+export default memo(Cart);

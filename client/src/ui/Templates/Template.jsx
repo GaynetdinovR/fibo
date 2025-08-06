@@ -4,22 +4,36 @@ import AuthModal from "../../components/AuthModal/AuthModal.jsx";
 import AddressModal from "../../components/AddressModal/AddressModal.jsx";
 
 import NotificationContainer from "react-notifications/lib/NotificationContainer.js";
-import { ModalProvider } from "../Providers/ModalProvider.jsx";
+import { ModalContext, ModalProvider } from "../Providers/ModalProvider.jsx";
 import MenuProvider from "../Providers/MenuProvider.jsx";
+import { memo, useContext } from "react";
 
-const Template = ({ children }) => {
+// eslint-disable-next-line react/display-name
+const Template = memo(({ children }) => {
+	const { isAuthOpen, isAddressOpen } = useContext(ModalContext);
+
 	return (
-		<ModalProvider>
+		<>
 			<NotificationContainer />
 			<MenuProvider>
 				<Header />
 			</MenuProvider>
-			<AuthModal />
-			<AddressModal />
-			<main> {children} </main>
+
+			<main>{children}</main>
+
 			<Footer />
+
+			{isAuthOpen && <AuthModal />}
+			{isAddressOpen && <AddressModal />}
+		</>
+	);
+});
+
+export default function TemplateWrapper({ children }) {
+	return (
+		<ModalProvider>
+			<Template>{children}</Template>
 		</ModalProvider>
 	);
-};
+}
 
-export default Template;

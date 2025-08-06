@@ -10,7 +10,7 @@ const DefaultBonus = () => {
 			)}
 		>
 			<div className={styles.profile__bonuses_bonus_img}>
-				<img src="./icons/promo_icon.png" alt="promo" />
+				<img src="./icons/promo_icon.webp" alt="promo" />
 			</div>
 			<span className={styles.profile__bonuses_bonus_text}>
 				Бонусы появятся здесь после заказа

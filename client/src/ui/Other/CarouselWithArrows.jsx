@@ -4,17 +4,23 @@ const CAROUSEL_SETTINGS = {
 	swipeable: true,
 	draggable: false,
 	showDots: false,
-	ssr: true,
 	infinite: true,
-	autoPlay: true,
-	autoPlaySpeed: 4000,
-	keyBoardControl: true
+	autoPlay: false,
+	partialVisible: false,
+	keyBoardControl: true,
+	shouldResetAutoplay: false,
+	rewind: false,
+	ssr: true,
+	loading: () => (
+		<div style={{ minHeight: '280px' }}>Загрузка карусели...</div>
+	)
 };
 
 const CarouselWithArrows = ({ children, responsiveSettings, className, settings }) => {
 	return (
 		<Carousel
-			{...{ ...settings, ...CAROUSEL_SETTINGS }}
+			{...CAROUSEL_SETTINGS}
+			{...settings}
 			responsive={responsiveSettings}
 			containerClass={className}
 		>

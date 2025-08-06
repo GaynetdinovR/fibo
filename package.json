@@ -4,9 +4,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "backend": "node server.js",
-    "frontend": "cd client && npm install && npm run dev",
-    "test": "cd client && npm run test"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm install && npm run build",
+    "server": "npm install && node server.js",
+    "client": "cd client && npm install && npm run dev",
+    "test": "cd client && npm run test",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "keywords": [],
   "author": "RadmirGn",
@@ -14,10 +17,14 @@
   "description": "",
   "devDependencies": {
     "body-parser": "^1.20.2",
+    "compression": "^1.8.1",
+    "concurrently": "^9.2.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "knex": "^3.1.0",
     "node-polyfill-webpack-plugin": "^4.0.0",
-    "sqlite3": "^5.1.7"
+    "sharp": "^0.34.3",
+    "sqlite3": "^5.1.7",
+    "use-debounce": "^10.0.5"
   }
 }

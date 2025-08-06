@@ -1,70 +1,34 @@
 import Input from "../../../ui/Inputs/Input/Input.jsx";
 import styles from "../../../styles/components/Order.module.sass";
-import { useFormState } from "../../../hooks/useFormState.js";
+import { usePaymentForm } from "../../../hooks/usePaymentForm.js";
+import { isValidCardDate, isValidCardNumber, isValidCvc } from "../../../utils/helpers.js";
 
-const CardInput = ({ onChange = () => {} }) => {
-	const [
-		cardNumber,
-		setCard,
-		isCardDisabled,
-		setCardDisabled,
-		isCardErrored,
-		setCardErrored
-	] = useFormState();
+const CardInput = ({ onChange }) => {
+	const [cardData, handleFieldChange] = usePaymentForm({
+		cardNumber: "",
+		cardDate: "",
+		cvc: ""
+	});
 
-	const [
-		cardDate,
-		setCardDate,
-		isCardDateDisabled,
-		setCardDateDisabled,
-		isCardDateErrored,
-		setCardDateErrored
-	] = useFormState();
+	const handleChange = (field, value) => {
+		handleFieldChange(field, value);
 
-	const [
-		cvc,
-		setCvc,
-		isCvcDisabled,
-		setCvcDisabled,
-		isCvcErrored,
-		setCvcErrored
-	] = useFormState();
-
-	const isValidCardDate = (date) => {
-		const [month, year] = date.split("/");
-		const numericMonth = parseInt(month);
-
-		return !isNaN(numericMonth) && numericMonth >= 1 && numericMonth <= 12;
-	};
-
-	const isValidCardNumber = (card) => {
-		return (card.length === 19);
+		onChange({
+			...cardData,
+			[field]: value
+		});
 	};
 
 	const handleCardChange = (val) => {
-		setCard(val);
-		onChange({ cardNumber: val, cardDate, cvc });
-		setCardErrored(false);
-
-		if (val.length === 19) {
-			setCardErrored(!isValidCardNumber(val));
-		}
+		handleChange("cardNumber", val);
 	};
 
 	const handleCardDateChange = (val) => {
-		setCardDate(val);
-		onChange({ cardNumber, cardDate: val, cvc });
-		setCardDateErrored(false);
-
-		if (val.length === 5) {
-			setCardDateErrored(!isValidCardDate(val));
-		}
+		handleChange("cardDate", val);
 	};
 
 	const handleCvcChange = (val) => {
-		setCvc(val);
-		onChange({ cardNumber, cardDate, cvc: val });
-		setCvcErrored(false);
+		handleChange("cvc", val);
 	};
 
 	return (
@@ -73,36 +37,38 @@ const CardInput = ({ onChange = () => {} }) => {
 				className={styles.order__card_input}
 				placeholder="Номер карты"
 				setVal={handleCardChange}
-				isDisabled={isCardDisabled}
 				errorInfo={{
 					error: "Невалидный номер карты",
-					isErrored: isCardErrored
+					isErrored:
+						cardData.cardNumber.length === 19 &&
+						!isValidCardNumber(cardData.cardNumber)
 				}}
-				mask={"9999 9999 9999 9999"}
+				mask="9999 9999 9999 9999"
 			/>
 
 			<Input
 				className={styles.order__date_input}
 				placeholder="ММ/ГГ"
 				setVal={handleCardDateChange}
-				isDisabled={isCardDateDisabled}
 				errorInfo={{
 					error: "Невалидный срок действия",
-					isErrored: isCardDateErrored
+					isErrored:
+						cardData.cardDate.length === 5 &&
+						!isValidCardDate(cardData.cardDate)
 				}}
-				mask={"99/99"}
+				mask="99/99"
 			/>
 
 			<Input
 				className={styles.order__cvc_input}
 				placeholder="CVC"
 				setVal={handleCvcChange}
-				isDisabled={isCvcDisabled}
 				errorInfo={{
 					error: "Невалидный CVC",
-					isErrored: isCvcErrored
+					isErrored:
+						cardData.cvc.length === 3 && !isValidCvc(cardData.cvc)
 				}}
-				mask={"999"}
+				mask="999"
 			/>
 		</div>
 	);

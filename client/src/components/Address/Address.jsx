@@ -2,6 +2,7 @@ import styles from "../../styles/components/Address.module.sass";
 import PhoneNumber from "../../ui/Other/PhoneNumber.jsx";
 import GoogleMap from "../../ui/Other/GoogleMap.jsx";
 import Text from "../../ui/TextElements/Text.jsx";
+import { memo } from "react";
 
 const Address = () => {
 	return (
@@ -23,5 +24,4 @@ const Address = () => {
 		</section>
 	);
 };
-
-export default Address;
+export default memo(Address);

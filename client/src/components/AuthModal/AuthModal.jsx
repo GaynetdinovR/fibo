@@ -7,7 +7,7 @@ import BottomSide from "./components/BottomSide.jsx";
 import LogInButton from "./components/LogInButton.jsx";
 import PhoneInput from "./components/PhoneInput.jsx";
 
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
 import { useAuthForm } from "../../hooks/useAuthForm.js";
 
@@ -55,4 +55,4 @@ const AuthModal = () => {
 	);
 };
 
-export default AuthModal;
+export default memo(AuthModal);

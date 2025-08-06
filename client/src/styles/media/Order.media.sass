@@ -1,0 +1,104 @@
+@import "../variables"
+@import "../mixins"
+
+//<1440px
+@media screen and (max-width: $laptop_large)
+  .order
+    justify-content: center
+    &__left_side
+      width: 100%
+      max-width: 750px
+
+    &__composition
+      max-width: 750px
+      padding: 40px
+      margin-top: 30px
+      &_title
+        font-size: 22px
+//<1280px
+@media screen and (max-width: $laptop_medium)
+  .order
+    padding: 20px 80px
+//<1024px
+@media screen and (max-width: $laptop_small)
+  .order
+    padding: 20px 40px
+//<960px
+@media screen and (max-width: $tablet_large)
+  .order
+    padding: 20px
+//<768px
+@media screen and (max-width: $tablet_medium)
+  .order
+    &__name_input,
+    &__phone_input,
+    &__code_input,
+    &__address_input
+      & label
+        & > div
+          max-width: 320px
+          display: block
+          width: 100%
+
+      & button
+        margin: 0
+
+    &__card_wrap
+      max-width: 400px
+
+      grid-template-columns: 1fr
+      grid-template-rows: repeat(3, 1fr)
+
+      & div:first-of-type
+        grid-column: 1
+
+//<640px
+@media screen and (max-width: $tablet_small)
+  .order__promocode
+    @include flex($jc: center, $ai: center, $d: column)
+
+//<540px
+@media screen and (max-width: $phone_large)
+  .order
+    &__name_input,
+    &__phone_input,
+    &__code_input
+      & button
+        top: 60%
+        transform: translateY(-30%)
+
+    &__address_input
+      & button
+        top: 52%
+        transform: translateY(-25%)
+
+    &__name_input,
+    &__phone_input,
+    &__code_input,
+    &__address_input
+      margin: 10px 0
+
+      & label
+        @include flex($ai: flex-start, $d: column)
+
+        & > div
+          max-width: 540px
+          width: 100%
+
+      & span
+        font-size: 16px
+        margin-right: 0
+
+
+//<480px
+@media screen and (max-width: $phone_medium)
+  .order
+    padding: 10px
+
+    &__composition
+      padding: 20px
+
+    &__payment_type
+      padding: 15px 20px
+//<320px
+@media screen and (max-width: phone_small)

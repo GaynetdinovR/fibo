@@ -1,7 +1,7 @@
 import styles from "../../styles/components/CartMenu.module.sass";
 
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, memo } from "react";
 
 import Product from "./components/Product.jsx";
 import NoProducts from "./components/NoProducts.jsx";
@@ -83,4 +83,4 @@ const CartMenu = () => {
 	);
 };
 
-export default CartMenu;
+export default memo(CartMenu);

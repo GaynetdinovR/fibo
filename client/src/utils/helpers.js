@@ -48,10 +48,43 @@ const getRandomArrayElem = (array) => {
 	return array?.splice(index, 1)[0];
 };
 
+/**
+ * Валидация срока действия карты
+ * @param date string
+ * @returns {boolean}
+ */
+const isValidCardDate = (date) => {
+	const [month] = date.split("/");
+	const numericMonth = parseInt(month);
+
+	return !isNaN(numericMonth) && numericMonth >= 1 && numericMonth <= 12;
+};
+
+/**
+ * TODO
+ * @param card string
+ * @returns {boolean}
+ */
+const isValidCardNumber = (card) => {
+	return card.length === 19;
+};
+
+/**
+ * TODO
+ * @param cvc string
+ * @returns {boolean}
+ */
+const isValidCvc = (cvc) => {
+	return cvc.length === 3;
+};
+
 export {
 	roundToTwo,
 	scroll,
 	getShortFormattedText,
 	generateCode,
-	getRandomArrayElem
+	getRandomArrayElem,
+	isValidCardDate,
+	isValidCardNumber,
+	isValidCvc
 };

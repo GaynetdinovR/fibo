@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useProductInCart } from "./useProductInCart.js";
 import { formatDefaultProductToCart } from "../utils/index.js";
 import { addToCart } from "../store/cartSlice/cartSlice.js";
+import { useCallback } from "react";
 
 export const useProductActions = () => {
 	const dispatch = useDispatch();
@@ -10,29 +11,37 @@ export const useProductActions = () => {
 	/**
 	 * Обработка не-пиццы
 	 */
-	const handleNonPizzaProduct = (product) => {
-		dispatch(addToCart(formatDefaultProductToCart(product)));
-	};
+	const handleNonPizzaProduct = useCallback(
+		(product) => {
+			dispatch(addToCart(formatDefaultProductToCart(product)));
+		},
+		[dispatch]
+	);
 
 	/**
 	 * Обработка пиццы
 	 */
-	const handlePizzaProduct = (product, callbacks) => {
-		const { chooseProduct, setProductCard } = callbacks;
-		chooseProduct(product);
-		setProductCard(true);
-	};
+	const handlePizzaProduct = useCallback(
+		(product, { chooseProduct, setProductCard }) => {
+			chooseProduct(product);
+			setProductCard(true);
+		},
+		[]
+	);
 
 	/**
 	 * Основной обработчик клика
 	 */
-	const handleProductClick = (product, callbacks = {}) => {
-		if (!product || isProductInCart(product.id)) return;
+	const handleProductClick = useCallback(
+		(product, callbacks = {}) => {
+			if (!product || isProductInCart(product.id)) return;
 
-		product.type === "pizza"
-			? handlePizzaProduct(product, callbacks)
-			: handleNonPizzaProduct(product);
-	};
+			product.type === "pizza"
+				? handlePizzaProduct(product, callbacks)
+				: handleNonPizzaProduct(product);
+		},
+		[isProductInCart, handlePizzaProduct, handleNonPizzaProduct]
+	);
 
 	return {
 		handleProductClick,

@@ -8,9 +8,8 @@ import AddressInputWrap from "../../ui/Inputs/AddressInputWrap.jsx";
 import Bonuses from "./components/Bonuses.jsx";
 import { logout } from "../../store/userSlice/userSlice.js";
 import PhoneEditSection from "../../ui/Other/PhoneEditSection/PhoneEditSection.jsx";
-import BonusesCheckbox from "../../ui/Inputs/Checkbox.jsx";
 import Checkbox from "../../ui/Inputs/Checkbox.jsx";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const Profile = () => {
 	const dispatch = useDispatch();
@@ -73,4 +72,4 @@ const Profile = () => {
 	);
 };
 
-export default Profile;
+export default memo(Profile);

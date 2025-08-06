@@ -1,12 +1,12 @@
 const API_CONFIG = {
-	baseUrl: "http://localhost:5000",
+	baseUrl: "",
 	headers: {
 		"Content-Type": "application/json"
 	}
 };
 
 /**
- * Общая функция для запросов
+ * Общая функция для запросов в Backend
  * @param endpoint
  * @param method
  * @param body
@@ -53,6 +53,14 @@ const getUserByPhoneFromDB = async (userPhone) =>
 	apiRequest("/getuser", "POST", { phone: userPhone });
 
 /**
+ * Возвращает заказы пользователя
+ * @param userId number
+ * @returns {Promise<*>}
+ */
+const getOrders = async (userId) =>
+	apiRequest("/getorders", "POST", { userId });
+
+/**
  * Авторизует пользователя по номеру телефона
  * @param userPhone string
  * @returns {Promise<void>}
@@ -62,12 +70,21 @@ const authorization = async (userPhone) =>
 
 /**
  * Обновляет данные пользователя по номеру телефона
- * @param userPhone string (8999...)
+ * @param userPhone string
  * @param userData object
  * @returns {Promise<void>}
  */
 const updateUserDataByPhone = async (userPhone, userData) =>
 	apiRequest("/updateuser", "POST", { userPhone, userData });
+
+/**
+ * Создает заказ
+ * @param userId number
+ * @param orderData object
+ * @returns {Promise<*>}
+ */
+const createOrder = async (userId, orderData) =>
+	apiRequest("/createorder", "POST", { userId: userId, ...orderData });
 
 /**
  * Получает подсказки адресов через Dadata API
@@ -78,7 +95,7 @@ const updateUserDataByPhone = async (userPhone, userData) =>
 const getAddressHint = async (query, region = "Москва") => {
 	const url =
 		"https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
-	const token = "d88ca959012a2572de31939e24d0e039b6e85660";
+	const token = "";
 
 	try {
 		const response = await fetch(url, {
@@ -113,5 +130,7 @@ export {
 	getUserByPhoneFromDB,
 	getPromosFromDB,
 	updateUserDataByPhone,
-	getAddressHint
+	getAddressHint,
+	getOrders,
+	createOrder
 };

@@ -1,6 +1,6 @@
 import styles from "../../styles/components/Header.module.sass";
 
-import { lazy, Suspense, useContext, useState } from "react";
+import { lazy, memo, Suspense, useContext, useState } from "react";
 import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
 import { MenuContext } from "../../ui/Providers/MenuProvider.jsx";
 
@@ -35,4 +35,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default memo(Header);

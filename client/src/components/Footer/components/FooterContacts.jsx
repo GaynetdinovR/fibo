@@ -3,13 +3,43 @@ import H6 from "../../../ui/Titles/H6.jsx";
 import ListItem from "../../../ui/TextElements/ListItem.jsx";
 import Link from "../../../ui/TextElements/Link.jsx";
 
-const CONTACTS = [
-	{ src: "./icons/viber.png", alt: "viber" },
-	{ src: "./icons/skype.png", alt: "skype" },
-	{ src: "./icons/messenger.png", alt: "messenger" },
-	{ src: "./icons/telegram.png", alt: "telegram" },
-	{ src: "./icons/facebook.png", alt: "facebook" },
-	{ src: "./icons/vk.png", alt: "vk" }
+const SOCIAL_CONTACTS = [
+	{
+		src: "/icons/viber.webp",
+		alt: "Viber",
+		href: "https://www.viber.com/",
+		ariaLabel: "Связаться через Viber"
+	},
+	{
+		src: "/icons/skype.webp",
+		alt: "Skype",
+		href: "https://www.skype.com/",
+		ariaLabel: "Связаться через Skype"
+	},
+	{
+		src: "/icons/messenger.webp",
+		alt: "Facebook Messenger",
+		href: "https://www.messenger.com/",
+		ariaLabel: "Связаться через Messenger"
+	},
+	{
+		src: "/icons/telegram.webp",
+		alt: "Telegram",
+		href: "https://telegram.org/",
+		ariaLabel: "Связаться через Telegram"
+	},
+	{
+		src: "/icons/facebook.webp",
+		alt: "Facebook",
+		href: "https://www.facebook.com/",
+		ariaLabel: "Связаться через Facebook"
+	},
+	{
+		src: "/icons/vk.webp",
+		alt: "ВКонтакте",
+		href: "https://vk.com/",
+		ariaLabel: "Связаться через ВКонтакте"
+	}
 ];
 
 const FooterContacts = () => {
@@ -20,16 +50,24 @@ const FooterContacts = () => {
 			</H6>
 
 			<ul className={styles.footer__contacts_list}>
-				{CONTACTS.map((item, i) => (
+				{SOCIAL_CONTACTS.map((item, i) => (
 					<ListItem key={i} liClass={styles.footer__contacts_item}>
-						<Link className={styles.footer__contacts_link_img}>
+						<Link
+							href={item.href}
+							ariaLabel={item.ariaLabel}
+							className={styles.footer__contacts_link_img}
+							openInNewTab={true}
+						>
 							<img src={item.src} alt={item.alt} />
 						</Link>
 					</ListItem>
 				))}
 
 				<ListItem liClass={styles.footer__contacts_item}>
-					<Link className={styles.footer__contacts_link}>
+					<Link
+						href={"https://vk.com/"}
+						className={styles.footer__contacts_link}
+					>
 						Написать нам
 					</Link>
 				</ListItem>

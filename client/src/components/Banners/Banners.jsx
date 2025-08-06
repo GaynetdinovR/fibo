@@ -3,11 +3,12 @@ import "react-multi-carousel/lib/styles.css";
 
 import BannerItem from "./components/BannerItem.jsx";
 import CarouselWithArrows from "../../ui/Other/CarouselWithArrows.jsx";
+import { memo, useMemo } from "react";
 
 const BANNERS = [
-	{ src: "./content/banner_1.jpg", alt: "Специальное предложение на пиццу" },
-	{ src: "./content/banner_3.jpg", alt: "Новые пасты в меню" },
-	{ src: "./content/banner_2.jpg", alt: "Скидки на наборы" }
+	{ src: "./content/banner_1.webp", alt: "Специальное предложение на пиццу" },
+	{ src: "./content/banner_3.webp", alt: "Новые пасты в меню" },
+	{ src: "./content/banner_2.webp", alt: "Скидки на наборы" }
 ];
 
 const CAROUSEL_RESPONSIVE = {
@@ -29,15 +30,21 @@ const CAROUSEL_RESPONSIVE = {
 };
 
 const Banners = ({ banners = BANNERS }) => {
+	const bannerItems = useMemo(
+		() =>
+			banners.map((banner, i) => (
+				<BannerItem key={i} src={banner.src} alt={banner.alt} />
+			)),
+		[banners]
+	);
+
 	return (
 		<CarouselWithArrows
 			className={styles.banners__carousel}
 			responsiveSettings={CAROUSEL_RESPONSIVE}
 		>
-			{banners.map((banner, i) => (
-				<BannerItem key={i} src={banner.src} alt={banner.alt} />
-			))}
+			{bannerItems}
 		</CarouselWithArrows>
 	);
 };
-export default Banners;
+export default memo(Banners);

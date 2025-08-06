@@ -6,65 +6,104 @@ import PaymentType from "./components/PaymentType.jsx";
 import ControlBtns from "../../ui/Buttons/ControlBtns.jsx";
 import OrderComposition from "./components/OrderComposition.jsx";
 import Checkbox from "../../ui/Inputs/Checkbox.jsx";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartSum, roundToTwo, scroll } from "../../utils/index.js";
+import { getCartSum, roundToTwo } from "../../utils/index.js";
 import { useNavigate } from "react-router-dom";
 import { NotificationManager } from "react-notifications";
 import { clearCart } from "../../store/cartSlice/cartSlice.js";
+import { useToggle } from "../../hooks/useToggle.js";
+import { createOrder } from "../../utils/api.js";
+import {
+	isValidCardDate,
+	isValidCardNumber,
+	isValidCvc
+} from "../../utils/helpers.js";
 
 const Order = () => {
-	const cart = useSelector(state => state.cart);
+	const cart = useSelector((state) => state.cart);
 	const user = useSelector((state) => state.user);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const [isBonusesCheckboxChecked, setBonusesCheckbox] = useState(false);
-	const [isPickup, setIsPickup] = useState(false);
-	const [isCardCheckboxChecked, setCardCheckbox] = useState(true);
-	const [cardData, setCardData] = useState({});
+	const [isBonusesChecked, bonusesActions] = useToggle(false);
+	const [isPickup, pickupActions] = useToggle(false);
+	const [paymentMethod, setPaymentMethod] = useState("card");
+	const [cardData, setCardData] = useState({
+		cardNumber: "",
+		cardDate: "",
+		cvc: ""
+	});
 
 	const validateForm = () => {
-		const newErrors = {
+		const errors = {
 			phone: !user.phone,
 			name: !user.name,
-			address: isPickup ? false : !user.address,
-			cardNumber: isCardCheckboxChecked && !cardData.cardNumber,
-			cardDate: isCardCheckboxChecked && !cardData.cardDate,
-			cvc: isCardCheckboxChecked && !cardData.cvc
+			address: !isPickup && !user.address,
+			...(paymentMethod === "card" && {
+				cardNumber: !isValidCardNumber(cardData.cardNumber),
+				cardDate: !isValidCardDate(cardData.cardDate),
+				cvc: !isValidCvc(cardData.cvc)
+			})
 		};
 
-		return newErrors;
+		return errors;
 	};
 
-	const handleContinueBtnClick = () => {
-		const newErrors = validateForm();
+	const getOrderData = () => {
+		return {
+			items: cart.map((product) => ({
+				productId: product.id,
+				count: product.count,
+				price: product.price,
+				size: product.additional_info.size || null,
+				type: product.additional_info.type || null,
+				supplements: product.additional_info.supplements || []
+			})),
+			paymentMethod: paymentMethod,
+			deliveryAddress: user.address,
+			isPickup: isPickup
+		};
+	};
 
-		if (Object.values(newErrors).some(error => error)) {
-			return NotificationManager.error("Заполните все формы!");
+	const handleCheckout = async () => {
+		try {
+			const errors = validateForm();
+
+			if (Object.values(errors).some(Boolean)) {
+				throw new Error("Заполните обязательные поля!");
+			}
+
+			const { success, orderId } = await createOrder(
+				user.id,
+				getOrderData()
+			);
+
+			if (!success) throw new Error("Ошибка при оформлении заказа");
+
+			dispatch(clearCart());
+			navigate("/", { state: { showOrderSuccess: true, orderId } });
+		} catch (error) {
+			console.error("Checkout failed:", error);
+			NotificationManager.error(
+				error.message || "Произошла ошибка при оформлении заказа"
+			);
 		}
-
-		proceedToCheckout();
-	};
-
-	const proceedToCheckout = () => {
-		dispatch(clearCart());
-
-		navigate("/", { state: { showOrderSuccess: true } });
-
-		scroll(0, 0);
 	};
 
 	const btnsData = {
 		continueBtn: {
 			text: `Оформить ${roundToTwo(getCartSum(cart))}₽`,
-			onClickFn: handleContinueBtnClick
+			onClickFn: handleCheckout
 		},
 		backBtn: {
 			text: "Назад в корзину",
 			to: "/cart"
 		}
 	};
+
+	const isLargeDesktop = window.innerWidth >= 1440;
+
 
 	return (
 		<section className={styles.order}>
@@ -73,20 +112,27 @@ const Order = () => {
 				<UserData
 					user={user}
 					isPickup={isPickup}
-					setIsPickup={setIsPickup}
+					setIsPickup={pickupActions.toggle}
 				/>
-				<PromoCode className={styles.order__promocode} />
+
+				<PromoCode
+					setTotalSum={() => {}}
+					className={styles.order__promocode}
+				/>
+
 				<PaymentType
-					onChange={setCardData}
-					isCardCheckboxChecked={isCardCheckboxChecked}
-					setCardCheckbox={setCardCheckbox}
+					setPaymentMethod={setPaymentMethod}
+					onCartDataChange={setCardData}
 				/>
+
+				{!isLargeDesktop && <OrderComposition cart={cart} />}
+
 				<Checkbox
 					className={styles.order__checkbox}
-					text={"Сообщать о бонусах, акциях и новых продуктах"}
+					text="Сообщать о бонусах, акциях и новых продуктах"
 					checkBoxData={{
-						isChecked: isBonusesCheckboxChecked,
-						setChecked: setBonusesCheckbox
+						isChecked: isBonusesChecked,
+						setChecked: bonusesActions.toggle
 					}}
 				/>
 				<ControlBtns
@@ -94,9 +140,9 @@ const Order = () => {
 					btnsData={btnsData}
 				/>
 			</div>
-			<OrderComposition cart={cart} />
+			{isLargeDesktop && <OrderComposition cart={cart} />}
 		</section>
 	);
 };
 
-export default Order;
+export default memo(Order);

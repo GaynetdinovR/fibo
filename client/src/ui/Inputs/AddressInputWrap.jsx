@@ -17,6 +17,10 @@ const AddressInputWrap = ({ userData, className }) => {
 	});
 
 	useEffect(() => {
+		console.log(addressData);
+	}, [addressData]);
+
+	useEffect(() => {
 		if (userData?.address) {
 			const { address, entrance, floor, intercome_code, apartment } =
 				userData.address;

@@ -40,7 +40,9 @@ const getUserByPhone = async (req, res) => {
 	const userPhone = req.body;
 
 	try {
-		const result = await knex("users").where(userPhone);
+		const result = await knex("users")
+			.where(userPhone)
+			.first();
 
 		if (result) return res.status(200).json(result);
 
@@ -52,6 +54,66 @@ const getUserByPhone = async (req, res) => {
 	}
 };
 
+/**
+ * Получает номер телефона и отправляет все заказы пользователя
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
+const getUserOrdersByPhone = async (req, res) => {
+	const userPhone = req.body;
+
+	try {
+		const user = await knex("users")
+			.where(userPhone)
+			.first();
+
+		if (!user) {
+			return res.status(404).json({ error: "User not found" });
+		}
+
+		const orders = await knex("orders")
+			.where({ user_id: user.id });
+
+		const ordersWithItems = await Promise.all(
+			orders.map(async (order) => {
+				const items = await knex("order_items")
+					.join("products", "order_items.product_id", "products.id")
+					.where({ order_id: order.id })
+					.select(
+						"order_items.*",
+						"products.name as product_name",
+						"products.description as product_description"
+					);
+
+				return {
+					...order,
+					items
+				};
+			})
+		);
+
+		return res.status(200).json({
+			user: {
+				id: user.id,
+				name: user.name,
+				phone: user.phone
+			},
+			orders: ordersWithItems
+		});
+
+	} catch (error) {
+		console.error("Error fetching user orders:", error);
+		return res.status(500).json({ error: "Internal Server Error" });
+	}
+};
+
+/**
+ * Обновляет данные пользователя по номеру телефона
+ * @param req
+ * @param res
+ * @returns {Promise<*>}
+ */
 const updateUserData = async (req, res) => {
 	const { userPhone, userData } = req.body;
 
@@ -92,10 +154,62 @@ const authorization = async (req, res) => {
 	}
 };
 
+/**
+ * Создает новый заказ
+ * @param {Object} req
+ * @param {Object} res
+ * @returns {Promise<void>}
+ */
+const createOrder = async (req, res) => {
+	const { userId, items, paymentMethod, deliveryAddress, isPickup = false } = req.body;
+
+	try {
+		const result = await knex.transaction(async (trx) => {
+			const [orderId] = await trx('orders').insert({
+				user_id: userId,
+				payment_method: paymentMethod,
+				is_pickup: isPickup,
+				delivery_address: isPickup ? null : deliveryAddress,
+				status: 'processing',
+			});
+
+			await trx('order_items').insert(
+				items.map(item => ({
+					product_id: item.productId,
+					price: item.price,
+					count: item.count,
+					size: item.size || null,
+					type: item.type || null,
+					supplements: item.supplements ? JSON.stringify(item.supplements) : null,
+					order_id: orderId
+				}))
+			);
+
+
+			return { id: orderId };
+		});
+
+		return res.status(201).json({
+			success: true,
+			orderId: result.id,
+			message: "Order created successfully"
+		});
+	} catch (error) {
+		console.error('Order creation failed:', error);
+
+		return res.status(500).json({
+			error: "Order creation failed",
+			message: error.message
+		});
+	}
+};
+
 export {
 	getProducts,
 	authorization,
 	getUserByPhone,
 	getPromos,
-	updateUserData
+	updateUserData,
+	getUserOrdersByPhone,
+	createOrder
 };

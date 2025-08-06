@@ -1,20 +1,23 @@
 import styles from "../../../styles/components/Order.module.sass";
 import H4 from "../../../ui/Titles/H4.jsx";
 import Checkbox from "../../../ui/Inputs/Checkbox.jsx";
-import { useState } from "react";
 import CardInput from "./CardInput.jsx";
+import { useToggle } from "../../../hooks/useToggle.js";
 
-const PaymentType = ({ isCardCheckboxChecked, setCardCheckbox, onChange }) => {
-	const [isCashCheckboxChecked, setCashCheckbox] = useState(false);
+const PaymentType = ({ setPaymentMethod, onCartDataChange }) => {
+	const [isCardChecked, cardActions] = useToggle(true);
+	const [isCashChecked, cashActions] = useToggle(false);
 
-	const handleCardCheckboxChange = (checked) => {
-		setCardCheckbox(checked);
-		setCashCheckbox(!checked);
+	const handleCardCheck = (checked) => {
+		cardActions.setOn();
+		cashActions.setOff();
+		setPaymentMethod(checked ? "card" : "cash");
 	};
 
-	const handleCashCheckboxChange = (checked) => {
-		setCashCheckbox(checked);
-		setCardCheckbox(!checked);
+	const handleCashCheck = (checked) => {
+		cashActions.setOn();
+		cardActions.setOff();
+		setPaymentMethod(checked ? "cash" : "card");
 	};
 
 	return (
@@ -24,26 +27,26 @@ const PaymentType = ({ isCardCheckboxChecked, setCardCheckbox, onChange }) => {
 			<Checkbox
 				className={styles.order__payment_type_checkbox}
 				checkBoxData={{
-					isChecked: isCardCheckboxChecked,
-					setChecked: handleCardCheckboxChange
+					isChecked: isCardChecked,
+					setChecked: handleCardCheck
 				}}
-				icon={"./icons/card.png"}
+				icon={"./icons/card.webp"}
 				text={"Картой на сайте"}
 			/>
 
 			<Checkbox
 				className={styles.order__payment_type_checkbox}
 				checkBoxData={{
-					isChecked: isCashCheckboxChecked,
-					setChecked: handleCashCheckboxChange
+					isChecked: isCashChecked,
+					setChecked: handleCashCheck
 				}}
-				icon={"./icons/cash.png"}
+				icon={"./icons/cash.webp"}
 				text={"Наличными"}
 			/>
 
-			{isCardCheckboxChecked && (
+			{isCardChecked && (
 				<>
-					<CardInput onChange={onChange} />
+					<CardInput onChange={onCartDataChange} />
 					<span className={styles.order__payment_type_text}>
 						Безопасность платежей гарантирована: • Мы не сохраняем
 						данные вашей карты. • Все операции обрабатывает СберБанк

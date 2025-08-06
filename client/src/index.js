@@ -14,6 +14,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
 	<Provider store={store}>
-		<RouterProvider router={router} />
+		<RouterProvider future={{ v7_startTransition: true }} router={router} />
 	</Provider>
 );

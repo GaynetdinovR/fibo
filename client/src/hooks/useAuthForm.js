@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { NotificationManager } from "react-notifications";
-import { formatPhoneFromInternational, getUserByPhoneFromDB } from "../utils/index.js";
+import {
+	formatPhoneFromInternational,
+	getUserByPhoneFromDB
+} from "../utils/index.js";
 import { authorization } from "../utils/api.js";
 import { generateCode } from "../utils/index.js";
 import { login } from "../store/userSlice/userSlice.js";
@@ -11,7 +14,6 @@ const PHONE_LENGTH = 16;
 
 export const useAuthForm = (closeModal) => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	const [formState, setFormState] = useState({
 		phone: "",
@@ -78,7 +80,7 @@ export const useAuthForm = (closeModal) => {
 
 			const user = await getUserByPhoneFromDB(formattedPhone);
 
-			dispatch(login(user[0]));
+			dispatch(login(user));
 			NotificationManager.success("Вы успешно зашли в аккаунт");
 
 			closeModal();

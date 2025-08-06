@@ -5,7 +5,7 @@ const InputErrorAlert = ({ error, show }) => {
 	return show ? (
 		<div className={styles.input_error_alert}>
 			<div className={styles.input_error_alert__img}>
-				<img src="./icons/warn.png" alt="warn" />
+				<img src="./icons/warn.webp" alt="warn" />
 			</div>
 			<span className={styles.input_error_alert__text}>{error}</span>
 		</div>

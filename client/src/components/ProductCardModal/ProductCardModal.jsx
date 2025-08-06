@@ -1,4 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import {
+	memo,
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useState
+} from "react";
 import { ModalContext } from "../../ui/Providers/ModalProvider.jsx";
 import { formatDefaultProductToCart, roundToTwo } from "../../utils/index.js";
 import { useDispatch } from "react-redux";
@@ -13,7 +20,10 @@ import ProductImage from "./components/ProductImage.jsx";
 import ProductInfo from "./components/ProductInfo.jsx";
 import SizeTypeSelector from "./components/SizeTypeSelector.jsx";
 
-import { TEXT_SIZES, TEXT_TYPES } from "../../constants/product_localization.js";
+import {
+	TEXT_SIZES,
+	TEXT_TYPES
+} from "../../constants/product_localization.js";
 
 const INIT_SIZES = [
 	{ id: "small", active: false },
@@ -26,7 +36,7 @@ const INIT_TYPES = [
 	{ id: "thin", active: false }
 ];
 
-const INIT_SUPPLEMENTS = (supplementsData) =>
+const createInitialSupplements = (supplementsData) =>
 	supplementsData.reduce(
 		(acc, item) => ({
 			...acc,
@@ -44,118 +54,125 @@ const ProductCardModal = ({ product, supplementsData }) => {
 	// Variables
 
 	const [sizes, setSizes] = useState(INIT_SIZES);
-
 	const [types, setTypes] = useState(INIT_TYPES);
-
-	const [supplements, setSupplements] = useState(INIT_SUPPLEMENTS(supplementsData));
-
+	const [supplements, setSupplements] = useState(
+		createInitialSupplements(supplementsData)
+	);
 	const [totalPrice, setTotalPrice] = useState(0);
+
+	const activeSize = useMemo(
+		() => sizes.find((size) => size.active),
+		[sizes]
+	);
+	const activeType = useMemo(
+		() => types.find((type) => type.active),
+		[types]
+	);
+
+	const chosenSupplements = useMemo(
+		() =>
+			Object.entries(supplements)
+				.filter(([_, status]) => status)
+				.map(([key]) => key),
+		[supplements]
+	);
+	const chosenSizeText = useMemo(
+		() => TEXT_SIZES[activeSize?.id],
+		[activeSize]
+	);
+	const chosenTypeText = useMemo(
+		() => TEXT_TYPES[activeType?.id],
+		[activeType]
+	);
 
 	/**
 	 * Расчет итоговой цены, меняется при выборе дополнений к пицце или изменении размера
 	 */
 	useEffect(() => {
-		const activeSize = sizes.find((size) => size.active);
-		let basePrice = product?.price || 0;
+		if (!product) return;
 
-		if (activeSize.id == "small") basePrice -= 200;
-		if (activeSize.id == "large") basePrice += 200;
+		let basePrice = product.price || 0;
 
-		const supplementsPrice = Object.entries(supplements).reduce(
-			(sum, [id, isActive]) => {
-				if (isActive) {
-					const supplement = supplementsData.find(
-						(item) => item.supplement_id === id
-					);
-					return sum + (supplement?.price || 0);
-				}
-				return sum;
-			},
-			0
-		);
+		if (activeSize?.id === "small") basePrice -= 200;
+		if (activeSize?.id === "large") basePrice += 200;
+
+		const supplementsPrice = supplementsData.reduce((sum, item) => {
+			return sum + (supplements[item.supplement_id] ? item.price : 0);
+		}, 0);
 
 		setTotalPrice(roundToTwo(basePrice + supplementsPrice));
-	}, [sizes, supplements, product, supplementsData]);
+	}, [activeSize, supplements, product, supplementsData]);
 
 	/**
 	 * Обработчик изменения размера/типа пиццы
 	 * @param clickedId size/type id
 	 */
-	const handleTypeOrSizeClick = (clickedId) => {
-		const sizeIndex = sizes.findIndex((size) => size.id === clickedId);
-		const typeIndex = types.findIndex((type) => type.id === clickedId);
+	const handleTypeOrSizeClick = useCallback(
+		(clickedId) => {
+			const sizeIndex = sizes.findIndex((size) => size.id === clickedId);
+			const typeIndex = types.findIndex((type) => type.id === clickedId);
 
-		if (sizeIndex >= 0) {
-			setSizes(
-				sizes.map((size, i) => ({
-					...size,
-					active: i === sizeIndex
-				}))
-			);
-		}
+			if (sizeIndex >= 0) {
+				setSizes(
+					sizes.map((size, i) => ({
+						...size,
+						active: i === sizeIndex
+					}))
+				);
+			}
 
-		if (typeIndex >= 0) {
-			setTypes(
-				types.map((type, i) => ({
-					...type,
-					active: i === typeIndex
-				}))
-			);
-		}
-	};
-
-	/**
-	 * Возвращает массив выбранных добавок
-	 */
-	const getChosenSupplements = () => {
-		return Object.entries(supplements)
-			.filter(([key, status]) => status === true)
-			.map(([key]) => key);
-	};
+			if (typeIndex >= 0) {
+				setTypes(
+					types.map((type, i) => ({
+						...type,
+						active: i === typeIndex
+					}))
+				);
+			}
+		},
+		[sizes, types]
+	);
 
 	/**
 	 * Сбрасывает введенные данные
 	 */
-	const reset = () => {
+	const resetState = useCallback(() => {
 		setSizes(INIT_SIZES);
 		setTypes(INIT_TYPES);
-		setSupplements(INIT_SUPPLEMENTS(supplementsData));
-	};
+		setSupplements(createInitialSupplements(supplementsData));
+	}, [supplementsData]);
 
 	/**
 	 * Обработчик добавления в корзину
 	 */
-	const handleAddToCartBtn = () => {
-		const productToCart = formatDefaultProductToCart(product);
+	const handleAddToCart = useCallback(() => {
+		if (!product) return;
 
+		const productToCart = formatDefaultProductToCart(product);
 		const editedInfo = {
 			price: totalPrice,
 			additional_info: {
-				size: sizes.find(size => size.active).id,
-				type: types.find(type => type.active).id,
-				supplements: getChosenSupplements()
+				size: activeSize.id,
+				type: activeType.id,
+				supplements: supplementsData
+					.filter(item => chosenSupplements.includes(item.supplement_id))
+					.map(item => item.id)
 			}
 		};
 
 		dispatch(addToCart({ ...productToCart, ...editedInfo }));
-
-		setOpen(false);
-		reset();
-	};
-
-	/**
-	 * Возвращает текст выбранного размера
-	 * @returns {*}
-	 */
-	const getChosenSizeText = () =>
-		TEXT_SIZES[sizes.find((item) => item.active)?.id];
-
-	/**
-	 * Возвращает текст выбранного типа
-	 * @returns {*}
-	 */
-	const getChosenTypeText = () =>
-		TEXT_TYPES[types.find((item) => item.active)?.id];
+		setProductCard(false);
+		resetState();
+	}, [
+		product,
+		totalPrice,
+		activeSize,
+		activeType,
+		chosenSupplements,
+		dispatch,
+		setProductCard,
+		resetState
+	]);
 
 	return (
 		<Modal
@@ -173,9 +190,9 @@ const ProductCardModal = ({ product, supplementsData }) => {
 					<ProductInfo
 						productInfo={{
 							name: product?.name,
-							sizeText: getChosenSizeText()[0],
-							typeText: getChosenTypeText(),
-							weight: getChosenSizeText()[1]
+							sizeText: chosenSizeText[0],
+							typeText: chosenTypeText,
+							weight: chosenSizeText[1]
 						}}
 					/>
 
@@ -191,7 +208,7 @@ const ProductCardModal = ({ product, supplementsData }) => {
 					/>
 
 					<Button
-						onClickFn={handleAddToCartBtn}
+						onClickFn={handleAddToCart}
 						className={styles.product_card_modal__add_to_cart_btn}
 					>
 						Добавить в корзину {totalPrice} ₽
@@ -202,4 +219,4 @@ const ProductCardModal = ({ product, supplementsData }) => {
 	);
 };
 
-export default ProductCardModal;
+export default memo(ProductCardModal);
