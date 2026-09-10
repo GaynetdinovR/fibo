@@ -110,7 +110,7 @@ export const useRecommendations = () => {
 			while (
 				recommendations.length < COUNT_OF_RECOMMENDATIONS &&
 				remainingTypes.length > 0
-				) {
+			) {
 				const randomType = getRandomArrayElem(remainingTypes);
 				const recommendated_products = availableProducts.filter(
 					(p) =>

@@ -15,6 +15,14 @@
 - [Демо](#demo)
 - [Лицензия](#license)
 
+## Иллюстрации
+
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/1.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/2.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/3.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/4.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/5.png)
+
 ## Стек технологий
 <a id="stack"></a>
 
@@ -35,6 +43,18 @@
 [![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
 [![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 [![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
+
+## Структура проекта (frontend)
+<b>
+client/src/<br/>
+├── components/   # UI-компоненты<br/>
+├── constants/    # Константы <br/>
+├── hooks/        # Кастомные хуки <br/>
+├── router/       # Маршрутизация<br/>
+├── store/        # Управление состоянием<br/>
+├── styles/       # Стили и темы<br/>
+├── ui/           # Переиспользуемые UI-примитивы<br/>
+└── utils/        # Вспомогательные функции<br/></b>
 
 ## Этапы разработки
 <a id="stages"></a>
@@ -59,9 +79,10 @@ git clone https://github.com/GaynetdinovR/fibo.git
 - Запустить
 
 ```
+npm install
+cd client && npm install && cd ..
 npm run dev
 ```
-
 - Открыть в браузере
 
 ```
@@ -92,7 +113,7 @@ npm run test
 - **Выбор опций для продукта** — размер, тесто, добавки
 - **Личный кабинет** — авторизация, регистрация, изменение данных в профиле
 - **Форма заказа** — отправка собранного заказа в БД, многоэтапное оформление заказа
-- **Система рекомендаций** — 
+- **Система рекомендаций** — подбор подходящих товаров, относительно того, что уже выбрано
 
 ## Планы развития
 <a id="plans"></a>

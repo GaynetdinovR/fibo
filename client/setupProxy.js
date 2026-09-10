@@ -4,7 +4,7 @@ export default (app) => {
 	app.use(
 		"/api",
 		createProxyMiddleware({
-			target: "http://localhost:5000",
+			target: "/api",// "http://localhost:5000", Production
 			changeOrigin: true
 		})
 	);

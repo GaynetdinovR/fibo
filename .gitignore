@@ -131,3 +131,7 @@ dist
 
 # IntelliJ .idea
 .idea
+
+# React build
+client/build
+.vercel
