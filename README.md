@@ -17,11 +17,11 @@
 
 ## Иллюстрации
 
-![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/1.png)
-![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/2.png)
-![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/3.png)
-![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/4.png)
-![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/screenshots/5.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/raw/main/screenshots/1.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/raw/main/screenshots/2.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/raw/main/screenshots/3.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/raw/main/screenshots/4.png)
+![Иллюстрация к проекту](https://github.com/GaynetdinovR/fibo/raw/main/screenshots/5.png)
 
 ## Стек технологий
 <a id="stack"></a>
